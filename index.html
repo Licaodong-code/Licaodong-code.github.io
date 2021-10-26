@@ -159,6 +159,143 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-leetCode刷题总结之位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/10/leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/">leetCode刷题总结の位运算</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/10/leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/" class="archive-article-date">
+  	<time datetime="2021-10-10T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><h3 id="java中的运算符"><a href="#java中的运算符" class="headerlink" title="java中的运算符"></a>java中的运算符</h3><ul>
+<li>算数运算符</li>
+</ul>
+<blockquote>
+<p>+     -     *     /     %     ++     –</p>
+</blockquote>
+<p>​    这里重点是区分 /  %两个操作，123 / 100 = 1，123 / 10 = 12， 123 / 1 = 123；123 % 100 = 23， 123 % 10 = 3， 123 % 1 = 0；</p>
+<ul>
+<li>关系运算符<blockquote>
+<p>==     !=     &gt;     &lt;     &gt;=     &lt;=     </p>
+</blockquote>
+</li>
+<li>位运算符（重点）<blockquote>
+<p>&amp;     ^     |    ~     &lt;&lt;     &gt;&gt;     &gt;&gt;&gt;<br>​    左移运算a&lt;&lt;b的实质就是二进制位向左移动b位，低位补零（其实就是补零操作啦）<code> a * Math.pow(2,b)</code> 例如 ```1 &lt;&lt; 3 == 8``</p>
+</blockquote>
+</li>
+</ul>
+<p>​    右移运算a&lt;&lt;b的实质就是二进制位向右移动b位，低位舍去（其实就是舍去操作啦）<code>a / Math.pow(2,b)</code> 例如 <code>8 &gt;&gt; 3 ==1</code></p>
+<p>​    按位与运算 &amp; 的实质就是对应位均为1时结果为1，对应位的与判断，例如 a &amp; 1 == 0 判断a的奇偶性</p>
+<p>​    按位或运算 |的实质就是对应位有1时结果为1，对应位的或判断</p>
+<p>​    按位异或运算 ^ 的实质就是对应位相异时返回1，对应为的异或判断，例如mask = 111（掩码） 111 ^ 000 = 111^000 = 111</p>
+<ul>
+<li>逻辑运算符<blockquote>
+<p>&amp;&amp;     ||     !</p>
+</blockquote>
+</li>
+<li>赋值运算符<blockquote>
+<p>=     +=     -=     *=         /=         %=      &lt;&lt; =     &gt;&gt; =     ^=  </p>
+</blockquote>
+</li>
+<li>短路逻辑运算符</li>
+</ul>
+<blockquote>
+<p>大概就是这样来设计短路逻辑 （boolean）&amp;&amp;（boolean）hhh</p>
+</blockquote>
+<ul>
+<li>条件运算符<blockquote>
+<p>? :    相比于<code>if else</code> ,条件运算符更简洁。你为什么常常会想不到用这个呢？！</p>
+</blockquote>
+<h3 id="怎样写好循环"><a href="#怎样写好循环" class="headerlink" title="怎样写好循环"></a>怎样写好循环</h3></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( 布尔表达式 ) &#123;</span><br><span class="line">  <span class="comment">//循环内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">       <span class="comment">//代码语句</span></span><br><span class="line">&#125;<span class="keyword">while</span>(布尔表达式);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(初始化; 布尔表达式; 更新) &#123;</span><br><span class="line">    <span class="comment">//代码语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(声明语句 : 表达式)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">//代码句子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>思考进入循环的条件</p>
+</blockquote>
+<blockquote>
+<p>思考如何跳出循环（逻辑）</p>
+</blockquote>
+<ul>
+<li>跳出循环的两种情况：1、循环直至循环条件不满足然后跳出循环。2、循环过程中目的完成跳出循环，这个时候尤其要注意break；不然循环可能一直进行下去，超出时间限制。</li>
+</ul>
+<blockquote>
+<p>跳出循环后的操作</p>
+</blockquote>
+<ul>
+<li>一定要对循环后的操作进行条件限制，不然跳出循环后都会执行。</li>
+</ul>
+<blockquote>
+<p>思考边界问题，防止indexofbound。</p>
+</blockquote>
+<h3 id="经常要考虑的溢出问题"><a href="#经常要考虑的溢出问题" class="headerlink" title="经常要考虑的溢出问题"></a>经常要考虑的溢出问题</h3><p>溢出问题是特定的数据类型的变量的值不在取值范围内出现的情况，所以首先要清楚该数据类型的取值范围。</p>
+<p>leetCode上的题很多是对整型的操作，So，怎么着都得对整型的范围了如指掌。0x7fffffff ~0x8fffffff.</p>
+<p><img src="/assets/blogImg/int.png" alt="int"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/10/leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-diary-2021-1008-2243" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -436,79 +573,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-深入Java常用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/10/%E6%B7%B1%E5%85%A5Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">深入理解Java常用方法</a>
-    </h1>
-  
-
-        
-        <a href="/2021/09/10/%E6%B7%B1%E5%85%A5Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-09-10T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Format方法"><a href="#Format方法" class="headerlink" title="Format方法"></a>Format方法</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/10/%E6%B7%B1%E5%85%A5Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-深入Java关键字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -553,6 +617,79 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/09/10/%E6%B7%B1%E5%85%A5Java%E5%85%B3%E9%94%AE%E5%AD%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-深入Java常用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/10/%E6%B7%B1%E5%85%A5Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">深入理解Java常用方法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/10/%E6%B7%B1%E5%85%A5Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-09-10T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Format方法"><a href="#Format方法" class="headerlink" title="Format方法"></a>Format方法</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/10/%E6%B7%B1%E5%85%A5Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -1076,93 +1213,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-README" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/02/README/">my first blog</a>
-    </h1>
-  
-
-        
-        <a href="/2021/08/02/README/" class="archive-article-date">
-  	<time datetime="2021-08-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<h1 id="Welcome-to-my-blog"><a href="#Welcome-to-my-blog" class="headerlink" title="Welcome to my blog"></a>Welcome to my blog</h1></blockquote>
-<p><a target="_blank" rel="noopener" href="https://licaodong-code.github.io/">My Blog Address</a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span> or hexo n <span class="string">&quot;--postname--&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server or hexo s</span><br></pre></td></tr></table></figure>
-
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate or hexo g</span><br></pre></td></tr></table></figure>
-
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy or hexo d</span><br></pre></td></tr></table></figure>
-
-<h3 id="Basic-program"><a href="#Basic-program" class="headerlink" title="Basic program"></a>Basic program</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n  <span class="string">&quot;post&quot;</span>  <span class="keyword">then</span> you can make you post</span><br><span class="line">$ hexo s  start hexo server</span><br><span class="line">$ hexo g  </span><br><span class="line">$ hexo g</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="About-theme"><a href="#About-theme" class="headerlink" title="About theme"></a>About theme</h3><p>I will update next time</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/02/README/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -1252,11 +1306,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">Idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,6 +1323,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetCode</a>
               </li>
             
             <div class="clearfix"></div>
