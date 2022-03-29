@@ -6,22 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>li&#39;s blogs</title>
+  <title>二分类问题，应该选择sigmoid还是softmax？ | li&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="礼物 - 3.8 	 	 	 	   	 	 		3.8节礼物，来了… 		 		 			 				 					首先，你要输入我的生日 					 					接着，摇一摇… 					 					最后，这就是见证奇迹的时刻… 				 				 					3.8节快乐！ 					祝身体健康,平安长乐 					请打开音量收听…">
-<meta property="og:type" content="website">
-<meta property="og:title" content="li&#39;s blogs">
-<meta property="og:url" content="http://example.com/assets/demo/gift/index.html">
+  <meta name="description" content="二分类问题，应该选择sigmoid还是softmax？链接：https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;295247085&#x2F;answer&#x2F;1778398778 对于二分类问题来说，理论上，两者是没有任何区别的。由于我们现在用的Pytorch、TensorFlow等框架计算矩阵方式的问题，导致两者在反向传播的过程中还是有区别的。实验结果表明，两者还是存在差异的，对于不同的分类模型，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二分类问题，应该选择sigmoid还是softmax？">
+<meta property="og:url" content="http://example.com/2021/09/07/%E4%BA%8C%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%8C%E5%BA%94%E8%AF%A5%E9%80%89%E6%8B%A9sigmoid%E8%BF%98%E6%98%AFsoftmax%EF%BC%9F/index.html">
 <meta property="og:site_name" content="li&#39;s blogs">
-<meta property="og:description" content="礼物 - 3.8 	 	 	 	   	 	 		3.8节礼物，来了… 		 		 			 				 					首先，你要输入我的生日 					 					接着，摇一摇… 					 					最后，这就是见证奇迹的时刻… 				 				 					3.8节快乐！ 					祝身体健康,平安长乐 					请打开音量收听…">
+<meta property="og:description" content="二分类问题，应该选择sigmoid还是softmax？链接：https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;295247085&#x2F;answer&#x2F;1778398778 对于二分类问题来说，理论上，两者是没有任何区别的。由于我们现在用的Pytorch、TensorFlow等框架计算矩阵方式的问题，导致两者在反向传播的过程中还是有区别的。实验结果表明，两者还是存在差异的，对于不同的分类模型，">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/assets/demo/gift/img/shake.png">
-<meta property="article:published_time" content="2021-07-29T15:32:56.239Z">
-<meta property="article:modified_time" content="2017-07-28T18:51:08.000Z">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-866962ef9fcf5e8f9bd5abedb5b2bf73_180x120.jpg">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=output(x_%7B1%7D)=%5Cfrac%7B1%7D%7B1+e%5E%7B-x_%7B1%7D%7D%7D+++++++++(1)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=output(x_%7B1%7D)=%5Cfrac%7Be%5E%7Bx_%7B1%7D%7D%7D%7Be%5E%7Bx_%7B1%7D%7D+e%5E%7Bx_%7B2%7D%7D%7D=%5Cfrac%7B1%7D%7B1+e%5E%7B-(x_%7B1%7D-x_%7B2%7D)%7D%7D(2)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=(x_%7B1%7D-x_%7B2%7D)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=z_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=output(z_%7B1%7D)=%5Cfrac%7B1%7D%7B1+e%5E%7B-z_%7B1%7D%7D%7D+++++++++(3)">
+<meta property="article:published_time" content="2021-09-07T14:33:10.000Z">
+<meta property="article:modified_time" content="2021-12-28T05:35:14.793Z">
 <meta property="article:author" content="Caodong Li">
-<meta property="article:tag" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+<meta property="article:tag" content="deep learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/assets/demo/gift/img/shake.png">
+<meta name="twitter:image" content="https://pic4.zhimg.com/v2-866962ef9fcf5e8f9bd5abedb5b2bf73_180x120.jpg">
   
     <link rel="alternative" href="/atom.xml" title="li&#39;s blogs" type="application/atom+xml">
   
@@ -161,93 +167,58 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-二分类问题，应该选择sigmoid还是softmax？" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二分类问题，应该选择sigmoid还是softmax？
+    </h1>
+  
+
+        
+        <a href="/2021/09/07/%E4%BA%8C%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%8C%E5%BA%94%E8%AF%A5%E9%80%89%E6%8B%A9sigmoid%E8%BF%98%E6%98%AFsoftmax%EF%BC%9F/" class="archive-article-date">
+  	<time datetime="2021-09-07T14:33:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-07</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
-	<title>礼物 - 3.8</title>
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/index.css">
-	<script src="js/zepto.min.js"></script>
-	<script src="js/shake.js"></script>
-</head>
-<body>
-	<!-- <div id="my_player"></div> -->
-	<header>
-		<p>3.8节礼物，来了…</p>
-		<div class="paper-t"></div>
-		<div class="main">
-			<div class="main-top top2">
-				<section id="se1">
-					<p>首先，你要输入我的生日</p>
-					<input id="myBir" type="text" placeholder="4位数，格式为:mmdd"/>
-					<p>接着，摇一摇…</p>
-					<img src="img/shake.png"/>
-					<p>最后，这就是见证奇迹的时刻…</p>
-				</section>
-				<section id="se2" class="hide">
-					<p>3.8节快乐！</p>
-					<p>祝身体健康,平安长乐</p>
-					<p>请打开音量收听…</p>
-				</section>
-			</div>
-		</div>
-		<div class="paper-b"></div>
-	</header>
-</body>
-	<script>
-		var Main = (function() {
-			function playAudio(src) {
-			    if (typeof Audio != "undefined") { 
-			        new Audio(src).play() ;
-			    } else if (typeof device != "undefined") {
-			        if (device.platform == 'Android') {
-			            console.log(src);
-			        }
-			        var mediaRes = new Media(src,
-			            function onSuccess() {
-			                mediaRes.release();
-			            },
-			            function onError(e){
-			                console.log("error playing sound: " + JSON.stringify(e));
-			            });
-			        mediaRes.play();
+        <h1 id="二分类问题，应该选择sigmoid还是softmax？"><a href="#二分类问题，应该选择sigmoid还是softmax？" class="headerlink" title="二分类问题，应该选择sigmoid还是softmax？"></a>二分类问题，应该选择sigmoid还是softmax？</h1><p>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/295247085/answer/1778398778">https://www.zhihu.com/question/295247085/answer/1778398778</a></p>
+<p>对于二分类问题来说，<strong>理论上，两者是没有任何区别的。</strong>由于我们现在用的Pytorch、TensorFlow等框架计算矩阵方式的问题，导致两者在反向传播的过程中还是有区别的。实验结果表明，两者还是存在差异的，对于不同的分类模型，可能Sigmoid函数效果好，也可能是Softmax函数效果。</p>
+<p>有对准确率，召回率等不懂的小伙伴可以参考下面的链接：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101101207">初识CV：准确率(Precision)、召回率(Recall)、F值(F-Measure)、平均正确率，IoU26 赞同 · 0 评论文章<img src="https://pic4.zhimg.com/v2-866962ef9fcf5e8f9bd5abedb5b2bf73_180x120.jpg" alt="img"></a></p>
+<p><strong>首先我们先理论上证明一下二者没有本质上的区别</strong>，对于二分类而言（以输入 <img src="https://www.zhihu.com/equation?tex=x_%7B1%7D" alt="[公式]"> 为例）：</p>
+<p>Sigmoid函数： <img src="https://www.zhihu.com/equation?tex=output(x_%7B1%7D)=%5Cfrac%7B1%7D%7B1+e%5E%7B-x_%7B1%7D%7D%7D+++++++++(1)" alt="[公式]"> </p>
+<p>Softmax函数： <img src="https://www.zhihu.com/equation?tex=output(x_%7B1%7D)=%5Cfrac%7Be%5E%7Bx_%7B1%7D%7D%7D%7Be%5E%7Bx_%7B1%7D%7D+e%5E%7Bx_%7B2%7D%7D%7D=%5Cfrac%7B1%7D%7B1+e%5E%7B-(x_%7B1%7D-x_%7B2%7D)%7D%7D(2)" alt="[公式]"> </p>
+<p>由公式（2）我们可知， <img src="https://www.zhihu.com/equation?tex=(x_%7B1%7D-x_%7B2%7D)" alt="[公式]"> 可以用 <img src="https://www.zhihu.com/equation?tex=z_%7B1%7D" alt="[公式]"> 代替，即<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=Softmax%E5%87%BD%E6%95%B0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1778398778%7D">Softmax函数</a>可以写成： <img src="https://www.zhihu.com/equation?tex=output(z_%7B1%7D)=%5Cfrac%7B1%7D%7B1+e%5E%7B-z_%7B1%7D%7D%7D+++++++++(3)" alt="[公式]"> ，和公式（1）完全相同，所以理论上来说两者是没有任何区别的。</p>
+<p><strong>然后我们再分析为什么两者之间还存着差异（以Pytorch为例）：</strong></p>
+<p>首先我们要明白，当你用<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=Sigmoid%E5%87%BD%E6%95%B0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1778398778%7D">Sigmoid函数</a>的时候，你的最后一层全连接层的神经元个数为1，而当你用Softmax函数的时候，你的最后一层全连接层的神经元个数是2。这个很好理解，因为Sigmoid函数只有是目标和不是目标之分，实际上只存在一类目标类，另外一个是背景类。而Softmax函数将目标分类为了二类，所以有两个神经元。这也是导致两者存在差异的主要原因。</p>
+<p><strong>Sigmoid函数</strong>针对两点分布提出。神经网络的输出经过它的转换，可以将数值压缩到(0,1)之间，得到的结果可以理解成**分类成目标类别的概率P，而不分类到该类别的概率是(1 - P)**，这也是典型的两点分布的形式。</p>
+<p><strong>Softmax函数</strong>本身针对多项分布提出，当类别数是2时，它退化为二项分布。而它和Sigmoid函数真正的区别就在——二项分布包含两个分类类别（姑且分别称为A和B），而两点分布其实是针对一个类别的概率分布，其对应的那个类别的分布直接由1-P得出。</p>
+<p>简单点理解就是，<strong>Sigmoid函数，我们可以当作成它是对一个类别的“建模”</strong>，将该类别建模完成，另一个相对的类别就直接通过1减去得到。<strong>而softmax函数，是对两个类别建模</strong>，同样的，得到两个类别的概率之和是1。</p>
+<p>神经网络在做二分类时，使用Softmax还是Sigmoid，做法其实有明显差别。由于Softmax是对两个类别（正反两类，通常定义为0/1的label）建模，所以对于NLP模型而言（比如泛BERT模型），Bert输出层需要通过一个nn.Linear()全连接层压缩至2维，然后接Softmax（Pytorch的做法，就是直接接上<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=torch.nn.CrossEntropyLoss&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1778398778%7D">torch.nn.CrossEntropyLoss</a>）；而Sigmoid只对一个类别建模（通常就是正确的那个类别），所以Bert输出层需要通过一个nn.Linear()全连接层压缩至1维，然后接Sigmoid（torch就是接torch.nn.BCEWithLogitsLoss）。</p>
+<p>总而言之，Sotfmax和Sigmoid确实在二分类的情况下可以化为相同的数学表达形式，但并不意味着二者有一样的含义，而且二者的输入输出都是不同的。Sigmoid得到的结果是“分到正确类别的概率和未分到正确类别的概率”，Softmax得到的是“分到正确类别的概率和分到错误类别的概率”。</p>
+<p><strong>一种常见的错法（NLP中）：</strong>即错误地将Softmax和Sigmoid混为一谈，再把BERT输出层压缩至2维的情况下，却用Sigmoid对结果进行计算。这样我们得到的结果其意义是什么呢？</p>
+<p>假设我们现在BERT输出层经nn.Linear()压缩后，得到一个二维的向量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[-0.9419267177581787, 1.944047451019287]</span><br></pre></td></tr></table></figure>
 
-			    } else {
-			        alert("no sound API to play: " + src);
-			    }
-			}
-			window.addEventListener('shake', autoRun, false);
-			function autoRun(){
-				if($("#myBir").val() == "0425"){
-					$("#se1").hide();
-					$("#se2").show();
-					playAudio("media/gift.ogg");
-				}else{
-					alert("生日错误");
-				}
-				
-			}
-			var init = function() {
-				
-			}
-			return {
-				init: init
-			}
-		})();
+<p>对应类别分别是(0,1)。我们经过Sigmoid运算得到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensor([0.2805, 0.8748])</span><br></pre></td></tr></table></figure>
 
-		$(Main.init());
-	</script>
-</html>
+<p>前者0.2805指的是分类类别为0的概率，0.8748指的是分类类别为1的概率。二者相互独立，可看作两次独立的实验（显然在这里不适用，因为0-1类别之间显然不是相互独立的两次<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E4%BC%AF%E5%8A%AA%E5%88%A9%E4%BA%8B%E4%BB%B6&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1778398778%7D">伯努利事件</a>）。所以显而易见的，二者加和并不等于1。</p>
+<p>若用softmax进行计算，可得：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensor([0.0529, 0.9471])</span><br></pre></td></tr></table></figure>
+
+<p>这里两者加和是1，才是正确的选择。</p>
+<p><strong>经验：</strong></p>
+<p><strong>对于NLP而言</strong>，这两者之间确实有差别，Softmax的处理方式有时候会比Sigmoid的处理方式好一点。</p>
+<p><strong>对于CV而言</strong>，这两者之间也是有差别的，Sigmoid的处理方式有时候会比Softmax的处理方式好一点。</p>
+<p>两者正好相反，这只是笔者的实验经验，建议大家两者都试试。</p>
+
       
 
       
@@ -255,6 +226,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -305,7 +287,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/assets/demo/gift/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/09/07/%E4%BA%8C%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%8C%E5%BA%94%E8%AF%A5%E9%80%89%E6%8B%A9sigmoid%E8%BF%98%E6%98%AFsoftmax%EF%BC%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,6 +299,25 @@ var _hmt = _hmt || [];
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2021/09/07/git%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          git实用教程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/09/06/diary-2021-0906-2222/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">迷茫的日常</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -342,8 +343,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://example.com/assets/demo/gift/index.html", 
-    sourceId: "",
+    url: "http://example.com/2021/09/07/%E4%BA%8C%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%8C%E5%BA%94%E8%AF%A5%E9%80%89%E6%8B%A9sigmoid%E8%BF%98%E6%98%AFsoftmax%EF%BC%9F/", 
+    sourceId: "二分类问题，应该选择sigmoid还是softmax？",
     productKey: "2dba06fbf8d24c13915ea6c6aa7183b1",
     target: "cloud-tie-wrapper"
   };
@@ -378,7 +379,7 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
