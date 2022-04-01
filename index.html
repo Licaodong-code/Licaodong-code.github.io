@@ -159,19 +159,431 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Java容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-diary-2022-0401-2203" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/27/Java%E5%AE%B9%E5%99%A8/">Java容器</a>
+      <a class="article-title" href="/2022/04/01/diary-2022-0401-2203/">不想看朋友圈的一天</a>
     </h1>
   
 
         
-        <a href="/2022/03/27/Java%E5%AE%B9%E5%99%A8/" class="archive-article-date">
+        <a href="/2022/04/01/diary-2022-0401-2203/" class="archive-article-date">
+  	<time datetime="2022-04-01T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="不想看朋友圈的一天"><a href="#不想看朋友圈的一天" class="headerlink" title="不想看朋友圈的一天"></a>不想看朋友圈的一天</h2><p>偷偷的点开人家的头像</p>
+<p>浏览别人的朋友圈</p>
+<p>很想说一声毕业快乐</p>
+<p>怎么能说出口呢</p>
+<p>这不是特殊的癖好</p>
+<p>是对记忆的怀念</p>
+<p>想念单纯的时候</p>
+<p>但也希望快快忘记</p>
+<p>向前看好像才是正道吧</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/01/diary-2022-0401-2203/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试-Java IO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/31/%E9%9D%A2%E8%AF%95-Java%20IO/">Java容器</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/31/%E9%9D%A2%E8%AF%95-Java%20IO/" class="archive-article-date">
+  	<time datetime="2022-03-31T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常见的IO模型有哪些？JAVA中的BIO，NIO，-AIO有啥区别？"><a href="#常见的IO模型有哪些？JAVA中的BIO，NIO，-AIO有啥区别？" class="headerlink" title="常见的IO模型有哪些？JAVA中的BIO，NIO， AIO有啥区别？"></a>常见的IO模型有哪些？JAVA中的BIO，NIO， AIO有啥区别？</h2><blockquote>
+<p>BIO 同步阻塞IO</p>
+<p>NIO 同步非阻塞IO</p>
+<p>IO多路复用 异步阻塞IO</p>
+<p>AIO 异步非阻塞IO</p>
+</blockquote>
+<blockquote>
+<p>BIO 就是应用程序发起read调用后，线程会阻塞知道内核把数据拷贝到了用户空间</p>
+<p>NIO就是应用程序发起read调用后，线程会通过轮询的方式获取数据的状态，然后再把数据拷贝到用户空间，JAVA中的NIO中，线程可以通过选择器实现多路复用，管理多个连接</p>
+<p>IO多路复用就是应用程序发起select/poll/epoll调用后，数据准备好才去read，read调用的过程还是会阻塞</p>
+<p>AIO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。</p>
+</blockquote>
+<h2 id="NIO-与普通-I-O-的区别是什么？"><a href="#NIO-与普通-I-O-的区别是什么？" class="headerlink" title="NIO 与普通 I/O 的区别是什么？"></a>NIO 与普通 I/O 的区别是什么？</h2><blockquote>
+<p>NIO 面向块, 一次处理一个数据块，I/O 面向流</p>
+<p>NIO是非阻塞的。主要是由于一个线程会先用到一个选择器，通过轮询的方式监听多个通道上的事件，实现一个线程处理多个事件。操作是需要new一个选择器，然后将通道注册到选择器上，然后放在一个死循环中。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/31/%E9%9D%A2%E8%AF%95-Java%20IO/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试-计算机网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
+  	<time datetime="2022-03-31T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="TCP的三次握手四次挥手"><a href="#TCP的三次握手四次挥手" class="headerlink" title="TCP的三次握手四次挥手"></a>TCP的三次握手四次挥手</h2><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><blockquote>
+<p>第一次握手：客户端发送带有SYN标志的数据包。第一次握手Serve端确认客户端发送和服务端接收正常</p>
+<p>第二次握手：客户端发送带有SYN/ACK标志的数据包。第二次握手客户端通过ACK确认自己发送Serve端接收正常，通过ACK确认客户端发送正常。</p>
+<p>第三次握手：客户端发送带有ACK标志的数据包。主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。</p>
+</blockquote>
+<blockquote>
+<p>三次握手使得客户端和服务端均有一次发送和接收SYN/ACK，相比于两次握手，能避免客户端无法接受到第二次握手而产生服务端崩溃的风险。</p>
+</blockquote>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><blockquote>
+<p>第一次挥手：客户端发送一个FIN标志的数据包，关闭客户端到服务端的数据传送。</p>
+<p>第二次挥手：服务端收到这个FIN，发回一个ACK。</p>
+<p>第三次挥手：服务端发送一个FIN标志的数据包，关闭服务端到客户端的数据传送。</p>
+<p>第四次挥手：客户端发回ACK标志的数据包确认关闭。</p>
+</blockquote>
+<h2 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h2><blockquote>
+<p>TCP提供面向连接的服务，UDP在传递数据之前不需要建立任何连接</p>
+<p>TCP传输具有可靠性，有确认、窗口、重传、拥塞控制机制，UDP不提供可靠的交付</p>
+<p>TCP的开销比较大，传输效率慢、UDP开销小，传输效率快</p>
+<p>TCP的传输是字节流、UDP是数据报文段</p>
+</blockquote>
+<h2 id="TCP如何保证可靠传输"><a href="#TCP如何保证可靠传输" class="headerlink" title="TCP如何保证可靠传输"></a>TCP如何保证可靠传输</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-计算机网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">Java容器</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
+  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试-JAVA虚拟机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java容器</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="archive-article-date">
+  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试-Java容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/">Java容器</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/" class="archive-article-date">
   	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
 </a>
         
@@ -203,6 +615,11 @@ var _hmt = _hmt || [];
 <p>3、将遍历的节点复制到新的table上</p>
 <p>4、如果是红黑树则需要重建红黑树</p>
 </blockquote>
+<blockquote>
+<p>JDK 1.7 使用分段锁机制来实现并发更新操作，核心类为 Segment，它继承自重入锁 ReentrantLock，并发度与 Segment 数量相等。</p>
+<p>JDK 1.8 使用了 CAS 操作来支持更高的并发度，在 CAS 操作失败时使用内置锁 synchronized。</p>
+<p>并且 JDK 1.8 的实现也在链表过长时会转换为红黑树。</p>
+</blockquote>
 
       
 
@@ -226,7 +643,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/27/Java%E5%AE%B9%E5%99%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/">展开全文 >></a>
         </p>
       
 
@@ -256,19 +673,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Java并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-面试-Java并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/27/Java%E5%B9%B6%E5%8F%91/">Java容器</a>
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%B9%B6%E5%8F%91/">Java并发</a>
     </h1>
   
 
         
-        <a href="/2022/03/27/Java%E5%B9%B6%E5%8F%91/" class="archive-article-date">
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%B9%B6%E5%8F%91/" class="archive-article-date">
   	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
 </a>
         
@@ -276,29 +693,120 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="List，Set，Map有哪些实现类？底层数据结构是什么？"><a href="#List，Set，Map有哪些实现类？底层数据结构是什么？" class="headerlink" title="List，Set，Map有哪些实现类？底层数据结构是什么？"></a>List，Set，Map有哪些实现类？底层数据结构是什么？</h2><blockquote>
-<p>List: ArrayList（数组）, LinkedList（双向链表）, Vector</p>
+        <h2 id="并发和并行的区别？"><a href="#并发和并行的区别？" class="headerlink" title="并发和并行的区别？"></a>并发和并行的区别？</h2><blockquote>
+<p>并发：同一时间段内，多个任务都在执行</p>
+<p>并行：多个任务同时执行</p>
+</blockquote>
+<h2 id="并发编程的三个重要特征"><a href="#并发编程的三个重要特征" class="headerlink" title="并发编程的三个重要特征"></a>并发编程的三个重要特征</h2><h2 id="实现高并发的手段有哪些？"><a href="#实现高并发的手段有哪些？" class="headerlink" title="实现高并发的手段有哪些？"></a>实现高并发的手段有哪些？</h2><blockquote>
+<p>系统拆分、缓存（高并发场景下读多写少）、MQ消息队列（将大量的请求送入消息队列）、分库分表、读写分离（数据库主从架构）、服务降级</p>
+</blockquote>
+<h2 id="JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？"><a href="#JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？" class="headerlink" title="JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？"></a>JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？</h2><blockquote>
+<p>堆：是线程中最大一块内存，主要存放新创建的对象</p>
+<p>方法区：已被加载的类信息、常量、静态变量等数据</p>
 </blockquote>
 <blockquote>
-<p>Set: HashSet（HashMap）, TreeSet（红黑树）, LinkedHashSet</p>
+<p>虚拟机栈：局部变量表、操作数栈、常量池引用</p>
+<p>本地方法栈：本地方法服务</p>
+<p>程序计数器：记录正在执行的虚拟机字节码指令的地址</p>
+</blockquote>
+<h2 id="什么是上下文切换？"><a href="#什么是上下文切换？" class="headerlink" title="什么是上下文切换？"></a>什么是上下文切换？</h2><blockquote>
+<p>一个线程的时间片用完了，会保存自己的状态，再次切换回来的时候要重新加载，这样一个过程就是上下文切换。</p>
+</blockquote>
+<h2 id="线程同步的方法？"><a href="#线程同步的方法？" class="headerlink" title="线程同步的方法？"></a>线程同步的方法？</h2><blockquote>
+</blockquote>
+<h2 id="悲观锁和乐观锁的区别？"><a href="#悲观锁和乐观锁的区别？" class="headerlink" title="悲观锁和乐观锁的区别？"></a>悲观锁和乐观锁的区别？</h2><h2 id="公平锁和非公平锁的区别？"><a href="#公平锁和非公平锁的区别？" class="headerlink" title="公平锁和非公平锁的区别？"></a>公平锁和非公平锁的区别？</h2><h1 id="JAVA并发框架"><a href="#JAVA并发框架" class="headerlink" title="JAVA并发框架"></a>JAVA并发框架</h1><h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><h2 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%B9%B6%E5%8F%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试-前后端交互" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/">前后端交互</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" class="archive-article-date">
+  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前后端交互常见的错误码"><a href="#前后端交互常见的错误码" class="headerlink" title="前后端交互常见的错误码"></a>前后端交互常见的错误码</h2><blockquote>
+<p>200 success</p>
 </blockquote>
 <blockquote>
-<p>Map: HashMap, TreeMap, LinkedHashMap CocurrentHashMap</p>
-</blockquote>
-<h1 id="HashMap的实现原理？"><a href="#HashMap的实现原理？" class="headerlink" title="HashMap的实现原理？"></a>HashMap的实现原理？</h1><blockquote>
-<p>存储结构：node类型的数组 Node[]</p>
-<p>拉链法解决冲突，链表使用头插法插入元素</p>
-<p>散列函数：除留余数法 初始的capacity是16 。tip 取模是通过位运算，2的n次方可以极大的简化解决冲突</p>
+<p>301 请求重定位</p>
+<p>302 请求临时重定位</p>
+<p>304 请求被重定向到本地客户端本地缓存</p>
 </blockquote>
 <blockquote>
-<p>当capacity为64时优先扩容，一个链表的长度等于8时，会将链表转换为红黑树</p>
+<p>400 请求无效，没有访问到后台 客户端可能存在语法错误</p>
+<p>401 403 权限问题 服务器和客户端</p>
+<p>404 无法找到路径</p>
+<p>服务器是否启动、url路径是否正确，检查依赖是否加载进去</p>
 </blockquote>
 <blockquote>
-<p>扩容原理：</p>
-<p>1、capacity &lt;&lt; 1 重新计算 size threshold </p>
-<p>2、遍历旧的table，由于每次扩容都是左移一位，所以重新散列的位置是当前位置或者当前位置加上旧数组的长度的位置</p>
-<p>3、将遍历的节点复制到新的table上</p>
-<p>4、如果是红黑树则需要重建红黑树</p>
+<p>500 服务器内部错误</p>
+<p>一般会有提示后端代码那一部分哪一行的错误</p>
+</blockquote>
+<blockquote>
+<p>503 服务器端发生临时错误 跨域问题就会发生这个错误</p>
 </blockquote>
 
       
@@ -323,7 +831,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/27/Java%E5%B9%B6%E5%8F%91/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/">展开全文 >></a>
         </p>
       
 
@@ -353,246 +861,28 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-六级翻译语言点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-面试-第三方组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E8%AF%AD%E8%A8%80%E7%82%B9/">六级翻译语言点</a>
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6/">Java容器</a>
     </h1>
   
 
         
-        <a href="/2021/12/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E8%AF%AD%E8%A8%80%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2021-12-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-08</time>
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="六级翻译语言点"><a href="#六级翻译语言点" class="headerlink" title="六级翻译语言点"></a>六级翻译语言点</h3><blockquote>
-<p>六级翻译的基本步骤：找主干、添枝加叶、检查回读（时态：了—-&gt; 完成时，正—-&gt;进行时  翻译其实很难用到过去时）</p>
-<ul>
-<li>谁是什么</li>
-<li>谁做什么</li>
-<li>什么被做</li>
-<li>关注时态</li>
-<li>关注“的”，“有” 和 “是”</li>
-<li>注意转折</li>
-<li>注意另起一句的情况，1.主语不同。2.转折。3. </li>
-</ul>
+        <blockquote>
 </blockquote>
-<h4 id="语言点一：之一-one-of-名词复数"><a href="#语言点一：之一-one-of-名词复数" class="headerlink" title="语言点一：之一 one of  + 名词复数"></a>语言点一：之一 one of  + 名词复数</h4><blockquote>
-<p>Water Marine is one of the four classical novels in Chinese literature.</p>
-</blockquote>
-<blockquote>
-<p><strong>Ming dynasty</strong>, which has ruled China for 276 years, <strong>is described as one of the greatest periods</strong> with stable/steady society and orderly governance in the human history. </p>
-</blockquote>
-<h4 id="语言点二：越来越-an-increasing-number-of-名词复数-increasingly-形容词-a-growing-number-of-more-and-more"><a href="#语言点二：越来越-an-increasing-number-of-名词复数-increasingly-形容词-a-growing-number-of-more-and-more" class="headerlink" title="语言点二：越来越 an increasing number of + 名词复数 / increasingly + 形容词 / a growing number of / more and more"></a>语言点二：越来越 an increasing number of + 名词复数 / increasingly + 形容词 / a growing number of / more and more</h4><blockquote>
-<p>A increasing number of foreign reader also find the stories in this novel vivid/touching/impressive and interesting.</p>
-</blockquote>
-<blockquote>
-<p>With the rapid development/growth of the Chinese economy and improvement of global influence, more and more people from start to learn Chinese too.</p>
-</blockquote>
-<blockquote>
-<p>In recent years, a growing number of museums are open to the public free of charge.</p>
-</blockquote>
-<blockquote>
-<p>Nowadays, the form of exhibition is becoming more and more various.</p>
-</blockquote>
-<blockquote>
-<p>A increasingly people also travel outside by high-speed rail on holidays.</p>
-</blockquote>
-<blockquote>
-<p>Nowadays, A increasingly number of the Chinese are willing to keep fit by ride a bike.</p>
-</blockquote>
-<h4 id="语言点三：无主句-1、添加主语-2、换成被动-3、There-be"><a href="#语言点三：无主句-1、添加主语-2、换成被动-3、There-be" class="headerlink" title="语言点三：无主句 1、添加主语 2、换成被动 3、There be"></a>语言点三：无主句 1、添加主语 2、换成被动 3、There be</h4><blockquote>
-<p>Over thousands of years,  Chinese people have created a large number of poetry and drawings to praise peony.</p>
-<p>Over thousands of years, A large number of poetry and drawings have been created to praise peony.</p>
-<p>Over thousands of years, there are a large number of poetry and drawings are created to praise poetry.</p>
-</blockquote>
-<blockquote>
-<p>Common people also like plum blossom, which is usually used to decorate house during the Spring Festival.</p>
-</blockquote>
-<blockquote>
-<p>Dialects are considered as a component of local cultures.</p>
-<p>People consider dialects as an integral of local culture.</p>
-</blockquote>
-<blockquote>
-<p>Idioms are used in the daily conversation and in literary creation.</p>
-</blockquote>
-<blockquote>
-<p>In recent years, there are many digital libraries have been emerged, which saving the room needed to store the books.</p>
-</blockquote>
-<h4 id="语言点四：原因从句-1、as-2、since-3、because-4、due-to"><a href="#语言点四：原因从句-1、as-2、since-3、because-4、due-to" class="headerlink" title="语言点四：原因从句 1、as 2、since 3、because 4、due to"></a>语言点四：原因从句 1、as 2、since 3、because 4、due to</h4><blockquote>
-<p>But with the same written form of Chinese characters, they barely have difficulties in communication</p>
-</blockquote>
-<blockquote>
-<p>However, since Chinese characters have a unique written form, they hardly have any difficulties in communicating</p>
-</blockquote>
-<blockquote>
-<p>It can be expected that as the constant improvement of the facilities, a growing number of the people will go to gym to work out.</p>
-</blockquote>
-<blockquote>
-<p>As the air pollution become more and more serious, nowadays, a growing number of people choose to purchase new energy cars.</p>
-</blockquote>
-<h4 id="语言点五：有-1、have-has-表示拥有-2、there-be-表示存在-3、with-表示伴随（频率相当高）"><a href="#语言点五：有-1、have-has-表示拥有-2、there-be-表示存在-3、with-表示伴随（频率相当高）" class="headerlink" title="语言点五：有 1、have has 表示拥有 2、there be 表示存在 3、with 表示伴随（频率相当高）"></a>语言点五：有 1、have has 表示拥有 2、there be 表示存在 3、with 表示伴随（频率相当高）</h4><blockquote>
-<p>As the Chinese treasure, Chinese martial arts have hundreds of different styles and are the most practiced form of the martial art in the world.</p>
-</blockquote>
-<blockquote>
-<p>As the Chinese treasure, there are hundreds of different styles of Chinese martial, which are the most practiced form of martial arts in the world.</p>
-</blockquote>
-<blockquote>
-<p>With hundreds of different styles, Chinese martial arts, the national treasure, are the most practiced form of martial arts in the world.</p>
-</blockquote>
-<blockquote>
-<p>It is recorded that a total of 72 emperors visited this area.</p>
-</blockquote>
-<blockquote>
-<p>According to the recording , there were a total of 72 emperors visited this area. </p>
-</blockquote>
-<blockquote>
-<p>There were few people visited Mount Hua, as the road up the mountain was extremely dangerous.</p>
-</blockquote>
-<blockquote>
-<p>They can travel to big city by  plane, there are many other cities， which are planning to build airports.</p>
-</blockquote>
-<h4 id="语言点六：时间-Over-for-时间段（后续用完成时），-Since-时间点-完成时"><a href="#语言点六：时间-Over-for-时间段（后续用完成时），-Since-时间点-完成时" class="headerlink" title="语言点六：时间    Over/for + 时间段（后续用完成时）， Since+ 时间点+完成时"></a>语言点六：时间    Over/for + 时间段（后续用完成时）， Since+ 时间点+完成时</h4><blockquote>
-<p>For hundreds of years, <strong>locals</strong> have built houses and markets along the river bank.</p>
-</blockquote>
-<blockquote>
-<p>Since the installation of the cable cars in 1990s, the number of visitors has increased a lot.</p>
-</blockquote>
-<blockquote>
-<p>Over the past decades, the government has taken various measures to prevent disasters.</p>
-</blockquote>
-<h4 id="语言点七：可以追溯到-be-traced-back-to-go-back-to"><a href="#语言点七：可以追溯到-be-traced-back-to-go-back-to" class="headerlink" title="语言点七：可以追溯到 be traced back to, go back to"></a>语言点七：可以追溯到 be traced back to, go back to</h4><blockquote>
-<p>The origin of Chinese martial arts can be traced to the need of self-defense.</p>
-</blockquote>
-<blockquote>
-<p>Making use of wind to generate electricity can go back to 1980.</p>
-</blockquote>
-<blockquote>
-<p>Utilizing wind to generate electricity can be traced back to 1980.</p>
-</blockquote>
-<blockquote>
-<p>The story goes back to the middle of 19th century.</p>
-</blockquote>
-<blockquote>
-<p>Using magnet in navigation can be traced back to 11th century.</p>
-</blockquote>
-<h4 id="语言点八：“的”-1-直接形容词-2-of-3-定语从句"><a href="#语言点八：“的”-1-直接形容词-2-of-3-定语从句" class="headerlink" title="语言点八：“的”     1.直接形容词 2. of 3.定语从句"></a>语言点八：“的”     1.直接形容词 2. of 3.定语从句</h4><blockquote>
-<p>过于简单，不一一举例。</p>
-<p>其中定语从句用介词代替考的很多</p>
-<p>To 代替动词定语</p>
-<p>In On 代替地点定语</p>
-</blockquote>
-<h4 id="语言点九：因什么闻名-be-known-as-名号-be-famous-for-产品"><a href="#语言点九：因什么闻名-be-known-as-名号-be-famous-for-产品" class="headerlink" title="语言点九：因什么闻名  be known as + 名号, be famous for + 产品"></a>语言点九：因什么闻名  be known as + 名号, be famous for + 产品</h4><blockquote>
-<p>Wei Fang is know as the “Kite Capital”, and has a history of flying kites for nearly 2400 years.</p>
-</blockquote>
-<blockquote>
-<p>It has a unique scenery, and is specially known for sunrise and sea of clouds.</p>
-</blockquote>
-<h4 id="语言点十：坐落在-be-located-介词"><a href="#语言点十：坐落在-be-located-介词" class="headerlink" title="语言点十：坐落在 be located + 介词"></a>语言点十：坐落在 be located + 介词</h4><blockquote>
-<p>Wu Zhen is an ancient town in Zhejiang. It is located along the river of Jing Hang grand canal.</p>
-</blockquote>
-<blockquote>
-<p>Wu Zhen, an ancient water town in Zhejiang, is located along Beijing-Zhejiang grand canal.</p>
-</blockquote>
-<blockquote>
-<p>The biggest hydropower station is located on the Long River.</p>
-</blockquote>
-<h4 id="翻译万能公式一-：A是B，是C。"><a href="#翻译万能公式一-：A是B，是C。" class="headerlink" title="翻译万能公式一 ：A是B，是C。"></a>翻译万能公式一 ：A是B，是C。</h4><blockquote>
-<p>A is not only B but also C.</p>
-<p>Fengshui is not only an art of harmonizing people with their environment, but also the reflection of Chinese philosophy in environment.</p>
-</blockquote>
-<blockquote>
-<p>A, B(同位语), is C.</p>
-<p>Fengshui, an art of harmonizing people with their environment, is the reflection of Chinese philosophy in environment.</p>
-<p>Papermaking technology, one of the four inventions in Chinese history, is a great contribution to world civilization by national China. </p>
-</blockquote>
-<blockquote>
-<p>As B, A is C.</p>
-<p>As an art of harmonizing people with their environment, Fengshui is the reflection of Chinese philosophy in environment.</p>
-<p>As one of the four inventions in China, Papermaking technology is an outstanding(splendid) contribution to world civilization by national China.</p>
-</blockquote>
-<blockquote>
-<p>A, which is B, is also C.</p>
-<p>Fengshui, which is an art of harmonizing people with their environment, is the reflection of Chinese philosophy in environment.</p>
-</blockquote>
-<h4 id="翻译万能公式二-：说到A不得不提B。"><a href="#翻译万能公式二-：说到A不得不提B。" class="headerlink" title="翻译万能公式二 ：说到A不得不提B。"></a>翻译万能公式二 ：说到A不得不提B。</h4><blockquote>
-<p>When it comes to A, B has to be mentioned.</p>
-<p>When it comes to Chinese culture, the Great Wall has to be mentioned.</p>
-<p>When it comes to ancient technological civilization, the four Great Inventions have to be mentioned.</p>
-</blockquote>
-<blockquote>
-<p>Speaking of A, we must refer to B。</p>
-<p>Speaking of Chinese culture, we must refer to the Great Wall.</p>
-</blockquote>
-<blockquote>
-<p>When talking about A, B is always a must.</p>
-<p>When talking about Chinese culture, the Great Wall is always a must.</p>
-</blockquote>
-<h4 id="翻译万能公式三：A的B被怎么样了。"><a href="#翻译万能公式三：A的B被怎么样了。" class="headerlink" title="翻译万能公式三：A的B被怎么样了。"></a>翻译万能公式三：A的B被怎么样了。</h4><blockquote>
-<p>The A of B has been questioned.</p>
-<p>The effectiveness of anti-smoking has been questioned.</p>
-<p>The feasibility of the plan has been questioned.</p>
-</blockquote>
-<blockquote>
-<p>There has been some skepticism about the effectiveness of the anti-somking.</p>
-<p>There has been some skepticism about the feasibility of the plan.</p>
-</blockquote>
-<h4 id="2020年翻译"><a href="#2020年翻译" class="headerlink" title="2020年翻译"></a>2020年翻译</h4><p>Water Margin is  one of the four classical novels in Chinese literature. This base on the story that the history role of songjiang and his friends against the feudal emperor. For hundreds of years, it has been liked by Chinese reader.(this novel, based on the story of ……,  has been liked by Chinese reader for hundreds of years.) It is no <strong>exaggeration</strong> to say that nearly every Chinese People is familiar to the main character in the novel. The story of this novel is played <strong>repeatedly</strong> in teahouses, on drama stage, on broadcast television , on film screens and in majority of home. In fact, the influence of this novel has <strong>gone far</strong> beyond the border a lot. An increasing number of the foreign reader find the stories in this novel are vivid, touching and interesting too. </p>
-<p>Dream of the Red Chamber is a novel writeen by Cao Xueqing in the 18th century. Base on his painful experience, Cao Xueqing has told a <strong>tragic</strong> love story between Jia Baoyu and Lin daiyu. There are about 30 major characters and 400 minor characters, each of whom is vividly described with a distinct personality. The novel detailed describes the course of four noble families <strong>from rise to fall</strong> , reflecting the hidden crisis and complex(complicate) social conflicts of feudal society. Dream of the Red Chamber combines the realism and romanticism, has a powerful artistic <strong>attraction</strong>. It is widely regarded to be the great novel in China and the greatest literary creations in the world.</p>
-<h4 id="翻译预测一"><a href="#翻译预测一" class="headerlink" title="翻译预测一"></a>翻译预测一</h4><p>Rice，one of the main characters in Chinese daily diet, is the staple food of southern China. Rice has rich nutrients, it can almost supply the nutrients for the whole body. As the fantastic staple food, the rice contain the 90% of the nutrient components that needed by our body, and all kinds of nutrients are really balanced. The appearance of the rice, can be traced to the congee. The Chinese people use chopsticks for rice and spoon for congee. If we get the principle of eating rice, it can have an effect in being away from the disease and keep young, is really beneficial for our body.</p>
-<p>Richly nutritious rice can provide nutrition to the whole body. Rice contains 90% of the necessary nutrients of human body. What’s more,the all kinds of nutrients are well balanced. Therefore, rice is the best staple food.(Rice is the best staple food, because it contain 90% of necessary nutrients of human body and nutrients are well balanced.) The <strong>emergence</strong> of the rice can be traced back to the porridge. Chinese people eat rice with chopsticks and drink porridge with spoon. If we master the healthy principle of eating rice, <strong>with time goes by</strong>, it can <strong>play a role unconsciously in preventing</strong> disease and aging and <strong>extremely beneficial</strong> to our body. </p>
-<h4 id="翻译预测二"><a href="#翻译预测二" class="headerlink" title="翻译预测二"></a>翻译预测二</h4><p>Born in China, china is an important creation of Chinese laboring people. The invention of china is a great Chinese contribution for world civilization. china and China is a same word in English. Approximately In the middle Shang dynasty of 16th century B.C , the early china emerged  in China. The initial china origin in more than 3000 years ago. To Song dynasty, the famous china and china’s factory have appeared in half of China. Therefore, Song dynasty is the most prosperous/flourishing/thriving/splendid periods of china industry. China constantly have a saying : the three capital of china, they are Jingde town in Jiangxi province, Dehua town in Quanzhou city of Fujian province and Lingyi city of Hunan Province.</p>
-<h4 id="翻译预测三"><a href="#翻译预测三" class="headerlink" title="翻译预测三"></a>翻译预测三</h4><p>Fan,  a product of creating wind, is a necessary stuff in the summer.</p>
-<p>Fan is an necessity to make wind in summer.</p>
-<p>Chinese traditional fan culture which has deep culture, is an integral part of Chinese national culture.</p>
-<p>Chinese conventional fan culture has profound cultural deposit and it is an integral part of Chinese national culture.</p>
-<p>In Chinese traditional society, fan strongly contacts to the daily life of common people.</p>
-<p>Fans <strong>are closely related to</strong> daily life of common people in traditional Chinese society.</p>
-<p>The main materials of fans are wood, paper and bamboo.</p>
-<p>The art fans have beautiful image and detailed structure. The elaboration of  skillful people and the drawing and poetry celebrity in the fan can make the price of fan higher to hundreds times.</p>
-<p><strong>Craft</strong> fans have beautiful <strong>shapes</strong> and <strong>exquisite</strong> structures. With drawings or poetries of celebrities on it and being made by skillful  <strong>craftsman</strong>, the art value of fan becomes <strong>hundreds of times.</strong></p>
-<p>The function of fans for wind has apparently reduced in modern time, but as fancy craft products, they take the feeling of beauty to the people.</p>
-<p>Role of <strong>cool down(off)</strong> in modern life is reduced <strong>relatively</strong>. However, as an exquisite <strong>craft</strong>, has brought <strong>enjoyment</strong> of beauty to people.</p>
-<h4 id="翻译预测四"><a href="#翻译预测四" class="headerlink" title="翻译预测四"></a>翻译预测四</h4><p>Panda, is honored as the “life stone” and “treasure of China”, has survived in the earth for at least 8 millions of years,  is the master species of world biological variety protection.</p>
-<p>Giants pandas have been living on the earth for at least 8 million years. They are honored as living fossil and a national treasure of China and are the flag species of <strong>biodiversity</strong> <strong>conservation</strong> in the world.</p>
-<p>Pandas are Chinese special species that mainly live in mountain area of Sichuan province, Shaanxi province and Gansu province, China.</p>
-<p>Pandas are the species in China. It’s main <strong>habitats</strong> are <strong>mountainous</strong> areas in Sichuan, Shaan Xi and Gansu, China.</p>
-<p>Pandas live in forest of bamboos, where has poor air, rich flogs, low temperature and rich bamboos.</p>
-<p>They live in dense bamboo forests <strong>above altitude 2600-3500 meters</strong>, <strong>where the air is thin, the mist is thick, the temperature is below 20 degree, and there are plenty of bamboos.</strong></p>
-<p>Pandas are the national treasure of China. they had gone abroad as the friendly ambassador for many times and had made vast contributions to develop the friendly relationships between China and other countries. </p>
-<h4 id="翻译预测五"><a href="#翻译预测五" class="headerlink" title="翻译预测五"></a>翻译预测五</h4><p>Abacus is a form of calculative tools by hand option. </p>
-<p>Abacus is a kind of form of manually operated computing aid.</p>
-<p><strong>Abacus is a form of tools to calculate manually.</strong></p>
-<p>It origin in China, has a history for about 2600 years from now,  and is an important invention of ancient China.</p>
-<p><strong>Originated in China, with a history of more than 2600 years until now, abacus is an important invention in the ancient time.</strong></p>
-<p>It origin in China. <strong>There is</strong> a history of over 2600 years and it is an important invention in the ancient times.</p>
-<p>Before the appearance of the number, abacus is a wildly used computing tool in the world.</p>
-<p>Before the emergence of Arabic numbers, Abacus was a popular computing tools in the world.</p>
-<p>Before the emergence of Arabic numbers, Abacus was a computing tools <strong>to be wildly used.</strong></p>
-<p>Nowadays, continuously used in some areas of Asia and Middle-east, especially in the stores,  abacus can be bought in the stores of supplying Chinese products or Japanese products.</p>
-<p><strong>Today, abacuses continue to be used in Asia and parts of Middle East, especially can be seen in the stores. we can buy it in the stores, which supply Chinese goods and Japanese goods.</strong></p>
-<p>In West, it is sometimes used to help children to understand numbers and mathematician like to use it to experience the feeling of simple counts computed by abacuses. </p>
-<p>In the west, sometimes it is used to help children to <strong>understand</strong> numbers. However, some mathematics like to experience the feeling to work out  easy math problem.</p>
-<h4 id="翻译预测六"><a href="#翻译预测六" class="headerlink" title="翻译预测六"></a>翻译预测六</h4><p>Artificial Intelligence is a science of full challenge, which requires professional people must to know computer science, phycology and philosophy. </p>
-<p>AI is an extremely challenging science. AI is a science that full of challenge.</p>
-<p><strong>People must understand computer knowledge, psychology and philosophy who do this job.</strong></p>
-<p>In a word,the main goals of AI’s research are making machines to complete complicate work that only AI can do.</p>
-<p>Generally speaking, one of the main purposes of AI research is to enable to do some complex jobs , which usually require human intelligence.</p>
-<p>However, different people have different understandings of this kind of complex job in different era.</p>
-<p><strong>People’s understandings towards such “complex job” in different times vary.</strong></p>
-<p>The stories of AI can be traced back to ancient Egypt. However, with the development of electronic computer,  technology can create the intelligent machines. </p>
-<p>The legend of AI can be traced back to the ancient Egypt. However, with the development of electronic computer <strong>since</strong> 1941, the technology can finally create machine intelligence.</p>
-<p>In essence, AI is a stimulation of processing information by human brain, but their intelligence far beyond human brain in many situations. </p>
-<p>Speaking of its essence, AI is the simulation of information process of human thinking.</p>
-<p>However its intelligence will surpass human brain in many aspects.</p>
 
       
 
@@ -606,7 +896,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">English learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -616,7 +906,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E8%AF%AD%E8%A8%80%E7%82%B9/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6/">展开全文 >></a>
         </p>
       
 
@@ -646,218 +936,27 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-英语六级作文逻辑模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-面试-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/08/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E4%BD%9C%E6%96%87%E9%80%BB%E8%BE%91%E6%A8%A1%E6%9D%BF/">英语六级作文逻辑模板</a>
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">Java容器</a>
     </h1>
   
 
         
-        <a href="/2021/12/08/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E4%BD%9C%E6%96%87%E9%80%BB%E8%BE%91%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
-  	<time datetime="2021-12-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-08</time>
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
+  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="英语六级作文逻辑模板"><a href="#英语六级作文逻辑模板" class="headerlink" title="英语六级作文逻辑模板"></a>英语六级作文逻辑模板</h2><h3 id="第一段"><a href="#第一段" class="headerlink" title="第一段"></a>第一段</h3><ul>
-<li><p>现象解释</p>
-<p>提出观点、引出下文。</p>
-</li>
-</ul>
-<blockquote>
-<p>In the contemporary world,(主题theme) have/has become increasingly important. it’s of great necessity for(对象 students,senior people,fresh people,citizens,residents,staff,parents,patients) to (do something). The following are the reasons to support my view point.</p>
-</blockquote>
-<ul>
-<li>观点选择</li>
-</ul>
-<blockquote>
-<p>In the contemporary world, (something) have/has become increasing important. (People have different view on the (something))When facing with the decision of (something), quite a few would <strong>deem</strong> that(one choice), but others, in contrast, believe that (the other one) the <strong>premier</strong> choice. In my opinion (both options are suitable, the key lies in our interest)(we should choose something). The following are the reasons to support my view point.</p>
-</blockquote>
-<ul>
-<li>问题解决</li>
-</ul>
-<blockquote>
-<p> In the contemporary world,(主题theme) have/has become increasingly important. it’s of great necessity for(对象 students,senior people,fresh people,citizens,residents,staff,parents,patients) to (do something). The following are the solutions to account for the issue properly.</p>
-</blockquote>
-<ul>
-<li>谚语类</li>
-</ul>
-<blockquote>
-<p>As old saying goes: (谚语照抄). For our college students, It has an increasingly important significance : (含义). The following are the reasons to support my view point.</p>
-</blockquote>
-<ul>
-<li>图表类</li>
-</ul>
-<blockquote>
-<p>As is <strong>starkly</strong> mirrored(reflected) in the image/chart/diagram that (观点), it is <strong>revealed</strong> that (内涵). The following are the reasons to account for this issue.</p>
-</blockquote>
-<h3 id="第二段"><a href="#第二段" class="headerlink" title="第二段"></a>第二段</h3><ol>
-<li>论点</li>
-</ol>
-<blockquote>
-<p>In the first place,there is no doubt that (简单句) we can not divorce from reality that (something) play an important role in one’s success.</p>
-</blockquote>
-<ol start="2">
-<li>论据</li>
-</ol>
-<blockquote>
-<p>Base on big data,most of the (such as social elites) admitted that they’ve spent 2/3 of their time in (something) </p>
-</blockquote>
-<ol>
-<li>论点</li>
-</ol>
-<blockquote>
-<p>Moreover, no one can deny that (简单句)</p>
-</blockquote>
-<ol start="2">
-<li>论据</li>
-</ol>
-<blockquote>
-<p>Where there is/are (something), there are/is (something)</p>
-</blockquote>
-<ol>
-<li>论点</li>
-</ol>
-<blockquote>
-<p>Last but not least, I firmly believe that without (观点), we can’t make any achievements</p>
-</blockquote>
-<ol start="2">
-<li>论据</li>
-</ol>
-<blockquote>
-<p>The + (比较级)， The + (比较级)</p>
-</blockquote>
-<p><strong>furthermore/besides/in addition/moreover，more evidences of our views can be chosen.</strong></p>
-<ul>
-<li>举例子，正例、反例、名人、自己、某方面的事</li>
-</ul>
-<blockquote>
-<p>for instance, Thomas Edison’s success is a good case in point. Without (观点), how could he, the greatest inventor throughout the history of mankind who experienced numerous failed attempts, invent the first bulb.</p>
-</blockquote>
-<blockquote>
-<p>for instance, if we are trying to eat healthier food, Without(观点), how could us stay away from junk food.</p>
-</blockquote>
-<ul>
-<li>引用一些名人名言</li>
-</ul>
-<blockquote>
-<p>There is an well-known saying : “have ever seen the scene of Los Angel at 4 am” by Kobe Bryant.</p>
-</blockquote>
-<p>关于论据的几点思考</p>
-<ol>
-<li>什么？ 谁？ 起到了巨大的（重要的）作用</li>
-<li>我们不能从现实中抽离，什么？使我们怎么样？</li>
-<li>没有什么，我们将会怎么样？</li>
-<li>什么也是不可以忽视的。</li>
-<li>有什么， 我们将会怎么样？</li>
-</ol>
-<h3 id="第三段"><a href="#第三段" class="headerlink" title="第三段"></a>第三段</h3><ol>
-<li>总结重申观点</li>
-</ol>
-<blockquote>
-<p>In conclusion, (something) is essential for everyone.</p>
-</blockquote>
-<ol>
-<li>提出期望</li>
-</ol>
-<blockquote>
-<p>If we spare no effort to cultivate this ability, the future of our study and career will be both hopeful and rosy.</p>
-</blockquote>
-<h4 id="2021年作文"><a href="#2021年作文" class="headerlink" title="2021年作文"></a>2021年作文</h4><blockquote>
-<p>As is starkly mirrored in the diagram that Chinese rural population of poverty has been reduced to 0% of the rural population, it is revealed that China’ s achievements in poverty alleviation are <strong>extraordinary</strong>. The following are the reasons to account for this issue.</p>
-</blockquote>
-<blockquote>
-<p>In the first place, there is no doubt that official in Chinese governments have played an important role in this process. Base on the big data, most of the governors involved have admitted that they’ve spent 2/3 of their time in rural area for the poverty alleviation. </p>
-</blockquote>
-<blockquote>
-<p>Moreover, no one can deny that the poverty alleviation policies are indeed beneficial. Where there are specific policies, there is incentives(动力)/motivation.</p>
-</blockquote>
-<blockquote>
-<p>Last but not least, I firmly believe that the personal efforts of the rural residents can not be ignored. The more hardworking they are, the wealthier they are.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, the <strong>accomplishment</strong> of the poverty alleviation in China is outstanding. if we spare no efforts to implement the policies and maintain hardworking, the future of our country will be both hopeful and prospective/rosy.</p>
-</blockquote>
-<h4 id="2020年作文"><a href="#2020年作文" class="headerlink" title="2020年作文"></a>2020年作文</h4><blockquote>
-<p>In contemporary world, the ability to meet the challenges has become increasingly important, it’s of great necessity to develop the ability to meet the challenges. The following are the reasons and concrete evidence to support my view point. </p>
-</blockquote>
-<blockquote>
-<p>In the first place, there is no doubt that we can not divorce from the reality that challenge is everywhere. Base on the big data,most of the social elites spent about 2/3 of their time in facing the challenges.</p>
-</blockquote>
-<blockquote>
-<p>Moreover, no one can deny that challenges make us stronger. Where there are difficulties, where there are opportunities.</p>
-</blockquote>
-<blockquote>
-<p>Last but not least, I firmly believe that without the ability to meet the challenge, we can not make great achievement. The more problem we solve, the smarter and capable we are.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, the ability to meet the challenges and solve problems is essential for everyone. if we spare no effort to cultivate the ability, the future of our study and career will become both hopeful and rosy.(prospective/promising)</p>
-</blockquote>
-<h4 id="2019年作文"><a href="#2019年作文" class="headerlink" title="2019年作文"></a>2019年作文</h4><blockquote>
-<p>As old saying goes : What is worth doing is worth doing well. For our college students, it has an increasingly significance: we can benefit from a lot from a serious attitude. The following are the reasons to support my view point.</p>
-</blockquote>
-<blockquote>
-<p>In the first place, there is no doubt that attitude plays an vital role in one’s success. Base on the big data, most of the successful social elites admitted that they have maintain an serious attitude towards everything. Moreover, no one can deny that a serious attitude can help us cherish the rare opportunity to meet the success. Where there is a serious attitude, there is a probability. Last but not least, I firmly believe that without maintaining a serious attitude, we can not making any achievement. The more serious we are, The more possibility you will success.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, an serious attitude is essential for everyone. if we spare no efforts to cultivate an serious attitude, the future of  our study and career will both hopeful and rosy/prospective</p>
-</blockquote>
-<h4 id="2018年作文"><a href="#2018年作文" class="headerlink" title="2018年作文"></a>2018年作文</h4><blockquote>
-<p>In contemporary world,  balancing job responsibilities and personal interests is increasingly important. It’s of necessity for a staff to balance job responsibilities and personal interests. The following are the solutions to account for this issue properly.</p>
-</blockquote>
-<blockquote>
-<p>Firstly, there is no doubt that a win win situation can be reached if we cultivate interests related to our job responsibilities. Base on the big data, most of the successful social elites admitted that they’ve done a great job in combining  job responsibilities and personal interests. Furthermore, no one can deny that a correct outlook on job responsibilities and personal interests plays an important role in balancing them. Where there is a preference for anyone of them, there is a unbalance. Last but not least, I firmly believe that a detail plan is benefit for the distribution of time. With the detail plan, we can be clear to balance job responsibilities and personal interests. </p>
-</blockquote>
-<blockquote>
-<p>In conclusion, the balance of job responsibilities and personal interests is essential for us to succeed. if we spare no effort to understand the solution above, the future of our career and life will be prospective and rosy.</p>
-</blockquote>
-<h4 id="2017年作文"><a href="#2017年作文" class="headerlink" title="2017年作文"></a>2017年作文</h4><blockquote>
-<p>As old saying goes: the best preparation for tomorrow is doing your best today. For us college students, it is increasing important significance: if we want to achieve something , we need to overcome procrastination, The following are the reasons to support my view point.</p>
-</blockquote>
-<blockquote>
-<p>In first place, there is no doubt that we can not divorce from reality that time play an important role in one’s success. Base on the big data, the successful social elites admitted that they must ensure enough time to struggle for success. Moreover, no one can deny that <strong>procrastination</strong> make us weak. where there is procrastination, there is time be wasted. Last but not least, I firmly believe that today’s enough time can make us finish our tasks to a perfect situation as we can. The more serious we are, the better degree of completion we can get.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, overcoming procrastination is essential for everyone to succeed. if we spare no effort to doing best today, the future of our and career will become hopeful and rosy.</p>
-</blockquote>
-<h4 id="2017年作文-1"><a href="#2017年作文-1" class="headerlink" title="2017年作文"></a>2017年作文</h4><blockquote>
-<p>In contemporary world, major in university is become increasingly important. When we facing with the major’s choice of choosing major, quite a few would deem that science is a beneficial choice, but others, in contrast, believe that humanity is the premier choice. In my opinion, both choice are suitable, the key lies in our interest of which major. The following are the reasons to support my view point.</p>
-</blockquote>
-<blockquote>
-<p>In the first place, there is no doubt that we can deeply devote to learn the more interesting majors. Base on the big data, most of the successful social elites admitted that interest plays a important role in their success, with the interest, they have more incentives to achieve success. Furthermore, no one can deny that poor interest makes us weak, where there is poor interest, there is negative emotion. Last but not least, I firmly believe that interest can motivate us to learn more, even never be requested by our teachers.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, interest is essential for everyone to succeed. if we spare no effort to the major we interested in, the future of our study and career will become both hopeful and rosy/prospective.</p>
-</blockquote>
-<h4 id="作文预测一"><a href="#作文预测一" class="headerlink" title="作文预测一"></a>作文预测一</h4><blockquote>
-<p>In the contemporary world , information explosion is become increasingly common. It’s of necessity for our students to avoid being distracted by irrelevant information. The following are the solutions to account for this issue.</p>
-</blockquote>
-<blockquote>
-<p>In the first place, as old saying goes : a wealth of information creates a poverty of attention. It is no doubt that we can not divorce from the reality that the spirit of exploration plays an important role for us. Base on the big data, most of the social elites admitted that they’ve spent 2/3 of their time to explore the information what they really need rather than be recommend by system. Furthermore, no one can deny that the ability of self-control can make us get information properly. Where there is self-control, there is efficiency in our life. Last but not least, I firmly believe that a detailed plan’s impact can not be ignored, the more detailed plan we make, the cleared in choosing information.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, avoiding being distracted by irrelevant information is really essential for us in this era of information explosion. if we make spare no effort to avoid being distracted by irrelevant information, the future of our study and life will be prospective and rosy.</p>
-</blockquote>
-<h4 id="作文预测二"><a href="#作文预测二" class="headerlink" title="作文预测二"></a>作文预测二</h4><blockquote>
-<p>As old saying goes : to admit that you were wrong is to declare that you are wiser now than you were before. For our students, It has increasingly significances : admitting mistakes make us grow. The following are the reasons to account for this issue.</p>
-<p>In the first place, it is no doubt that we can not divorce from the reality that admitting mistakes plays an important role for our success. Base on the big data, most of the social elites admitted that they have always choose to face mistakes when they have make mistakes. Furthermore, no one can deny that admitting mistakes can make us have an examination for ourselves. Where there is <strong>examination</strong>, there is no similar mistakes next time. Last but not least, I firmly believe that without admitting mistakes, we will pay less attention to them. The more mistakes we admitted, the more experience we will get.</p>
-<p>In conclusion, admitting mistakes is really essential for us to grow and succeed. if we spare no effort to face the mistakes, the future of our life and study will become hopeful and rosy.</p>
-</blockquote>
-<h4 id="作文预测三"><a href="#作文预测三" class="headerlink" title="作文预测三"></a>作文预测三</h4><blockquote>
-<p>As it starkly mirrored in the chart that most of the college students spend too much time on mobile social software, it revealed that the college students tend to keep in touch in the virtual world rather than reality. The following are the reasons to account for this issue.</p>
-<p>In the first place, It is no doubt that social software is more convenient for us to <strong>keep in touch with</strong> others. With the social software, we can chat with others whenever we want. At the same time, it is easier for us to misunderstand others. Furthermore, no one can deny that too much time on mobile social software make us unhealthy, Base on the big data, a large number of students addict to the mobile phone, which results them sleep later, eyes become tired and so on. Last but not least, I firmly believe that without communication in reality, our happiness will reduce. The more time we devote to the virtual world, the unhappier we are.</p>
-<p>In conclusion, In the contemporary world, mobile social is an important part of our life and study. If we spare no effort to use mobile software properly, the future of our life will become hopeful and rosy.</p>
-</blockquote>
-<h4 id="作文预测四"><a href="#作文预测四" class="headerlink" title="作文预测四"></a>作文预测四</h4><blockquote>
-<p>As it starkly mirrored in the picture that tumbler can not go ahead as it can not tumble. It revealed that we can make progress when we properly face our setbacks. The following are the solutions to account for this issue.</p>
-<p>In the first place, It is no doubt that a right mindset plays an important role when face the setbacks. Base on the big data, most of the social elites admitted that they have a right. </p>
+        <blockquote>
 </blockquote>
 
       
@@ -872,7 +971,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">English learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -882,660 +981,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/08/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E4%BD%9C%E6%96%87%E9%80%BB%E8%BE%91%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-助力六级听力" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/08/%E5%8A%A9%E5%8A%9B%E5%85%AD%E7%BA%A7%E5%90%AC%E5%8A%9B/">六级听力</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/08/%E5%8A%A9%E5%8A%9B%E5%85%AD%E7%BA%A7%E5%90%AC%E5%8A%9B/" class="archive-article-date">
-  	<time datetime="2021-12-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="200句助力六级听力"><a href="#200句助力六级听力" class="headerlink" title="200句助力六级听力"></a>200句助力六级听力</h3><ul>
-<li>It’s such a <strong>precious</strong> instrument for me that it hardly ever leave my side.</li>
-<li>It is said that happiness is <strong>contagious</strong>.</li>
-<li>people with college degrees make a lot more than people without them, and that difference has been growing</li>
-<li>this place <strong>breeds</strong> endangered species and tries to prepare them for life in the wild.</li>
-<li>the students developed a device for car to collect information and road conditions, driving behavior and traffic incidents</li>
-<li>I’d like to make some changes to the way we prepare our food.</li>
-<li>and the interesting thing about this book is that it is written in the form of thriller.</li>
-<li>I believe you can turn the interview into a positive experience by being confident and having the right <strong>mindset</strong>.</li>
-<li>actually the answer might be right or no depend on your <strong>circumstances</strong>.</li>
-<li>he concluded that the <strong>curiosity</strong> and sense of wonder make children ready for <strong>philosophical</strong> inquiry. </li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">english learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/08/%E5%8A%A9%E5%8A%9B%E5%85%AD%E7%BA%A7%E5%90%AC%E5%8A%9B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-diary-2021-1116-0031" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/16/diary-2021-1116-0031/">是为自己而活，也不是为自己而活</a>
-    </h1>
-  
-
-        
-        <a href="/2021/11/16/diary-2021-1116-0031/" class="archive-article-date">
-  	<time datetime="2021-11-15T16:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="是为自己而活，也不是为自己而活"><a href="#是为自己而活，也不是为自己而活" class="headerlink" title="是为自己而活，也不是为自己而活"></a>是为自己而活，也不是为自己而活</h3><p>我其实很长久地思考过一个问题</p>
-<p>人究竟该为自己而活还是该为别人而活</p>
-<p>我一直觉得我不只是为自己而活</p>
-<p>我现在有父母、以后会有爱人</p>
-<p>很多时候我都会觉得他们开心我就会开心，我愿意付出一切为了他们</p>
-<p>So 这不就是为别人而活吗</p>
-<p>如果是为自己而活，我为什么会有这么宽广的胸怀hhh</p>
-<p>但是今天我就觉得我是为自己而活</p>
-<p>事出有因</p>
-<p>同学找工作，最终选择不去互联网公司，理由是他觉得他卷不过别人了</p>
-<p>他说他刷题白刷了</p>
-<p>最后还是没有去互联网公司</p>
-<p>但我呢</p>
-<p>可能无论是学历还是英语六级都比不了他</p>
-<p>我很慌 我觉得我只能去互联网了</p>
-<p>于是我也不想刷题了</p>
-<p>我开始自我否定了hhh</p>
-<p>但是啊</p>
-<p>我才发现我要为自己而活</p>
-<p>别人如何出色、优秀</p>
-<p>我如何不足、辣鸡</p>
-<p>我都应该做好自己的本职工作，给自己一个满意的结果</p>
-<p>而不是跟随别人的脚步</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/16/diary-2021-1116-0031/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetCode刷题总结之位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/10/leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/">leetCode刷题总结の位运算</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/10/leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2021-10-10T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><h3 id="java中的运算符"><a href="#java中的运算符" class="headerlink" title="java中的运算符"></a>java中的运算符</h3><ul>
-<li>算数运算符</li>
-</ul>
-<blockquote>
-<p>+     -     *     /     %     ++     –</p>
-</blockquote>
-<p>​    这里重点是区分 /  %两个操作，123 / 100 = 1，123 / 10 = 12， 123 / 1 = 123；123 % 100 = 23， 123 % 10 = 3， 123 % 1 = 0；</p>
-<ul>
-<li>关系运算符<blockquote>
-<p>==     !=     &gt;     &lt;     &gt;=     &lt;=     </p>
-</blockquote>
-</li>
-<li>位运算符（重点）<blockquote>
-<p>&amp;     ^     |    ~     &lt;&lt;     &gt;&gt;     &gt;&gt;&gt;<br>​    左移运算a&lt;&lt;b的实质就是二进制位向左移动b位，低位补零（其实就是补零操作啦）<code> a * Math.pow(2,b)</code> 例如 ```1 &lt;&lt; 3 == 8``</p>
-</blockquote>
-</li>
-</ul>
-<p>​    右移运算a&lt;&lt;b的实质就是二进制位向右移动b位，低位舍去（其实就是舍去操作啦）<code>a / Math.pow(2,b)</code> 例如 <code>8 &gt;&gt; 3 ==1</code></p>
-<p>​    按位与运算 &amp; 的实质就是对应位均为1时结果为1，对应位的与判断，例如 a &amp; 1 == 0 判断a的奇偶性</p>
-<p>​    按位或运算 |的实质就是对应位有1时结果为1，对应位的或判断</p>
-<p>​    按位异或运算 ^ 的实质就是对应位相异时返回1，对应为的异或判断，例如mask = 111（掩码） 111 ^ 000 = 111^000 = 111</p>
-<ul>
-<li>逻辑运算符<blockquote>
-<p>&amp;&amp;     ||     !</p>
-</blockquote>
-</li>
-<li>赋值运算符<blockquote>
-<p>=     +=     -=     *=         /=         %=      &lt;&lt; =     &gt;&gt; =     ^=  </p>
-</blockquote>
-</li>
-<li>短路逻辑运算符</li>
-</ul>
-<blockquote>
-<p>大概就是这样来设计短路逻辑 （boolean）&amp;&amp;（boolean）hhh</p>
-</blockquote>
-<ul>
-<li>条件运算符<blockquote>
-<p>? :    相比于<code>if else</code> ,条件运算符更简洁。你为什么常常会想不到用这个呢？！</p>
-</blockquote>
-<h3 id="怎样写好循环"><a href="#怎样写好循环" class="headerlink" title="怎样写好循环"></a>怎样写好循环</h3></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( 布尔表达式 ) &#123;</span><br><span class="line">  <span class="comment">//循环内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">       <span class="comment">//代码语句</span></span><br><span class="line">&#125;<span class="keyword">while</span>(布尔表达式);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(初始化; 布尔表达式; 更新) &#123;</span><br><span class="line">    <span class="comment">//代码语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(声明语句 : 表达式)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">//代码句子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>思考进入循环的条件</p>
-</blockquote>
-<blockquote>
-<p>思考如何跳出循环（逻辑）</p>
-</blockquote>
-<ul>
-<li>跳出循环的两种情况：1、循环直至循环条件不满足然后跳出循环。2、循环过程中目的完成跳出循环，这个时候尤其要注意break；不然循环可能一直进行下去，超出时间限制。</li>
-</ul>
-<blockquote>
-<p>跳出循环后的操作</p>
-</blockquote>
-<ul>
-<li>一定要对循环后的操作进行条件限制，不然跳出循环后都会执行。</li>
-</ul>
-<blockquote>
-<p>思考边界问题，防止indexofbound。</p>
-</blockquote>
-<h3 id="经常要考虑的溢出问题"><a href="#经常要考虑的溢出问题" class="headerlink" title="经常要考虑的溢出问题"></a>经常要考虑的溢出问题</h3><p>溢出问题是特定的数据类型的变量的值不在取值范围内出现的情况，所以首先要清楚该数据类型的取值范围。</p>
-<p>leetCode上的题很多是对整型的操作，So，怎么着都得对整型的范围了如指掌。0x7fffffff ~0x80000000.</p>
-<p><img src="/assets/blogImg/int.png" alt="int"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/10/leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-diary-2021-1008-2243" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/08/diary-2021-1008-2243/">长沙行</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/08/diary-2021-1008-2243/" class="archive-article-date">
-  	<time datetime="2021-10-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="长沙行，不看风景看朋友"><a href="#长沙行，不看风景看朋友" class="headerlink" title="长沙行，不看风景看朋友"></a>长沙行，不看风景看朋友</h3><p>长沙是一个我向往的城市，哈哈哈。房价低，朋友多，菜合乎口味等等，优点真的数不胜数</p>
-<p>国庆这一次长沙行，其实就待了一天，但是还是很难得，心情变得很好，很放松</p>
-<p>对于压抑已久的我，真的是一种释放，妈呀hhh</p>
-<img src="/assets/blogImg/长沙_20211008231515.jpg" alt="长沙_20211008231515" style="zoom:25%;" />
-
-<p><em>刚按摩完的兴奋劲</em></p>
-<img src="/assets/blogImg/长沙_20211008231528.jpg" alt="长沙_20211008231528" style="zoom:25%;" />
-
-<p><em>印象中每次去长沙都会吃牛蛙</em></p>
-<img src="/assets/blogImg/长沙_20211008231339.jpg" alt="长沙_20211008231339" style="zoom:25%;" />
-
-<p><em>证明自己来了长沙</em></p>
-<p>欢乐的时光总是如此短暂，回到北京的我感觉神经如此绷紧，整理整理我又得做回那个心态平和的小伙子</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/08/diary-2021-1008-2243/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-六级翻译常考单词梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E5%B8%B8%E8%80%83%E5%8D%95%E8%AF%8D%E6%A2%B3%E7%90%86/">六级翻译常考单词梳理</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E5%B8%B8%E8%80%83%E5%8D%95%E8%AF%8D%E6%A2%B3%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-10-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="六级翻译常考单词梳理"><a href="#六级翻译常考单词梳理" class="headerlink" title="六级翻译常考单词梳理"></a>六级翻译常考单词梳理</h3><h4 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h4><ul>
-<li>For thousands of years, </li>
-<li> During this period, During Spring Festival,Mid-autumn Festival, Dragon Boat Festival, Lantern Festival</li>
-<li>Nowadays, In recent years</li>
-<li>For decades</li>
-<li>with time goes by 日积月累</li>
-<li>First half of the 上半叶</li>
-<li>Second half of 下半叶</li>
-</ul>
-<h4 id="数量"><a href="#数量" class="headerlink" title="数量"></a>数量</h4><ul>
-<li>Hundreds of</li>
-<li>majority of, minority of</li>
-<li>variety，various </li>
-</ul>
-<h4 id="程度"><a href="#程度" class="headerlink" title="程度"></a>程度</h4><ul>
-<li>barely、hardly</li>
-<li>often、usually</li>
-<li>extremely、quite、entirely、completely、really</li>
-<li>nearly，almost</li>
-</ul>
-<h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><p>accompany accomplish</p>
-<p>exert generate have</p>
-<h4 id="修饰"><a href="#修饰" class="headerlink" title="修饰"></a>修饰</h4><ul>
-<li>经济文化方面</li>
-</ul>
-<h4 id="神话时期"><a href="#神话时期" class="headerlink" title="神话时期"></a>神话时期</h4><ul>
-<li>myth myths 神话、神话故事</li>
-<li>mythology 神话</li>
-<li>folk story 民间故事</li>
-</ul>
-<h4 id="远古时期"><a href="#远古时期" class="headerlink" title="远古时期"></a>远古时期</h4><ul>
-<li>ancient 古代的、远古的</li>
-</ul>
-<blockquote>
-<p>ancient China,ancient Rome,ancient architecture,ancient people, ancient civilization,ancient literature,ancient society</p>
-<p>ancient emperor</p>
-</blockquote>
-<ul>
-<li>dynasty 朝代</li>
-</ul>
-<blockquote>
-<p>dynastic, the reign of a dynasty,  , emperor, culture heritage</p>
-</blockquote>
-<ul>
-<li>rule 统治</li>
-<li>emperor 皇帝</li>
-<li>poet,poetic,poetry 诗人， 诗歌的，诗歌</li>
-<li>painter,painting,drawing 画家，画作</li>
-<li>war, enemy, territory 战争，敌人的， 领土</li>
-</ul>
-<h4 id="现代"><a href="#现代" class="headerlink" title="现代"></a>现代</h4><ul>
-<li>contemporary/modern age</li>
-<li>govern,governance,government</li>
-</ul>
-<blockquote>
-<p>government sector,government official,government agencies,government subsidy/subsidies,government work report, government document, government staff, government intervention, government policy</p>
-</blockquote>
-<ul>
-<li>artificial intelligence</li>
-</ul>
-<blockquote>
-<p>intelligent components</p>
-</blockquote>
-<ul>
-<li>disaster 灾难</li>
-</ul>
-<blockquote>
-<p>disasters, disaster relief, disaster recovery, disaster-hit, disaster management, disaster prevention, disaster response</p>
-</blockquote>
-<ul>
-<li>industry 工业</li>
-</ul>
-<blockquote>
-<p>industrial, the industrial revolution, the industry park, industry manufacture, industrialization, industrialize, Industrial production</p>
-</blockquote>
-<ul>
-<li>origin 起源</li>
-</ul>
-<blockquote>
-<p>original, originate, original, originally, originality, origination</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">english learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E5%B8%B8%E8%80%83%E5%8D%95%E8%AF%8D%E6%A2%B3%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-diary-2021-0921-2322" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/21/diary-2021-0921-2322/">太难，太焦虑</a>
-    </h1>
-  
-
-        
-        <a href="/2021/09/21/diary-2021-0921-2322/" class="archive-article-date">
-  	<time datetime="2021-09-21T15:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img src="/assets/blogImg/ticket.png" alt="ticket" style="zoom: 25%;" />
-
-<p>我太难了，十分的焦虑</p>
-<p>这其实可能是一个必经的时期吧</p>
-<p>先谈谈刷题吧</p>
-<p>最近在看Java版的数据结构</p>
-<p>觉得数据结构我应该是十分的强，但是Java的一些用法我其实还是不太适应</p>
-<p>比如经常犯错的</p>
-<p>合法性，这个好像和语言没啥关系，比如有索引的情况下我要判断索引是否越界，在获取或者移除一个元素的时候我要判断原来是否为空</p>
-<p>这其实更多是逻辑上的事</p>
-<p>Java的引用</p>
-<p>是最让我不适应的，原先都是指针指向一个元素，引用机制可能就是一种赋值的关系了，通过暂存去代表指针这种指向某个内存的关系</p>
-<p>代码只能一点一点肝了</p>
-<p>再谈谈论文吧</p>
-<p>很希望自己能发表一篇论文啊</p>
-<p>不过这真的是一件极其需要毅力的事情</p>
-<p>只能是看情况了</p>
-<p>我也不知道自己能不能做到，真的是四字形容—-一筹莫展啊</p>
-<p>今天又说要考六级</p>
-<p>历史遗留问题</p>
-<p>想想就头大</p>
-<p>good night！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/21/diary-2021-0921-2322/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
         </p>
       
 
@@ -1567,7 +1013,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1741,7 +1187,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">Licaodong，&lt;br&gt;Heuer&lt;br&gt;&lt;br&gt;暂时求职者一枚，本博客记录求职学习&lt;br/&gt;研二在读&lt;br/&gt;&lt;br/&gt;胆小认生，不易相处，&lt;br&gt;年轻无为，卖马为生。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Licaodong，&lt;br&gt;Heuer&lt;br&gt;&lt;br&gt;道阻且长，行则将至&lt;br&gt;&lt;br&gt;致爱情，致友情，致事业，致美好生活&lt;br&gt;&lt;br&gt;</div>
   	  	
     	</section>
     

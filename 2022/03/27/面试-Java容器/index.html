@@ -11,12 +11,12 @@
   <meta name="description" content="List，Set，Map有哪些实现类？底层数据结构是什么？ List: ArrayList（数组）, LinkedList（双向链表）, Vector   Set: HashSet（HashMap）, TreeSet（红黑树）, LinkedHashSet   Map: HashMap, TreeMap, LinkedHashMap CocurrentHashMap  HashMap的实现原理？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java容器">
-<meta property="og:url" content="http://example.com/2022/03/27/Java%E5%B9%B6%E5%8F%91/index.html">
+<meta property="og:url" content="http://example.com/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/index.html">
 <meta property="og:site_name" content="li&#39;s blogs">
 <meta property="og:description" content="List，Set，Map有哪些实现类？底层数据结构是什么？ List: ArrayList（数组）, LinkedList（双向链表）, Vector   Set: HashSet（HashMap）, TreeSet（红黑树）, LinkedHashSet   Map: HashMap, TreeMap, LinkedHashMap CocurrentHashMap  HashMap的实现原理？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-27T15:59:10.000Z">
-<meta property="article:modified_time" content="2022-03-29T16:37:36.958Z">
+<meta property="article:modified_time" content="2022-03-30T16:40:22.559Z">
 <meta property="article:author" content="Caodong Li">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java并发" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-面试-Java容器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2022/03/27/Java%E5%B9%B6%E5%8F%91/" class="archive-article-date">
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/" class="archive-article-date">
   	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
 </a>
         
@@ -202,6 +202,11 @@ var _hmt = _hmt || [];
 <p>2、遍历旧的table，由于每次扩容都是左移一位，所以重新散列的位置是当前位置或者当前位置加上旧数组的长度的位置</p>
 <p>3、将遍历的节点复制到新的table上</p>
 <p>4、如果是红黑树则需要重建红黑树</p>
+</blockquote>
+<blockquote>
+<p>JDK 1.7 使用分段锁机制来实现并发更新操作，核心类为 Segment，它继承自重入锁 ReentrantLock，并发度与 Segment 数量相等。</p>
+<p>JDK 1.8 使用了 CAS 操作来支持更高的并发度，在 CAS 操作失败时使用内置锁 synchronized。</p>
+<p>并且 JDK 1.8 的实现也在链表过长时会转换为红黑树。</p>
 </blockquote>
 
       
@@ -272,7 +277,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/27/Java%E5%B9%B6%E5%8F%91/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,7 +291,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2022/03/27/Java%E5%AE%B9%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -296,8 +301,8 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2021/12/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E8%AF%AD%E8%A8%80%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">六级翻译语言点</div>
+    <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%B9%B6%E5%8F%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java并发</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -328,8 +333,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://example.com/2022/03/27/Java%E5%B9%B6%E5%8F%91/", 
-    sourceId: "Java并发",
+    url: "http://example.com/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/", 
+    sourceId: "面试-Java容器",
     productKey: "2dba06fbf8d24c13915ea6c6aa7183b1",
     target: "cloud-tie-wrapper"
   };
@@ -513,7 +518,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">Licaodong，&lt;br&gt;Heuer&lt;br&gt;&lt;br&gt;暂时求职者一枚，本博客记录求职学习&lt;br/&gt;研二在读&lt;br/&gt;&lt;br/&gt;胆小认生，不易相处，&lt;br&gt;年轻无为，卖马为生。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Licaodong，&lt;br&gt;Heuer&lt;br&gt;&lt;br&gt;道阻且长，行则将至&lt;br&gt;&lt;br&gt;致爱情，致友情，致事业，致美好生活&lt;br&gt;&lt;br&gt;</div>
   	  	
     	</section>
     
