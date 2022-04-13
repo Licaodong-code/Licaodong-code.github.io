@@ -16,7 +16,7 @@
 <meta property="og:description" content="Java三大特性是什么？具体表现是什么？ 封装、继承、多态   封装：将一个对象的属性、方法结合成一个独立的单元，隐蔽其中的细节。一个封装好的对象，我们只需要知道如何调用就行了。、   继承：子类对象可以继承父类的全部属性和方法，提高代码的复用   多态：多态是建立在继承上的一种机制，父类型的变量可以引用子类型的对象，所以同一个行为具有不同的表现形式。（刷码支付为例）动态绑定  Java几种基本的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-10T15:59:10.000Z">
-<meta property="article:modified_time" content="2022-03-30T16:37:29.887Z">
+<meta property="article:modified_time" content="2022-04-13T14:12:01.352Z">
 <meta property="article:author" content="Caodong Li">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -263,6 +263,12 @@ var _hmt = _hmt || [];
 <p>父类是Throwable, 子类RuntimeException（NullPointException）和 IOException（FileNotfoundException）</p>
 <p>Error是非受检错误，主要遇到的是虚拟机错误，比如StackOverflow和OutofMemory</p>
 </blockquote>
+<h2 id="引用传递和值传递的区别？"><a href="#引用传递和值传递的区别？" class="headerlink" title="引用传递和值传递的区别？"></a>引用传递和值传递的区别？</h2><p><strong>值传递</strong> 是对基本型变量而言的,传递的是该变量的一个副本,改变副本不影响原变量.<br><strong>引用传递</strong> 一般是对于对象型变量而言的,传递的是该对象地址的一个副本, 并不是原对象本身 。</p>
+<h2 id="接口和抽象类的区别？"><a href="#接口和抽象类的区别？" class="headerlink" title="接口和抽象类的区别？"></a>接口和抽象类的区别？</h2><blockquote>
+<p>接口只有定义没有方法的实现，而抽象类可以实现方法</p>
+<p>继承接口的关键字是implement, 继承抽象类的关键字是extends，接口可以实现多个接口，一个类只能继承一个抽象类。使用接口可以间接的完成多重继承</p>
+<p>接口强调特定功能的实现，抽象类强调所属关系</p>
+</blockquote>
 
       
 
@@ -346,11 +352,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2021/09/10/Java%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/09/12/diary-2021-0912-2329/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java基础
+          几点有趣的思考
         
       </div>
     </a>

@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>计算机网络 | li&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TCP的三次握手四次挥手三次握手 第一次握手：客户端发送带有SYN标志的数据包。第一次握手Serve端确认客户端发送和服务端接收正常 第二次握手：客户端发送带有SYN&#x2F;ACK标志的数据包。第二次握手客户端通过ACK确认自己发送Serve端接收正常，通过ACK确认客户端发送正常。 第三次握手：客户端发送带有ACK标志的数据包。主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。   三">
+  <meta name="description" content="简单地谈谈OSI模型 OSI七层模型：应用层 表示层 会话层 运输层 网络层 数据链路层 物理层 五层协议体系结构：应用层 运输层 网络层 数据链路层 物理层 TCP&#x2F;IP体系结构：应用层（FTP SMTP TELNET HTTP） 运输层（TCP UDP） 网际层IP 网络接口层   应用层：主要有FTP SMTP TELNET HTTP这些协议，协议主要定义的是应用进程之间的通信和交互规则。应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络">
 <meta property="og:url" content="http://example.com/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="li&#39;s blogs">
-<meta property="og:description" content="TCP的三次握手四次挥手三次握手 第一次握手：客户端发送带有SYN标志的数据包。第一次握手Serve端确认客户端发送和服务端接收正常 第二次握手：客户端发送带有SYN&#x2F;ACK标志的数据包。第二次握手客户端通过ACK确认自己发送Serve端接收正常，通过ACK确认客户端发送正常。 第三次握手：客户端发送带有ACK标志的数据包。主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。   三">
+<meta property="og:description" content="简单地谈谈OSI模型 OSI七层模型：应用层 表示层 会话层 运输层 网络层 数据链路层 物理层 五层协议体系结构：应用层 运输层 网络层 数据链路层 物理层 TCP&#x2F;IP体系结构：应用层（FTP SMTP TELNET HTTP） 运输层（TCP UDP） 网际层IP 网络接口层   应用层：主要有FTP SMTP TELNET HTTP这些协议，协议主要定义的是应用进程之间的通信和交互规则。应">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-31T15:59:10.000Z">
-<meta property="article:modified_time" content="2022-04-01T13:58:28.198Z">
+<meta property="article:modified_time" content="2022-04-05T06:10:52.123Z">
 <meta property="article:author" content="Caodong Li">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -179,7 +179,30 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="TCP的三次握手四次挥手"><a href="#TCP的三次握手四次挥手" class="headerlink" title="TCP的三次握手四次挥手"></a>TCP的三次握手四次挥手</h2><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><blockquote>
+        <h2 id="简单地谈谈OSI模型"><a href="#简单地谈谈OSI模型" class="headerlink" title="简单地谈谈OSI模型"></a>简单地谈谈OSI模型</h2><blockquote>
+<p>OSI七层模型：应用层 表示层 会话层 运输层 网络层 数据链路层 物理层</p>
+<p>五层协议体系结构：应用层 运输层 网络层 数据链路层 物理层</p>
+<p>TCP/IP体系结构：应用层（FTP SMTP TELNET HTTP） 运输层（TCP UDP） 网际层IP 网络接口层</p>
+</blockquote>
+<blockquote>
+<p>应用层：主要有FTP SMTP TELNET HTTP这些协议，协议主要定义的是应用进程之间的通信和交互规则。应用层交互的数据单元称作是报文</p>
+<p>运输层：主要有UDP，TCP协议，负责进程之间通信并提供数据传输服务。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TCP报文格式（TCP首部（源端口、目的端口、序号（标识字节流）确认号 首部长度 16位窗口大小 16位检验和，16位紧急指针）32bit）（TCP数据部分）</span><br><span class="line">UDP报文格式（UDP首部（源端口、目的端口、报文长度、校验和））（UDP数据）</span><br><span class="line">TCP和UDP可以共用一个端口，使用netstat -an 可以看到IP首部是有协议的标识，一个监听是通过协议、ip、端口号组成的</span><br></pre></td></tr></table></figure>
+
+<p>网络层：主要有ARP协议，IP协议，ICMP协议，IGMP协议， 负责选择合适的网间路由和交换节点，确保数据及时传送</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ARP(地址解析协议)---为IP提供服务---&gt;IP(网际互连协议)---为ICMP提供服务---&gt;ICMP(控制报文协议（消息）)---为IGMP协议提供服务---&gt;IGMP(组播协议)</span><br><span class="line">IP报文格式(IP首部(版本号，首部长度，服务类型，总长度，标识，标志，片偏移，生存时间，协议，校验和，源IP地址，目的IP地址) IP数据(包括运输层数据))</span><br></pre></td></tr></table></figure>
+
+<p>数据链路层：主要有网卡、网桥、交换机，进行数据交换，将要传输的数据转化为二进制</p>
+<p>物理层：中继器，集线器，网关，提供数据传输的硬件保证</p>
+</blockquote>
+<h2 id="什么是TCP粘包？如何避免？"><a href="#什么是TCP粘包？如何避免？" class="headerlink" title="什么是TCP粘包？如何避免？"></a>什么是TCP粘包？如何避免？</h2><blockquote>
+<p>发送方发送的若干包数据到接收方接收时，粘成一个包数据</p>
+</blockquote>
+<blockquote>
+<p>首部添加报文长度的字段</p>
+<p>每个包的末尾添加特殊字符，用以区分两个连续的包</p>
+</blockquote>
+<h2 id="TCP的三次握手四次挥手"><a href="#TCP的三次握手四次挥手" class="headerlink" title="TCP的三次握手四次挥手"></a>TCP的三次握手四次挥手</h2><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><blockquote>
 <p>第一次握手：客户端发送带有SYN标志的数据包。第一次握手Serve端确认客户端发送和服务端接收正常</p>
 <p>第二次握手：客户端发送带有SYN/ACK标志的数据包。第二次握手客户端通过ACK确认自己发送Serve端接收正常，通过ACK确认客户端发送正常。</p>
 <p>第三次握手：客户端发送带有ACK标志的数据包。主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。</p>
@@ -190,7 +213,9 @@ var _hmt = _hmt || [];
 <h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><blockquote>
 <p>第一次挥手：客户端发送一个FIN标志的数据包，关闭客户端到服务端的数据传送。</p>
 <p>第二次挥手：服务端收到这个FIN，发回一个ACK。</p>
+<p>服务端进入close-wait阶段</p>
 <p>第三次挥手：服务端发送一个FIN标志的数据包，关闭服务端到客户端的数据传送。</p>
+<p>客户端进入time-wait阶段 等待2msl</p>
 <p>第四次挥手：客户端发回ACK标志的数据包确认关闭。</p>
 </blockquote>
 <h2 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h2><blockquote>
@@ -199,7 +224,49 @@ var _hmt = _hmt || [];
 <p>TCP的开销比较大，传输效率慢、UDP开销小，传输效率快</p>
 <p>TCP的传输是字节流、UDP是数据报文段</p>
 </blockquote>
-<h2 id="TCP如何保证可靠传输"><a href="#TCP如何保证可靠传输" class="headerlink" title="TCP如何保证可靠传输"></a>TCP如何保证可靠传输</h2>
+<h2 id="TCP如何保证可靠传输"><a href="#TCP如何保证可靠传输" class="headerlink" title="TCP如何保证可靠传输"></a>TCP如何保证可靠传输</h2><blockquote>
+<p>超时重传实现可靠传输：如果一个已经发送的报文段在超时时间内没有收到确认，那么就会重传这个报文段</p>
+<p>ARQ协议实现可靠传输：每发完一个分组就停止发送，等待对方确认，收到确认再发送下一个分组。</p>
+<p>滑动窗口实现流量控制：TCP使用的流量控制协议是可变大小的滑动窗口协议</p>
+<p>对应用数据进行分割：分割为合适发送的数据块</p>
+<p>对数据包进行编号</p>
+<p>校验和：保证数据的完整性</p>
+</blockquote>
+<h2 id="TCP如何进行拥塞控制"><a href="#TCP如何进行拥塞控制" class="headerlink" title="TCP如何进行拥塞控制"></a>TCP如何进行拥塞控制</h2><blockquote>
+<p>慢开始，拥塞避免，快重传，快恢复</p>
+</blockquote>
+<h2 id="Get和Post的区别？"><a href="#Get和Post的区别？" class="headerlink" title="Get和Post的区别？"></a>Get和Post的区别？</h2><blockquote>
+<p>URL中参数的可见性：Get参数可见（通过拼接URL进行参数传递），Post参数不可见。</p>
+<p>是否可缓存：Get请求可以缓存，Post不可以</p>
+<p>安全性：Get不安全</p>
+</blockquote>
+<h2 id="PING命令的原理？"><a href="#PING命令的原理？" class="headerlink" title="PING命令的原理？"></a>PING命令的原理？</h2><blockquote>
+<p>利用网络上机器IP地址的唯一性，给目标IP地址发送一个数据包，再要求对方返回一个同样大小的数据包来确定两台网络机器是否连接相通以及时延是多少。</p>
+<p>ping发送一个ICMP(Internet-Control-Messages-Protocol，因特网信报控制协议)，请求消息给目的地并报告是否收到所希望的ICMP-echo(ICMP回声应答)，它是用来检查网络是否通畅或者网络连接速度的命令。</p>
+</blockquote>
+<h2 id="在浏览器中输入url地址-gt-gt-显示主页的过程-面试常客"><a href="#在浏览器中输入url地址-gt-gt-显示主页的过程-面试常客" class="headerlink" title="在浏览器中输入url地址 -&gt;&gt; 显示主页的过程(面试常客)"></a>在浏览器中输入url地址 -&gt;&gt; 显示主页的过程(面试常客)</h2><blockquote>
+<p>浏览器解析DNS域名（本机host文件、浏览器缓存、路由器缓存、DNS缓存）DNS协议</p>
+</blockquote>
+<blockquote>
+<p>浏览器向WEB服务器发送一个HTTP请求（浏览器发起TCP连接， 客户端发送请求数据包（cookie），服务端发送响应数据包）</p>
+<p>浏览器向WEB服务器发送一个HTTPS请求（浏览器与服务器建立SSL连接，客户端与服务器端交换密钥，客户端发送密钥加密请求数据包（cookie），服务端发送响应数据包）</p>
+</blockquote>
+<blockquote>
+<p>服务器发回一个HTML响应，浏览器渲染页面</p>
+</blockquote>
+<h2 id="HTTP是不保存状态的协议-如何保存用户状态"><a href="#HTTP是不保存状态的协议-如何保存用户状态" class="headerlink" title="HTTP是不保存状态的协议,如何保存用户状态?"></a>HTTP是不保存状态的协议,如何保存用户状态?</h2><blockquote>
+<p>主要通过服务端Session记录用户的状态, 在Cookie中附加一个Session ID的方式进行跟踪。</p>
+</blockquote>
+<h2 id="Session和Cookie是如何进行交互的？"><a href="#Session和Cookie是如何进行交互的？" class="headerlink" title="Session和Cookie是如何进行交互的？"></a>Session和Cookie是如何进行交互的？</h2><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过cookie可以关联session，服务端创建的每一个session都是存储在服务端内存中的，服务器的内存可能会有多个session，并且每一个session都会有一个sessionId，每一次新建一个session都会通过增加一个请求头的方法创建一个cookie来保存sessionId。客户端每次向服务器发起请求都会带上cookie,服务端可以通过cookie携带的sessionId来找到对应的session,从而获取session里面的数据。（每一个cookie都有自己的有效路径，通过设置自己的有效路径可以决定在发送哪些请求时可以带上该cookie，默认是本身的webapp实例）</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所以我们首次登陆一个账号，一般会生成一个或多个唯一的cookie来保存该账号对该网站的会话信息（cookie保存sessionId,sessionId指向一个唯一的session,session保存会话信息）</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是当浏览器禁用cookie后，浏览器也就没有办法通过cookie来传递sessionId了（此时session还在，只是客户端没有携带sessionId从而无法找到对应的session，解决的办法是通过url重写，把sessionId参数携带在url中，连同url一起发送给服务器即可）</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+
       
 
       
@@ -292,8 +359,8 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java容器</div>
+    <a href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   

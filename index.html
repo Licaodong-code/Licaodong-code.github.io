@@ -159,6 +159,177 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
+  	<time datetime="2022-04-01T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MySQL事务的ACID是什么？"><a href="#MySQL事务的ACID是什么？" class="headerlink" title="MySQL事务的ACID是什么？"></a>MySQL事务的ACID是什么？</h2><blockquote>
+<p>原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。</p>
+<p>一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</p>
+<p>隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。</p>
+<p>持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失。</p>
+<p>系统发生崩溃可以用重做日志（redo log）进行恢复，从而实现持久化。</p>
+<p>与回滚日志记录数据的逻辑修改不同，重做日志记录的是数据页的物理修改。</p>
+</blockquote>
+<ul>
+<li><p>```</p>
+<ul>
+<li>只有满足一致性，事务的执行结果才是正确的。</li>
+<li>在无并发的情况下，事务串行执行，隔离性一定能够满足。此时只要能满足原子性，就一定能满足一致性。</li>
+<li>在并发的情况下，多个事务并行执行，事务不仅要满足原子性，还需要满足隔离性，才能满足一致性。</li>
+<li>事务满足持久化是为了能应对系统崩溃的情况。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 并发情况下可以导致什么一致性问题？</span><br><span class="line"></span><br><span class="line">&gt;在 XXXX 隔离级别，会出现 XXXX问题。</span><br><span class="line">&gt;</span><br><span class="line">&gt;在“读未提交”隔离级别下，会出现“丢失修改”、“脏读”、“不可重复读”、“幻读”问题</span><br><span class="line">&gt;</span><br><span class="line">&gt;在“读已提交”隔离级别下，会出现“不可重复读”、“幻读”问题</span><br><span class="line">&gt;</span><br><span class="line">&gt;在“可重复读”隔离级别下，会出现“幻读”问题，```mysql```的默认隔离级别，实现手段是加行锁</span><br><span class="line">&gt;</span><br><span class="line">&gt;在“可串行化”隔离级别下，不会出现上述问题，并发效率低，```mysql```实现可串性化的手段是加锁</span><br><span class="line"></span><br><span class="line">## 什么是三级封锁协议？</span><br><span class="line"></span><br><span class="line">&gt; 1 级封锁协议是：事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。事务结束包括正常结束(COMMIT)和非正常结束(ROLLBACK)。 1级封锁协议可防止丢失修改，并保证事务T是可恢复的。在1级封锁协议中，如果仅仅是读数据不对其进行修改，是不需要加锁的，所以它不能保证可重复读和不 读&quot;脏&quot;数据。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 2级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，读完后即可释放S锁。2级封锁协议除防止了丢失修改，还可进一步防止读&quot;脏&quot;数据。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 3级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，直到事务结束才释放。3级封锁协议除防止了丢失修改和不读&#x27;脏&#x27;数据外，还进一步防止了不可重复读。</span><br><span class="line"></span><br><span class="line">## ```Mysql```如何实现可重复读？</span><br><span class="line"></span><br><span class="line">&gt; 主要是通过MVCC机制实现</span><br><span class="line"></span><br><span class="line">&gt; MVCC是一种读写分离的机制，可以减少不必要的加锁。写当前版本快照，读旧版本快照</span><br><span class="line">&gt;</span><br><span class="line">&gt; MVCC 的多版本指的是多个版本的快照，快照存储在 Undo 日志中，该日志通过回滚指针 ROLL_PTR 把一个数据行的所有快照连接起来。</span><br><span class="line">&gt;</span><br><span class="line">&gt; MVCC可以实现可重复读，在一定程度上也能避免幻读(```readview```被复用)</span><br><span class="line"></span><br><span class="line">## ```Mysql```的索引底层要用B+树？</span><br><span class="line"></span><br><span class="line">&gt; 相比于红黑树，B+树访问磁盘有更高的性能。内存与磁盘以叶为单位交换数据，B+树将索引的一个节点的大小设置为页的大小</span><br><span class="line"></span><br><span class="line">&gt; 相比于B树，B+树只在叶子节点存储数据，非叶子节点只存储索引，所以更加的矮胖，查询的效率更高</span><br><span class="line"></span><br><span class="line">## ```Mysql```进行索引优化的方法？</span><br><span class="line"></span><br><span class="line">&gt; 独立的列：进行查询时，索引不能是表达式的一部分，也不能是函数的参数，否则索引失效</span><br><span class="line">&gt;</span><br><span class="line">&gt; 多列索引：进行查询时，尽量通过建立多列索引尽可能减少查询次数</span><br><span class="line">&gt;</span><br><span class="line">&gt; 索引顺序：进行查询时，选择性强的放左边</span><br><span class="line"></span><br><span class="line">&gt; 使用前缀索引</span><br><span class="line">&gt;</span><br><span class="line">&gt; 使用联合索引+覆盖索引（索引包含查询的字段）</span><br><span class="line"></span><br><span class="line">&gt; 删除一些不必要的索引：进行数据修改后，需要更新索引，假如索引太多，会严重影响```mysql```的性能。</span><br><span class="line"></span><br><span class="line">## 常见日志分类及作用？</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><ol>
+<li>redo 重做日志:</li>
+</ol>
+</li>
+<li><p>作用：确保事务的持久性，防止在发生故障，脏页未写入磁盘。重启数据库会进行redo log执行重做，到达事务一致性</p>
+</li>
+<li><ol start="2">
+<li>undo 回滚日志</li>
+</ol>
+</li>
+<li><p>作用：保证数据的原子性，记录事务发生之前的数据的一个版本，用于回滚。innodb事务的可重复读和读取已提交 隔离级别就是通过mvcc+undo实现</p>
+</li>
+<li><ol start="3">
+<li>errorlog 错误日志</li>
+</ol>
+</li>
+<li><p>作用：Mysql本身启动、停止、运行期间发生的错误信息</p>
+</li>
+<li><ol start="4">
+<li>slow query log 慢查询日志</li>
+</ol>
+</li>
+<li><p>作用：记录执行时间过长的sql，时间阈值可以配置，只记录执行成功</p>
+</li>
+<li><ol start="5">
+<li>binlog 二进制日志</li>
+</ol>
+</li>
+<li><p>作用：用于主从复制，实现主从同步</p>
+</li>
+<li><ol start="6">
+<li>relay log 中继日志</li>
+</ol>
+</li>
+<li><p>作用：用于数据库主从同步，将主库发送来的binlog先保存在本地，然后从库进行回放</p>
+</li>
+<li><ol start="7">
+<li>general log 普通日志</li>
+</ol>
+</li>
+<li><p>作用：记录数据库操作明细，默认关闭，开启会降低数据库性能<br>```</p>
+<h2 id="数据库发生崩溃后如何进行恢复？"><a href="#数据库发生崩溃后如何进行恢复？" class="headerlink" title="数据库发生崩溃后如何进行恢复？"></a>数据库发生崩溃后如何进行恢复？</h2><blockquote>
+<p>两阶段提交：先写redo_log 并设置为prepare ——&gt;再写bin_log——&gt;将redo_log设置为commit</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>进行两阶段提交 Write ahead Logging 的原因是对redo_log只进行一次写入会出现问题</p>
+</blockquote>
+<blockquote>
+<p>在做Crash recovery时，分为以下3种情况：<br> bin_log有记录，redo_log状态commit：正常完成的事务，不需要恢复；<br> bin_log有记录，redo_log状态prepare：在bin_log写完提交事务之前的crash，恢复操作：提交事务。（因为之前没有提交）</p>
+<p>​            判断bin_log是否完整 是 则提交 否则 回滚</p>
+<p> bin_log无记录，redo_log状态prepare：在bin_log写完之前的crash，恢复操作：回滚事务（因为crash时并没有成功写入数据库）</p>
+</blockquote>
+<h2 id="数据库角度-缓解数据库压力，实现高并发的手段有哪些？"><a href="#数据库角度-缓解数据库压力，实现高并发的手段有哪些？" class="headerlink" title="数据库角度 缓解数据库压力，实现高并发的手段有哪些？"></a>数据库角度 缓解数据库压力，实现高并发的手段有哪些？</h2><blockquote>
+<p>从数据库的角度看，分库分表是请求已经到达数据库的一个重要的办法</p>
+</blockquote>
+<h3 id="切片（分表）"><a href="#切片（分表）" class="headerlink" title="切片（分表）"></a>切片（分表）</h3><blockquote>
+<p>水平切分：将同一个表的记录拆分到多个结构相同的表中，将数据分布到集群的不同节点上，从而缓解单个数据库的压力</p>
+</blockquote>
+<blockquote>
+<p>垂直切分：将一张表分成两张以上的表</p>
+</blockquote>
+<h3 id="复制（分库）"><a href="#复制（分库）" class="headerlink" title="复制（分库）"></a>复制（分库）</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><blockquote>
+<p>主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程。</p>
+<ul>
+<li><strong>binlog 线程</strong> ：负责将主服务器上的数据更改写入二进制日志（Binary log）中。</li>
+<li><strong>I/O 线程</strong> ：负责从主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）。</li>
+<li><strong>SQL 线程</strong> ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中重放（Replay）。</li>
+</ul>
+</blockquote>
+<h3 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h3><blockquote>
+<p>主服务器处理写操作以及实时性要求比较高的读操作，而从服务器处理读操作。</p>
+<p>读写分离能提高性能的原因在于：</p>
+<ul>
+<li>主从服务器负责各自的读和写，极大程度缓解了锁的争用；</li>
+<li>从服务器可以使用 MyISAM，提升查询性能以及节约系统开销；</li>
+<li>增加冗余，提高可用性。</li>
+</ul>
+<p>读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-diary-2022-0401-2203" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -350,7 +521,30 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="TCP的三次握手四次挥手"><a href="#TCP的三次握手四次挥手" class="headerlink" title="TCP的三次握手四次挥手"></a>TCP的三次握手四次挥手</h2><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><blockquote>
+        <h2 id="简单地谈谈OSI模型"><a href="#简单地谈谈OSI模型" class="headerlink" title="简单地谈谈OSI模型"></a>简单地谈谈OSI模型</h2><blockquote>
+<p>OSI七层模型：应用层 表示层 会话层 运输层 网络层 数据链路层 物理层</p>
+<p>五层协议体系结构：应用层 运输层 网络层 数据链路层 物理层</p>
+<p>TCP/IP体系结构：应用层（FTP SMTP TELNET HTTP） 运输层（TCP UDP） 网际层IP 网络接口层</p>
+</blockquote>
+<blockquote>
+<p>应用层：主要有FTP SMTP TELNET HTTP这些协议，协议主要定义的是应用进程之间的通信和交互规则。应用层交互的数据单元称作是报文</p>
+<p>运输层：主要有UDP，TCP协议，负责进程之间通信并提供数据传输服务。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TCP报文格式（TCP首部（源端口、目的端口、序号（标识字节流）确认号 首部长度 16位窗口大小 16位检验和，16位紧急指针）32bit）（TCP数据部分）</span><br><span class="line">UDP报文格式（UDP首部（源端口、目的端口、报文长度、校验和））（UDP数据）</span><br><span class="line">TCP和UDP可以共用一个端口，使用netstat -an 可以看到IP首部是有协议的标识，一个监听是通过协议、ip、端口号组成的</span><br></pre></td></tr></table></figure>
+
+<p>网络层：主要有ARP协议，IP协议，ICMP协议，IGMP协议， 负责选择合适的网间路由和交换节点，确保数据及时传送</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ARP(地址解析协议)---为IP提供服务---&gt;IP(网际互连协议)---为ICMP提供服务---&gt;ICMP(控制报文协议（消息）)---为IGMP协议提供服务---&gt;IGMP(组播协议)</span><br><span class="line">IP报文格式(IP首部(版本号，首部长度，服务类型，总长度，标识，标志，片偏移，生存时间，协议，校验和，源IP地址，目的IP地址) IP数据(包括运输层数据))</span><br></pre></td></tr></table></figure>
+
+<p>数据链路层：主要有网卡、网桥、交换机，进行数据交换，将要传输的数据转化为二进制</p>
+<p>物理层：中继器，集线器，网关，提供数据传输的硬件保证</p>
+</blockquote>
+<h2 id="什么是TCP粘包？如何避免？"><a href="#什么是TCP粘包？如何避免？" class="headerlink" title="什么是TCP粘包？如何避免？"></a>什么是TCP粘包？如何避免？</h2><blockquote>
+<p>发送方发送的若干包数据到接收方接收时，粘成一个包数据</p>
+</blockquote>
+<blockquote>
+<p>首部添加报文长度的字段</p>
+<p>每个包的末尾添加特殊字符，用以区分两个连续的包</p>
+</blockquote>
+<h2 id="TCP的三次握手四次挥手"><a href="#TCP的三次握手四次挥手" class="headerlink" title="TCP的三次握手四次挥手"></a>TCP的三次握手四次挥手</h2><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><blockquote>
 <p>第一次握手：客户端发送带有SYN标志的数据包。第一次握手Serve端确认客户端发送和服务端接收正常</p>
 <p>第二次握手：客户端发送带有SYN/ACK标志的数据包。第二次握手客户端通过ACK确认自己发送Serve端接收正常，通过ACK确认客户端发送正常。</p>
 <p>第三次握手：客户端发送带有ACK标志的数据包。主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。</p>
@@ -361,7 +555,9 @@ var _hmt = _hmt || [];
 <h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><blockquote>
 <p>第一次挥手：客户端发送一个FIN标志的数据包，关闭客户端到服务端的数据传送。</p>
 <p>第二次挥手：服务端收到这个FIN，发回一个ACK。</p>
+<p>服务端进入close-wait阶段</p>
 <p>第三次挥手：服务端发送一个FIN标志的数据包，关闭服务端到客户端的数据传送。</p>
+<p>客户端进入time-wait阶段 等待2msl</p>
 <p>第四次挥手：客户端发回ACK标志的数据包确认关闭。</p>
 </blockquote>
 <h2 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h2><blockquote>
@@ -370,7 +566,49 @@ var _hmt = _hmt || [];
 <p>TCP的开销比较大，传输效率慢、UDP开销小，传输效率快</p>
 <p>TCP的传输是字节流、UDP是数据报文段</p>
 </blockquote>
-<h2 id="TCP如何保证可靠传输"><a href="#TCP如何保证可靠传输" class="headerlink" title="TCP如何保证可靠传输"></a>TCP如何保证可靠传输</h2>
+<h2 id="TCP如何保证可靠传输"><a href="#TCP如何保证可靠传输" class="headerlink" title="TCP如何保证可靠传输"></a>TCP如何保证可靠传输</h2><blockquote>
+<p>超时重传实现可靠传输：如果一个已经发送的报文段在超时时间内没有收到确认，那么就会重传这个报文段</p>
+<p>ARQ协议实现可靠传输：每发完一个分组就停止发送，等待对方确认，收到确认再发送下一个分组。</p>
+<p>滑动窗口实现流量控制：TCP使用的流量控制协议是可变大小的滑动窗口协议</p>
+<p>对应用数据进行分割：分割为合适发送的数据块</p>
+<p>对数据包进行编号</p>
+<p>校验和：保证数据的完整性</p>
+</blockquote>
+<h2 id="TCP如何进行拥塞控制"><a href="#TCP如何进行拥塞控制" class="headerlink" title="TCP如何进行拥塞控制"></a>TCP如何进行拥塞控制</h2><blockquote>
+<p>慢开始，拥塞避免，快重传，快恢复</p>
+</blockquote>
+<h2 id="Get和Post的区别？"><a href="#Get和Post的区别？" class="headerlink" title="Get和Post的区别？"></a>Get和Post的区别？</h2><blockquote>
+<p>URL中参数的可见性：Get参数可见（通过拼接URL进行参数传递），Post参数不可见。</p>
+<p>是否可缓存：Get请求可以缓存，Post不可以</p>
+<p>安全性：Get不安全</p>
+</blockquote>
+<h2 id="PING命令的原理？"><a href="#PING命令的原理？" class="headerlink" title="PING命令的原理？"></a>PING命令的原理？</h2><blockquote>
+<p>利用网络上机器IP地址的唯一性，给目标IP地址发送一个数据包，再要求对方返回一个同样大小的数据包来确定两台网络机器是否连接相通以及时延是多少。</p>
+<p>ping发送一个ICMP(Internet-Control-Messages-Protocol，因特网信报控制协议)，请求消息给目的地并报告是否收到所希望的ICMP-echo(ICMP回声应答)，它是用来检查网络是否通畅或者网络连接速度的命令。</p>
+</blockquote>
+<h2 id="在浏览器中输入url地址-gt-gt-显示主页的过程-面试常客"><a href="#在浏览器中输入url地址-gt-gt-显示主页的过程-面试常客" class="headerlink" title="在浏览器中输入url地址 -&gt;&gt; 显示主页的过程(面试常客)"></a>在浏览器中输入url地址 -&gt;&gt; 显示主页的过程(面试常客)</h2><blockquote>
+<p>浏览器解析DNS域名（本机host文件、浏览器缓存、路由器缓存、DNS缓存）DNS协议</p>
+</blockquote>
+<blockquote>
+<p>浏览器向WEB服务器发送一个HTTP请求（浏览器发起TCP连接， 客户端发送请求数据包（cookie），服务端发送响应数据包）</p>
+<p>浏览器向WEB服务器发送一个HTTPS请求（浏览器与服务器建立SSL连接，客户端与服务器端交换密钥，客户端发送密钥加密请求数据包（cookie），服务端发送响应数据包）</p>
+</blockquote>
+<blockquote>
+<p>服务器发回一个HTML响应，浏览器渲染页面</p>
+</blockquote>
+<h2 id="HTTP是不保存状态的协议-如何保存用户状态"><a href="#HTTP是不保存状态的协议-如何保存用户状态" class="headerlink" title="HTTP是不保存状态的协议,如何保存用户状态?"></a>HTTP是不保存状态的协议,如何保存用户状态?</h2><blockquote>
+<p>主要通过服务端Session记录用户的状态, 在Cookie中附加一个Session ID的方式进行跟踪。</p>
+</blockquote>
+<h2 id="Session和Cookie是如何进行交互的？"><a href="#Session和Cookie是如何进行交互的？" class="headerlink" title="Session和Cookie是如何进行交互的？"></a>Session和Cookie是如何进行交互的？</h2><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过cookie可以关联session，服务端创建的每一个session都是存储在服务端内存中的，服务器的内存可能会有多个session，并且每一个session都会有一个sessionId，每一次新建一个session都会通过增加一个请求头的方法创建一个cookie来保存sessionId。客户端每次向服务器发起请求都会带上cookie,服务端可以通过cookie携带的sessionId来找到对应的session,从而获取session里面的数据。（每一个cookie都有自己的有效路径，通过设置自己的有效路径可以决定在发送哪些请求时可以带上该cookie，默认是本身的webapp实例）</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所以我们首次登陆一个账号，一般会生成一个或多个唯一的cookie来保存该账号对该网站的会话信息（cookie保存sessionId,sessionId指向一个唯一的session,session保存会话信息）</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是当浏览器禁用cookie后，浏览器也就没有办法通过cookie来传递sessionId了（此时session还在，只是客户端没有携带sessionId从而无法找到对应的session，解决的办法是通过url重写，把sessionId参数携带在url中，连同url一起发送给服务器即可）</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+
       
 
       
@@ -423,27 +661,70 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-计算机网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-面试-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">Java容器</a>
+      <a class="article-title" href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
     </h1>
   
 
         
-        <a href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
+        <a href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2022-03-31T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><blockquote>
+<p>创建型设计模式：保证一个类只有一个实例，并提供一个访问该实例的全局节点</p>
+</blockquote>
+<ul>
+<li><p>饿汉式</p>
+<p>类加载时就初始化，浪费内存，不能延迟加载</p>
+<p>基于<code>classloader</code>机制避免多线程同步问题，线程安全</p>
+<p>没有加锁，调用效率高</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>懒汉式</li>
+</ul>
+<p>​        线程不安全，实现了延迟加载</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>​        实现延迟加载的同时保证线程安全，但是效率偏低</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>双重检验锁</p>
+<p>双重判断，延迟加载，线程安全</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">synchronized</span>(Singleton.class)&#123; <span class="comment">// 代码块上锁</span></span><br><span class="line">                <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">                    instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>静态内部类</li>
+</ul>
+<p>​        只有调用<code>getInstance</code> 方法时，才装载静态内部类，从而实例化instance，线程安全、延迟加载、效率高</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> class <span class="title">SingletonInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton Instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonInstance.Instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>枚举</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><blockquote>
+<p>创建型设计模式：能够复制对象，且无需使代码依赖他们所属的类</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Prototype implements Cloneable&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Date time;</span><br><span class="line">    </span><br><span class="line">     <span class="comment">// 浅克隆</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.clone();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line">        Prototype v = (Prototype) <span class="keyword">super</span>.clone();</span><br><span class="line">        <span class="comment">// 深克隆：</span></span><br><span class="line">        <span class="comment">// 将原型类中的对象也克隆</span></span><br><span class="line">        v.createTime = (Date) v.time.clone();</span><br><span class="line">        <span class="keyword">return</span> v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -466,7 +747,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
         </p>
       
 
@@ -697,7 +978,10 @@ var _hmt = _hmt || [];
 <p>并发：同一时间段内，多个任务都在执行</p>
 <p>并行：多个任务同时执行</p>
 </blockquote>
-<h2 id="并发编程的三个重要特征"><a href="#并发编程的三个重要特征" class="headerlink" title="并发编程的三个重要特征"></a>并发编程的三个重要特征</h2><h2 id="实现高并发的手段有哪些？"><a href="#实现高并发的手段有哪些？" class="headerlink" title="实现高并发的手段有哪些？"></a>实现高并发的手段有哪些？</h2><blockquote>
+<h2 id="并发编程的三个重要特征"><a href="#并发编程的三个重要特征" class="headerlink" title="并发编程的三个重要特征"></a>并发编程的三个重要特征</h2><p>原子性：</p>
+<p>可见性：</p>
+<p>有序性：</p>
+<h2 id="实现高并发的手段有哪些？"><a href="#实现高并发的手段有哪些？" class="headerlink" title="实现高并发的手段有哪些？"></a>实现高并发的手段有哪些？</h2><blockquote>
 <p>系统拆分、缓存（高并发场景下读多写少）、MQ消息队列（将大量的请求送入消息队列）、分库分表、读写分离（数据库主从架构）、服务降级</p>
 </blockquote>
 <h2 id="JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？"><a href="#JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？" class="headerlink" title="JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？"></a>JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？</h2><blockquote>
@@ -907,81 +1191,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面试-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">Java容器</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
         </p>
       
 

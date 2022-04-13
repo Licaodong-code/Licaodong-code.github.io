@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java基础 | li&#39;s blogs</title>
+  <title>Java数据库 | li&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java三大特性是什么？具体表现是什么？ 封装、继承、多态   封装：将一个对象的属性、方法结合成一个独立的单元，隐蔽其中的细节。一个封装好的对象，我们只需要知道如何调用就行了。、   继承：子类对象可以继承父类的全部属性和方法，提高代码的复用   多态：多态是建立在继承上的一种机制，父类型的变量可以引用子类型的对象，所以同一个行为具有不同的表现形式。（刷码支付为例）动态绑定  Java几种基本的">
+  <meta name="description" content="MySQL事务的ACID是什么？ 原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。 一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。 隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。 持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础">
-<meta property="og:url" content="http://example.com/2021/09/10/Java%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="Java数据库">
+<meta property="og:url" content="http://example.com/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
 <meta property="og:site_name" content="li&#39;s blogs">
-<meta property="og:description" content="Java三大特性是什么？具体表现是什么？ 封装、继承、多态   封装：将一个对象的属性、方法结合成一个独立的单元，隐蔽其中的细节。一个封装好的对象，我们只需要知道如何调用就行了。、   继承：子类对象可以继承父类的全部属性和方法，提高代码的复用   多态：多态是建立在继承上的一种机制，父类型的变量可以引用子类型的对象，所以同一个行为具有不同的表现形式。（刷码支付为例）动态绑定  Java几种基本的">
+<meta property="og:description" content="MySQL事务的ACID是什么？ 原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。 一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。 隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。 持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-10T15:59:10.000Z">
-<meta property="article:modified_time" content="2022-03-31T08:07:08.008Z">
+<meta property="article:published_time" content="2022-04-01T15:59:10.000Z">
+<meta property="article:modified_time" content="2022-04-06T10:51:21.362Z">
 <meta property="article:author" content="Caodong Li">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -159,109 +159,123 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-面试-数据库" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java基础
+      Java数据库
     </h1>
   
 
         
-        <a href="/2021/09/10/Java%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2021-09-10T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-10</time>
+        <a href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
+  	<time datetime="2022-04-01T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Java三大特性是什么？具体表现是什么？"><a href="#Java三大特性是什么？具体表现是什么？" class="headerlink" title="Java三大特性是什么？具体表现是什么？"></a>Java三大特性是什么？具体表现是什么？</h2><blockquote>
-<p>封装、继承、多态</p>
+        <h2 id="MySQL事务的ACID是什么？"><a href="#MySQL事务的ACID是什么？" class="headerlink" title="MySQL事务的ACID是什么？"></a>MySQL事务的ACID是什么？</h2><blockquote>
+<p>原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。</p>
+<p>一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</p>
+<p>隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。</p>
+<p>持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失。</p>
+<p>系统发生崩溃可以用重做日志（redo log）进行恢复，从而实现持久化。</p>
+<p>与回滚日志记录数据的逻辑修改不同，重做日志记录的是数据页的物理修改。</p>
+</blockquote>
+<ul>
+<li><p>```</p>
+<ul>
+<li>只有满足一致性，事务的执行结果才是正确的。</li>
+<li>在无并发的情况下，事务串行执行，隔离性一定能够满足。此时只要能满足原子性，就一定能满足一致性。</li>
+<li>在并发的情况下，多个事务并行执行，事务不仅要满足原子性，还需要满足隔离性，才能满足一致性。</li>
+<li>事务满足持久化是为了能应对系统崩溃的情况。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 并发情况下可以导致什么一致性问题？</span><br><span class="line"></span><br><span class="line">&gt;在 XXXX 隔离级别，会出现 XXXX问题。</span><br><span class="line">&gt;</span><br><span class="line">&gt;在“读未提交”隔离级别下，会出现“丢失修改”、“脏读”、“不可重复读”、“幻读”问题</span><br><span class="line">&gt;</span><br><span class="line">&gt;在“读已提交”隔离级别下，会出现“不可重复读”、“幻读”问题</span><br><span class="line">&gt;</span><br><span class="line">&gt;在“可重复读”隔离级别下，会出现“幻读”问题，```mysql```的默认隔离级别，实现手段是加行锁</span><br><span class="line">&gt;</span><br><span class="line">&gt;在“可串行化”隔离级别下，不会出现上述问题，并发效率低，```mysql```实现可串性化的手段是加锁</span><br><span class="line"></span><br><span class="line">## 什么是三级封锁协议？</span><br><span class="line"></span><br><span class="line">&gt; 1 级封锁协议是：事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。事务结束包括正常结束(COMMIT)和非正常结束(ROLLBACK)。 1级封锁协议可防止丢失修改，并保证事务T是可恢复的。在1级封锁协议中，如果仅仅是读数据不对其进行修改，是不需要加锁的，所以它不能保证可重复读和不 读&quot;脏&quot;数据。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 2级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，读完后即可释放S锁。2级封锁协议除防止了丢失修改，还可进一步防止读&quot;脏&quot;数据。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 3级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，直到事务结束才释放。3级封锁协议除防止了丢失修改和不读&#x27;脏&#x27;数据外，还进一步防止了不可重复读。</span><br><span class="line"></span><br><span class="line">## ```Mysql```如何实现可重复读？</span><br><span class="line"></span><br><span class="line">&gt; 主要是通过MVCC机制实现</span><br><span class="line"></span><br><span class="line">&gt; MVCC是一种读写分离的机制，可以减少不必要的加锁。写当前版本快照，读旧版本快照</span><br><span class="line">&gt;</span><br><span class="line">&gt; MVCC 的多版本指的是多个版本的快照，快照存储在 Undo 日志中，该日志通过回滚指针 ROLL_PTR 把一个数据行的所有快照连接起来。</span><br><span class="line">&gt;</span><br><span class="line">&gt; MVCC可以实现可重复读，在一定程度上也能避免幻读(```readview```被复用)</span><br><span class="line"></span><br><span class="line">## ```Mysql```的索引底层要用B+树？</span><br><span class="line"></span><br><span class="line">&gt; 相比于红黑树，B+树访问磁盘有更高的性能。内存与磁盘以叶为单位交换数据，B+树将索引的一个节点的大小设置为页的大小</span><br><span class="line"></span><br><span class="line">&gt; 相比于B树，B+树只在叶子节点存储数据，非叶子节点只存储索引，所以更加的矮胖，查询的效率更高</span><br><span class="line"></span><br><span class="line">## ```Mysql```进行索引优化的方法？</span><br><span class="line"></span><br><span class="line">&gt; 独立的列：进行查询时，索引不能是表达式的一部分，也不能是函数的参数，否则索引失效</span><br><span class="line">&gt;</span><br><span class="line">&gt; 多列索引：进行查询时，尽量通过建立多列索引尽可能减少查询次数</span><br><span class="line">&gt;</span><br><span class="line">&gt; 索引顺序：进行查询时，选择性强的放左边</span><br><span class="line"></span><br><span class="line">&gt; 使用前缀索引</span><br><span class="line">&gt;</span><br><span class="line">&gt; 使用联合索引+覆盖索引（索引包含查询的字段）</span><br><span class="line"></span><br><span class="line">&gt; 删除一些不必要的索引：进行数据修改后，需要更新索引，假如索引太多，会严重影响```mysql```的性能。</span><br><span class="line"></span><br><span class="line">## 常见日志分类及作用？</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><ol>
+<li>redo 重做日志:</li>
+</ol>
+</li>
+<li><p>作用：确保事务的持久性，防止在发生故障，脏页未写入磁盘。重启数据库会进行redo log执行重做，到达事务一致性</p>
+</li>
+<li><ol start="2">
+<li>undo 回滚日志</li>
+</ol>
+</li>
+<li><p>作用：保证数据的原子性，记录事务发生之前的数据的一个版本，用于回滚。innodb事务的可重复读和读取已提交 隔离级别就是通过mvcc+undo实现</p>
+</li>
+<li><ol start="3">
+<li>errorlog 错误日志</li>
+</ol>
+</li>
+<li><p>作用：Mysql本身启动、停止、运行期间发生的错误信息</p>
+</li>
+<li><ol start="4">
+<li>slow query log 慢查询日志</li>
+</ol>
+</li>
+<li><p>作用：记录执行时间过长的sql，时间阈值可以配置，只记录执行成功</p>
+</li>
+<li><ol start="5">
+<li>binlog 二进制日志</li>
+</ol>
+</li>
+<li><p>作用：用于主从复制，实现主从同步</p>
+</li>
+<li><ol start="6">
+<li>relay log 中继日志</li>
+</ol>
+</li>
+<li><p>作用：用于数据库主从同步，将主库发送来的binlog先保存在本地，然后从库进行回放</p>
+</li>
+<li><ol start="7">
+<li>general log 普通日志</li>
+</ol>
+</li>
+<li><p>作用：记录数据库操作明细，默认关闭，开启会降低数据库性能<br>```</p>
+<h2 id="数据库发生崩溃后如何进行恢复？"><a href="#数据库发生崩溃后如何进行恢复？" class="headerlink" title="数据库发生崩溃后如何进行恢复？"></a>数据库发生崩溃后如何进行恢复？</h2><blockquote>
+<p>两阶段提交：先写redo_log 并设置为prepare ——&gt;再写bin_log——&gt;将redo_log设置为commit</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>进行两阶段提交 Write ahead Logging 的原因是对redo_log只进行一次写入会出现问题</p>
 </blockquote>
 <blockquote>
-<p>封装：将一个对象的属性、方法结合成一个独立的单元，隐蔽其中的细节。一个封装好的对象，我们只需要知道如何调用就行了。、</p>
+<p>在做Crash recovery时，分为以下3种情况：<br> bin_log有记录，redo_log状态commit：正常完成的事务，不需要恢复；<br> bin_log有记录，redo_log状态prepare：在bin_log写完提交事务之前的crash，恢复操作：提交事务。（因为之前没有提交）</p>
+<p>​            判断bin_log是否完整 是 则提交 否则 回滚</p>
+<p> bin_log无记录，redo_log状态prepare：在bin_log写完之前的crash，恢复操作：回滚事务（因为crash时并没有成功写入数据库）</p>
+</blockquote>
+<h2 id="数据库角度-缓解数据库压力，实现高并发的手段有哪些？"><a href="#数据库角度-缓解数据库压力，实现高并发的手段有哪些？" class="headerlink" title="数据库角度 缓解数据库压力，实现高并发的手段有哪些？"></a>数据库角度 缓解数据库压力，实现高并发的手段有哪些？</h2><blockquote>
+<p>从数据库的角度看，分库分表是请求已经到达数据库的一个重要的办法</p>
+</blockquote>
+<h3 id="切片（分表）"><a href="#切片（分表）" class="headerlink" title="切片（分表）"></a>切片（分表）</h3><blockquote>
+<p>水平切分：将同一个表的记录拆分到多个结构相同的表中，将数据分布到集群的不同节点上，从而缓解单个数据库的压力</p>
 </blockquote>
 <blockquote>
-<p>继承：子类对象可以继承父类的全部属性和方法，提高代码的复用</p>
+<p>垂直切分：将一张表分成两张以上的表</p>
 </blockquote>
-<blockquote>
-<p>多态：多态是建立在继承上的一种机制，父类型的变量可以引用子类型的对象，所以同一个行为具有不同的表现形式。（刷码支付为例）<strong>动态绑定</strong></p>
+<h3 id="复制（分库）"><a href="#复制（分库）" class="headerlink" title="复制（分库）"></a>复制（分库）</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><blockquote>
+<p>主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程。</p>
+<ul>
+<li><strong>binlog 线程</strong> ：负责将主服务器上的数据更改写入二进制日志（Binary log）中。</li>
+<li><strong>I/O 线程</strong> ：负责从主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）。</li>
+<li><strong>SQL 线程</strong> ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中重放（Replay）。</li>
+</ul>
 </blockquote>
-<h2 id="Java几种基本的数据类型是什么？对应的包装类型？为什么要有包装类型？各自占用多少字节？什么是缓冲池？"><a href="#Java几种基本的数据类型是什么？对应的包装类型？为什么要有包装类型？各自占用多少字节？什么是缓冲池？" class="headerlink" title="Java几种基本的数据类型是什么？对应的包装类型？为什么要有包装类型？各自占用多少字节？什么是缓冲池？"></a>Java几种基本的数据类型是什么？对应的包装类型？为什么要有包装类型？各自占用多少字节？什么是缓冲池？</h2><blockquote>
-<p>byte 1、short 2、int 4、long 8、float 4、double 8、char 2、boolean 1</p>
-</blockquote>
-<blockquote>
-<p>Byte Short Integer Long Float Double Character Boolean</p>
-</blockquote>
-<blockquote>
-<p>为每个基本数据类型提供一个包装类是为了使其具备面向对象的基本功能</p>
-</blockquote>
-<blockquote>
-<p>JDK1.8所有数值类均有缓冲池，默认-127 – 128，使用 <code>Integer.valueof()</code>会有缓冲池</p>
-</blockquote>
-<h2 id="String-StringBuffer-and-StringBuilder三者之间的不同是什么？"><a href="#String-StringBuffer-and-StringBuilder三者之间的不同是什么？" class="headerlink" title="String, StringBuffer and StringBuilder三者之间的不同是什么？"></a>String, StringBuffer and StringBuilder三者之间的不同是什么？</h2><blockquote>
-<p>可变性：String是不可变的，其它两个是可变的。String的不可变是因为String中的value被final修饰。</p>
-</blockquote>
-<blockquote>
-<p>线程安全性：String和StringBuffer 是线程安全的，StringBuilder是线程不安全的。String是天然的线程安全，buffer是加锁安全。</p>
-</blockquote>
-<blockquote>
-<p>应用场景：String应用于少量字符串操作，StringBuffer大量字符串操作且线程安全，StringBuilder应用大量字符串操作效率比较高，但是线程不安全</p>
-</blockquote>
-<h2 id="final关键字、static关键字"><a href="#final关键字、static关键字" class="headerlink" title="final关键字、static关键字"></a>final关键字、static关键字</h2><blockquote>
-<p>final关键字可以修饰变量、方法和类</p>
-<p>修饰变量：基本数据类型是值不变、引用是对象不变，但对象是可以修改的</p>
-<p>修饰方法：方法不能被重写</p>
-<p>修饰类：类不能被继承</p>
-</blockquote>
-<blockquote>
-<p>static关键字可以修饰代码块、内部类、方法和变量</p>
-<p>静态代码块是在类中只执行一次，可以用于实现一些公共的初始化操作</p>
-<p>静态内部类可以不依赖外部类的实例，可以直接通过类名引用</p>
-<p>静态方法可以不依赖类的实例，可以直接通过类名引用</p>
-<p>静态变量在内存中只存在一份，类的所有实例共享</p>
-</blockquote>
-<h2 id="重写和重载的区别"><a href="#重写和重载的区别" class="headerlink" title="重写和重载的区别"></a>重写和重载的区别</h2><blockquote>
-<p>重载是指实现一个方法：在一个类中，方法名相同，参数类型、个数、顺序不同的方法</p>
-</blockquote>
-<blockquote>
-<p>重写是发生在运行期间，子类对父类允许访问的方法进行重新编写</p>
-</blockquote>
-<h2 id="什么是反射？"><a href="#什么是反射？" class="headerlink" title="什么是反射？"></a>什么是反射？</h2><blockquote>
-<p>每个类都有一个Class对象，包含与类有关的信息，编译一个新类时，会产生同名的.class文件</p>
-</blockquote>
-<blockquote>
-<p>类加载相当于class对象的加载，类在第一次使用时才动态加载到JVM中</p>
-</blockquote>
-<blockquote>
-<p>反射可以提供运行时的类信息，包括filed，method，constructor</p>
-</blockquote>
-<blockquote>
-<p>反射的优点是：可扩展性好</p>
-<p>缺点是：性能开销大、安全限制、内部暴露</p>
-</blockquote>
-<h2 id="Java的泛型是如何工作的-什么是类型擦除"><a href="#Java的泛型是如何工作的-什么是类型擦除" class="headerlink" title="Java的泛型是如何工作的 ? 什么是类型擦除 ?"></a>Java的泛型是如何工作的 ? 什么是类型擦除 ?</h2><blockquote>
-<p>编译器在编译时擦除了所有类型相关的信息，所以在运行时不存在任何类型相关的信息。泛型附加的类型信息对JVM来说是不可见的</p>
-</blockquote>
-<h2 id="List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别"><a href="#List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别" class="headerlink" title="List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?"></a>List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?</h2><blockquote>
-<p>List&lt;? extends T&gt;接受任何继承至T的数据类型</p>
-</blockquote>
-<blockquote>
-<p>List &lt;? super T&gt;接受任何T的父类的数据类型</p>
-</blockquote>
-<h2 id="拆箱和装箱的含义和底层实现"><a href="#拆箱和装箱的含义和底层实现" class="headerlink" title="拆箱和装箱的含义和底层实现"></a>拆箱和装箱的含义和<strong>底层实现</strong></h2><blockquote>
-<p>自动装箱：基本数据类型自动转化为对应的引用数据类型 XXX = XXX.valueOf()</p>
-</blockquote>
-<blockquote>
-<p>自动拆箱：引用数据类型转换成基本数据类型 xxx = XXX.intvalue()</p>
-</blockquote>
-<h2 id="Exception的继承体系，基类是什么，Error什么时候会用到，Exception什么时候会用到？"><a href="#Exception的继承体系，基类是什么，Error什么时候会用到，Exception什么时候会用到？" class="headerlink" title="Exception的继承体系，基类是什么，Error什么时候会用到，Exception什么时候会用到？"></a>Exception的继承体系，基类是什么，Error什么时候会用到，Exception什么时候会用到？</h2><blockquote>
-<p>父类是Throwable, 子类RuntimeException（NullPointException）和 IOException（FileNotfoundException）</p>
-<p>Error是非受检错误，主要遇到的是虚拟机错误，比如StackOverflow和OutofMemory</p>
+<h3 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h3><blockquote>
+<p>主服务器处理写操作以及实时性要求比较高的读操作，而从服务器处理读操作。</p>
+<p>读写分离能提高性能的原因在于：</p>
+<ul>
+<li>主从服务器负责各自的读和写，极大程度缓解了锁的争用；</li>
+<li>从服务器可以使用 MyISAM，提升查询性能以及节约系统开销；</li>
+<li>增加冗余，提高可用性。</li>
+</ul>
+<p>读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。</p>
 </blockquote>
 
       
@@ -332,7 +346,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/09/10/Java%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +360,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2021/09/12/diary-2021-0912-2329/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          几点有趣的思考
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/09/10/%E9%9D%A2%E8%AF%95-Java%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java基础</div>
+    <a href="/2022/04/01/diary-2022-0401-2203/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">不想看朋友圈的一天</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,8 +393,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://example.com/2021/09/10/Java%E5%9F%BA%E7%A1%80/", 
-    sourceId: "Java基础",
+    url: "http://example.com/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/", 
+    sourceId: "面试-数据库",
     productKey: "2dba06fbf8d24c13915ea6c6aa7183b1",
     target: "cloud-tie-wrapper"
   };
