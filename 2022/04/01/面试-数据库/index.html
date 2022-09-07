@@ -16,9 +16,9 @@
 <meta property="og:description" content="MySQL事务的ACID是什么？ 原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。 一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。 隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。 持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-01T15:59:10.000Z">
-<meta property="article:modified_time" content="2022-04-21T14:39:06.133Z">
+<meta property="article:modified_time" content="2022-09-06T03:19:53.218Z">
 <meta property="article:author" content="Caodong Li">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="li&#39;s blogs" type="application/atom+xml">
@@ -262,6 +262,9 @@ var _hmt = _hmt || [];
 <h2 id="数据库角度-缓解数据库压力，实现高并发的手段有哪些？"><a href="#数据库角度-缓解数据库压力，实现高并发的手段有哪些？" class="headerlink" title="数据库角度 缓解数据库压力，实现高并发的手段有哪些？"></a>数据库角度 缓解数据库压力，实现高并发的手段有哪些？</h2><blockquote>
 <p>从数据库的角度看，分库分表是请求已经到达数据库的一个重要的办法</p>
 </blockquote>
+<h3 id="字段拆分"><a href="#字段拆分" class="headerlink" title="字段拆分"></a>字段拆分</h3><blockquote>
+<p>将字段进行更加详细的拆分，比如手机品牌+手机型号</p>
+</blockquote>
 <h3 id="切片（分表）"><a href="#切片（分表）" class="headerlink" title="切片（分表）"></a>切片（分表）</h3><blockquote>
 <p>水平切分：将同一个表的记录拆分到多个结构相同的表中，将数据分布到集群的不同节点上，从而缓解单个数据库的压力</p>
 </blockquote>
@@ -286,6 +289,41 @@ var _hmt = _hmt || [];
 </ul>
 <p>读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。</p>
 </blockquote>
+<h2 id="如何设计mysql数据库表"><a href="#如何设计mysql数据库表" class="headerlink" title="如何设计mysql数据库表"></a>如何设计mysql数据库表</h2><h4 id="选择正确的数据类型对于获得高性能至关重要"><a href="#选择正确的数据类型对于获得高性能至关重要" class="headerlink" title="选择正确的数据类型对于获得高性能至关重要"></a>选择正确的数据类型对于获得高性能至关重要</h4><blockquote>
+<ul>
+<li>确定合适的大类型（数值、字符串、时间、二进制）使用更小长度的数据类型、处理数据会快一点</li>
+<li>确定具体的类型：有无符号、取值范围、变长定长等</li>
+<li>一般要将字段定义成NOT NULL</li>
+</ul>
+<p>数值型：INT DECIMAL TINYINT</p>
+<p>时间：尽量用DATE DATETIME TIME</p>
+<p>字符串：VARCHAR CHAR</p>
+</blockquote>
+<h4 id="设计主键"><a href="#设计主键" class="headerlink" title="设计主键"></a>设计主键</h4><blockquote>
+<p>设计原则</p>
+<ul>
+<li>尽量使用自增主键（防止插入数据时从中间插入，引发页分裂，产生表碎片）</li>
+<li>主键最好不要有业务含义</li>
+</ul>
+</blockquote>
+<h4 id="设计表"><a href="#设计表" class="headerlink" title="设计表"></a>设计表</h4><blockquote>
+<p>规范化：理论层面上说就是要消除部分函数依赖、传递函数依赖</p>
+<p>表最好不要存储图片、音频、视频等大容量内容 防止binlog内容多导致主从复制效率变慢</p>
+<p>表名最好要避开保留字、长度什么的不宜过长</p>
+</blockquote>
+<h4 id="设计索引"><a href="#设计索引" class="headerlink" title="设计索引"></a>设计索引</h4><blockquote>
+<ul>
+<li><p>创建联合索引（联合索引要注意最左匹配原则，一定是从最左边的字段开始依次在b+树的叶子节点进行搜索）减少开销（建立一个索引相当于建立多个索引）防止回表（如果索引没有某个字段需要先回表搜索主键）过滤效率高</p>
+</li>
+<li><p>创建前缀索引 减少索引长度来提升性能</p>
+</li>
+<li><p>设计复合索引，将选择性能好的列作为前导列</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="考虑乱码问题"><a href="#考虑乱码问题" class="headerlink" title="考虑乱码问题"></a>考虑乱码问题</h4><blockquote>
+<p>防止乱码的关键是统一数据集，包括客户端、服务器端、linux客户端字符集，一般mysql采用 utf8_general_ci</p>
+</blockquote>
 
       
 
@@ -299,7 +337,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -542,6 +580,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>

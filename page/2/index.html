@@ -159,6 +159,103 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试-Java并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%B9%B6%E5%8F%91/" class="archive-article-date">
+  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="并发和并行的区别？"><a href="#并发和并行的区别？" class="headerlink" title="并发和并行的区别？"></a>并发和并行的区别？</h2><blockquote>
+<p>并发：同一时间段内，多个任务都在执行</p>
+<p>并行：多个任务同时执行</p>
+</blockquote>
+<h2 id="并发编程的三个重要特征"><a href="#并发编程的三个重要特征" class="headerlink" title="并发编程的三个重要特征"></a>并发编程的三个重要特征</h2><p>原子性：</p>
+<p>可见性：</p>
+<p>有序性：</p>
+<h2 id="实现高并发的手段有哪些？"><a href="#实现高并发的手段有哪些？" class="headerlink" title="实现高并发的手段有哪些？"></a>实现高并发的手段有哪些？</h2><blockquote>
+<p>系统拆分、缓存（高并发场景下读多写少）、MQ消息队列（将大量的请求送入消息队列）、分库分表、读写分离（数据库主从架构）、服务降级</p>
+</blockquote>
+<h2 id="JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？"><a href="#JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？" class="headerlink" title="JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？"></a>JAVA内存区域包括什么？哪些是线程共享的？哪些是线程私有的？</h2><blockquote>
+<p>堆：是线程中最大一块内存，主要存放新创建的对象</p>
+<p>方法区：已被加载的类信息、常量、静态变量等数据</p>
+</blockquote>
+<blockquote>
+<p>虚拟机栈：局部变量表、操作数栈、常量池引用</p>
+<p>本地方法栈：本地方法服务</p>
+<p>程序计数器：记录正在执行的虚拟机字节码指令的地址</p>
+</blockquote>
+<h2 id="什么是上下文切换？"><a href="#什么是上下文切换？" class="headerlink" title="什么是上下文切换？"></a>什么是上下文切换？</h2><blockquote>
+<p>一个线程的时间片用完了，会保存自己的状态，再次切换回来的时候要重新加载，这样一个过程就是上下文切换。</p>
+</blockquote>
+<h2 id="线程同步的方法？"><a href="#线程同步的方法？" class="headerlink" title="线程同步的方法？"></a>线程同步的方法？</h2><blockquote>
+</blockquote>
+<h2 id="悲观锁和乐观锁的区别？"><a href="#悲观锁和乐观锁的区别？" class="headerlink" title="悲观锁和乐观锁的区别？"></a>悲观锁和乐观锁的区别？</h2><h2 id="公平锁和非公平锁的区别？"><a href="#公平锁和非公平锁的区别？" class="headerlink" title="公平锁和非公平锁的区别？"></a>公平锁和非公平锁的区别？</h2><h1 id="JAVA并发框架"><a href="#JAVA并发框架" class="headerlink" title="JAVA并发框架"></a>JAVA并发框架</h1><h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><h2 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%B9%B6%E5%8F%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面试-前后端交互" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -360,19 +457,19 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <blockquote>
-<p>In the contemporary world,(主题theme) have/has become increasingly important. it’s of great necessity for(对象 students,senior people,fresh people,citizens,residents,staff,parents,patients) to (do something). The following are the reasons to support my view point.</p>
+<p>In the contemporary world,(主题theme) have/has become increasingly important. it’s of great necessity for(对象 students,senior people,fresh people,citizens,residents,staff,parents,patients) to (do something). The following are the <strong>reasons</strong> to support my view point.</p>
 </blockquote>
 <ul>
 <li>观点选择</li>
 </ul>
 <blockquote>
-<p>In the contemporary world, (something) have/has become increasing important. (People have different view on the (something))When facing with the decision of (something), quite a few would <strong>deem</strong> that(one choice), but others, in contrast, believe that (the other one) the <strong>premier</strong> choice. In my opinion (both options are suitable, the key lies in our interest)(we should choose something). The following are the reasons to support my view point.</p>
+<p>In the contemporary world, (something) have/has become increasing important. (People have different view on the (something))When facing with the decision of (something), quite a few would <strong>deem</strong> that(one choice), but others, in contrast, believe that (the other one) the <strong>premier</strong> choice. In my opinion (both options are suitable, the key lies in our interest)(we should choose something). The following are the <strong>reasons</strong> to support my view point.</p>
 </blockquote>
 <ul>
 <li>问题解决</li>
 </ul>
 <blockquote>
-<p> In the contemporary world,(主题theme) have/has become increasingly important. it’s of great necessity for(对象 students,senior people,fresh people,citizens,residents,staff,parents,patients) to (do something). The following are the solutions to account for the issue properly.</p>
+<p> In the contemporary world,(主题theme) have/has become increasingly important. it’s of great necessity for(对象 students,senior people,fresh people,citizens,residents,staff,parents,patients) to (do something). The following are the <strong>solutions</strong> to account for the issue properly.</p>
 </blockquote>
 <ul>
 <li>谚语类</li>
@@ -464,19 +561,19 @@ var _hmt = _hmt || [];
 <p>If we spare no effort to cultivate this ability, the future of our study and career will be both hopeful and rosy.</p>
 </blockquote>
 <h4 id="2021年作文"><a href="#2021年作文" class="headerlink" title="2021年作文"></a>2021年作文</h4><blockquote>
-<p>As is starkly mirrored in the diagram that Chinese rural population of poverty has been reduced to 0% of the rural population, it is revealed that China’ s achievements in poverty alleviation are <strong>extraordinary</strong>. The following are the reasons to account for this issue.</p>
+<p>As is starkly mirrored in the diagram that Chinese rural population of poverty has been reduced to 0% of the rural population, it is revealed that China’ s achievements in poverty alleviation are <strong>==extraordinary==</strong>. The following are the reasons to account for this issue.</p>
 </blockquote>
 <blockquote>
 <p>In the first place, there is no doubt that official in Chinese governments have played an important role in this process. Base on the big data, most of the governors involved have admitted that they’ve spent 2/3 of their time in rural area for the poverty alleviation. </p>
 </blockquote>
 <blockquote>
-<p>Moreover, no one can deny that the poverty alleviation policies are indeed beneficial. Where there are specific policies, there is incentives(动力)/motivation.</p>
+<p>Moreover, no one can deny that the poverty alleviation policies are indeed ==<strong>beneficial</strong>==. Where there are specific policies, there is <strong>incentives</strong>(动力)/<strong>motivation</strong>.</p>
 </blockquote>
 <blockquote>
 <p>Last but not least, I firmly believe that the personal efforts of the rural residents can not be ignored. The more hardworking they are, the wealthier they are.</p>
 </blockquote>
 <blockquote>
-<p>In conclusion, the <strong>accomplishment</strong> of the poverty alleviation in China is outstanding. if we spare no efforts to implement the policies and maintain hardworking, the future of our country will be both hopeful and prospective/rosy.</p>
+<p>In conclusion, the <strong>accomplishment</strong> of the poverty alleviation in China is <strong>==outstanding==</strong>. if we spare no efforts to implement the policies and maintain hardworking, the future of our country will be both hopeful and prospective/rosy.</p>
 </blockquote>
 <h4 id="2020年作文"><a href="#2020年作文" class="headerlink" title="2020年作文"></a>2020年作文</h4><blockquote>
 <p>In contemporary world, the ability to meet the challenges has become increasingly important, it’s of great necessity to develop the ability to meet the challenges. The following are the reasons and concrete evidence to support my view point. </p>
@@ -491,22 +588,22 @@ var _hmt = _hmt || [];
 <p>Last but not least, I firmly believe that without the ability to meet the challenge, we can not make great achievement. The more problem we solve, the smarter and capable we are.</p>
 </blockquote>
 <blockquote>
-<p>In conclusion, the ability to meet the challenges and solve problems is essential for everyone. if we spare no effort to cultivate the ability, the future of our study and career will become both hopeful and rosy.(prospective/promising)</p>
+<p>In conclusion, the ability to meet the challenges and solve problems is essential for everyone. if we spare no effort to <strong>cultivate</strong> the ability, the future of our study and career will become both hopeful and rosy.(prospective/promising)</p>
 </blockquote>
 <h4 id="2019年作文"><a href="#2019年作文" class="headerlink" title="2019年作文"></a>2019年作文</h4><blockquote>
-<p>As old saying goes : What is worth doing is worth doing well. For our college students, it has an increasingly significance: we can benefit from a lot from a serious attitude. The following are the reasons to support my view point.</p>
+<p>As old saying goes : What is worth doing is worth doing well. For our college students, it has an increasingly significance: we can benefit from a lot from a <strong>==serious==</strong> attitude. The following are the reasons to support my view point.</p>
 </blockquote>
 <blockquote>
-<p>In the first place, there is no doubt that attitude plays an vital role in one’s success. Base on the big data, most of the successful social elites admitted that they have maintain an serious attitude towards everything. Moreover, no one can deny that a serious attitude can help us cherish the rare opportunity to meet the success. Where there is a serious attitude, there is a probability. Last but not least, I firmly believe that without maintaining a serious attitude, we can not making any achievement. The more serious we are, The more possibility you will success.</p>
+<p>In the first place, there is no doubt that attitude plays an <strong>==vital==</strong> role in one’s success. Base on the big data, most of the successful social elites admitted that they have maintain an serious attitude towards everything. Moreover, no one can deny that a serious attitude can help us cherish the <strong>==rare==</strong> opportunity to meet the success. Where there is a serious attitude, there is a <strong>probability</strong>. Last but not least, I firmly believe that without maintaining a serious attitude, we can not making any achievement. The more serious we are, The more <strong>possibility</strong> you will success.</p>
 </blockquote>
 <blockquote>
-<p>In conclusion, an serious attitude is essential for everyone. if we spare no efforts to cultivate an serious attitude, the future of  our study and career will both hopeful and rosy/prospective</p>
+<p>In conclusion, an serious attitude is essential for everyone. if we spare no efforts to <strong>cultivate</strong> an serious attitude, the future of  our study and career will both hopeful and rosy/prospective</p>
 </blockquote>
 <h4 id="2018年作文"><a href="#2018年作文" class="headerlink" title="2018年作文"></a>2018年作文</h4><blockquote>
-<p>In contemporary world,  balancing job responsibilities and personal interests is increasingly important. It’s of necessity for a staff to balance job responsibilities and personal interests. The following are the solutions to account for this issue properly.</p>
+<p>In contemporary world,  balancing job responsibilities and personal interests is increasingly important. It’s of necessity for a <strong>staff</strong> to balance job responsibilities and personal interests. The following are the solutions to account for this issue <strong>==properly==</strong>.</p>
 </blockquote>
 <blockquote>
-<p>Firstly, there is no doubt that a win win situation can be reached if we cultivate interests related to our job responsibilities. Base on the big data, most of the successful social elites admitted that they’ve done a great job in combining  job responsibilities and personal interests. Furthermore, no one can deny that a correct outlook on job responsibilities and personal interests plays an important role in balancing them. Where there is a preference for anyone of them, there is a unbalance. Last but not least, I firmly believe that a detail plan is benefit for the distribution of time. With the detail plan, we can be clear to balance job responsibilities and personal interests. </p>
+<p>Firstly, there is no doubt that a <strong>win win situation</strong> can be reached if we cultivate interests related to our job responsibilities. Base on the big data, most of the successful social elites admitted that they’ve done a great job in <strong>combining</strong>  job responsibilities and personal interests. Furthermore, no one can deny that a correct outlook on job responsibilities and personal interests plays an important role in balancing them. Where there is a preference for anyone of them, there is a unbalance. Last but not least, I firmly believe that a <strong>==detail==</strong> plan is benefit for the distribution of time. With the detail plan, we can be clear to balance job responsibilities and personal interests. </p>
 </blockquote>
 <blockquote>
 <p>In conclusion, the balance of job responsibilities and personal interests is essential for us to succeed. if we spare no effort to understand the solution above, the future of our career and life will be prospective and rosy.</p>
@@ -521,22 +618,22 @@ var _hmt = _hmt || [];
 <p>In conclusion, overcoming procrastination is essential for everyone to succeed. if we spare no effort to doing best today, the future of our and career will become hopeful and rosy.</p>
 </blockquote>
 <h4 id="2017年作文-1"><a href="#2017年作文-1" class="headerlink" title="2017年作文"></a>2017年作文</h4><blockquote>
-<p>In contemporary world, major in university is become increasingly important. When we facing with the major’s choice of choosing major, quite a few would deem that science is a beneficial choice, but others, in contrast, believe that humanity is the premier choice. In my opinion, both choice are suitable, the key lies in our interest of which major. The following are the reasons to support my view point.</p>
+<p>In contemporary world, major in university is become increasingly important. When we facing with the major’s choice of choosing major, quite a few would deem that science is a beneficial choice, but others, in contrast,others believe that humanity is the <strong>premier</strong> choice. In my opinion, both choice are <strong>==suitable==</strong>, the key lies in our interest of which major. The following are the reasons to support my view point.</p>
 </blockquote>
 <blockquote>
-<p>In the first place, there is no doubt that we can deeply devote to learn the more interesting majors. Base on the big data, most of the successful social elites admitted that interest plays a important role in their success, with the interest, they have more incentives to achieve success. Furthermore, no one can deny that poor interest makes us weak, where there is poor interest, there is negative emotion. Last but not least, I firmly believe that interest can motivate us to learn more, even never be requested by our teachers.</p>
+<p>In the first place, there is no doubt that we can deeply devote to learn the more interesting majors. Base on the big data, most of the successful social elites admitted that interest plays a important role in their success, with the interest, they have more <strong>incentives</strong> to achieve success. Furthermore, no one can deny that poor interest makes us weak, where there is poor interest, there is negative emotion. Last but not least, I firmly believe that interest can motivate us to learn more, even never be requested by our teachers.</p>
 </blockquote>
 <blockquote>
 <p>In conclusion, interest is essential for everyone to succeed. if we spare no effort to the major we interested in, the future of our study and career will become both hopeful and rosy/prospective.</p>
 </blockquote>
 <h4 id="作文预测一"><a href="#作文预测一" class="headerlink" title="作文预测一"></a>作文预测一</h4><blockquote>
-<p>In the contemporary world , information explosion is become increasingly common. It’s of necessity for our students to avoid being distracted by irrelevant information. The following are the solutions to account for this issue.</p>
+<p>In the contemporary world , information explosion is become increasingly <strong>==common==</strong>. It’s of necessity for our students to avoid being distracted by irrelevant information. The following are the solutions to account for this issue.</p>
 </blockquote>
 <blockquote>
-<p>In the first place, as old saying goes : a wealth of information creates a poverty of attention. It is no doubt that we can not divorce from the reality that the spirit of exploration plays an important role for us. Base on the big data, most of the social elites admitted that they’ve spent 2/3 of their time to explore the information what they really need rather than be recommend by system. Furthermore, no one can deny that the ability of self-control can make us get information properly. Where there is self-control, there is efficiency in our life. Last but not least, I firmly believe that a detailed plan’s impact can not be ignored, the more detailed plan we make, the cleared in choosing information.</p>
+<p>In the first place, as old saying goes : a wealth of information creates a poverty of attention. It is no doubt that we can not divorce from the reality that the spirit of exploration plays an important role for us. Base on the big data, most of the social elites admitted that they’ve spent 2/3 of their time to explore the information what they really need rather than be recommend by system. Furthermore, no one can deny that the ability of self-control can make us get information properly. Where there is self-control, there is efficiency in our life. Last but not least, I firmly believe that a detailed plan’s <strong>impact</strong>/<strong>effect</strong> can not be ignored, the more detailed plan we make, the cleared in choosing information.</p>
 </blockquote>
 <blockquote>
-<p>In conclusion, avoiding being distracted by irrelevant information is really essential for us in this era of information explosion. if we make spare no effort to avoid being distracted by irrelevant information, the future of our study and life will be prospective and rosy.</p>
+<p>In conclusion, avoiding being distracted by irrelevant information is really essential for us in this era of information explosion. if we make spare no effort to avoid being distracted by irrelevant information, the future of our study and life will be prospective and rosy.distinguish irrelevant information</p>
 </blockquote>
 <h4 id="作文预测二"><a href="#作文预测二" class="headerlink" title="作文预测二"></a>作文预测二</h4><blockquote>
 <p>As old saying goes : to admit that you were wrong is to declare that you are wiser now than you were before. For our students, It has increasingly significances : admitting mistakes make us grow. The following are the reasons to account for this issue.</p>
@@ -1160,6 +1257,7 @@ var _hmt = _hmt || [];
 <h3 id="经常要考虑的溢出问题"><a href="#经常要考虑的溢出问题" class="headerlink" title="经常要考虑的溢出问题"></a>经常要考虑的溢出问题</h3><p>溢出问题是特定的数据类型的变量的值不在取值范围内出现的情况，所以首先要清楚该数据类型的取值范围。</p>
 <p>leetCode上的题很多是对整型的操作，So，怎么着都得对整型的范围了如指掌。0x7fffffff ~0x80000000.</p>
 <p><img src="/assets/blogImg/int.png" alt="int"></p>
+<h3 id="ACM模式下的输入输出问题"><a href="#ACM模式下的输入输出问题" class="headerlink" title="ACM模式下的输入输出问题"></a>ACM模式下的输入输出问题</h3><p><img src="/assets/blogImg/scanner.png" alt="int"></p>
 
       
 
@@ -1453,101 +1551,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-diary-2021-0921-2322" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/21/diary-2021-0921-2322/">太难，太焦虑</a>
-    </h1>
-  
-
-        
-        <a href="/2021/09/21/diary-2021-0921-2322/" class="archive-article-date">
-  	<time datetime="2021-09-21T15:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img src="/assets/blogImg/ticket.png" alt="ticket" style="zoom: 25%;" />
-
-<p>我太难了，十分的焦虑</p>
-<p>这其实可能是一个必经的时期吧</p>
-<p>先谈谈刷题吧</p>
-<p>最近在看Java版的数据结构</p>
-<p>觉得数据结构我应该是十分的强，但是Java的一些用法我其实还是不太适应</p>
-<p>比如经常犯错的</p>
-<p>合法性，这个好像和语言没啥关系，比如有索引的情况下我要判断索引是否越界，在获取或者移除一个元素的时候我要判断原来是否为空</p>
-<p>这其实更多是逻辑上的事</p>
-<p>Java的引用</p>
-<p>是最让我不适应的，原先都是指针指向一个元素，引用机制可能就是一种赋值的关系了，通过暂存去代表指针这种指向某个内存的关系</p>
-<p>代码只能一点一点肝了</p>
-<p>再谈谈论文吧</p>
-<p>很希望自己能发表一篇论文啊</p>
-<p>不过这真的是一件极其需要毅力的事情</p>
-<p>只能是看情况了</p>
-<p>我也不知道自己能不能做到，真的是四字形容—-一筹莫展啊</p>
-<p>今天又说要考六级</p>
-<p>历史遗留问题</p>
-<p>想想就头大</p>
-<p>good night！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/21/diary-2021-0921-2322/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1670,6 +1673,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>
