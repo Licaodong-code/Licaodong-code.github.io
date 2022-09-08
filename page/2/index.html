@@ -159,6 +159,108 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试-Java容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/">Java容器</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="List，Set，Map有哪些实现类？底层数据结构是什么？"><a href="#List，Set，Map有哪些实现类？底层数据结构是什么？" class="headerlink" title="List，Set，Map有哪些实现类？底层数据结构是什么？"></a>List，Set，Map有哪些实现类？底层数据结构是什么？</h2><blockquote>
+<p>List: ArrayList（数组）, LinkedList（双向链表）, Vector</p>
+</blockquote>
+<blockquote>
+<p>Set: HashSet（HashMap）, TreeSet（红黑树）, LinkedHashSet</p>
+</blockquote>
+<blockquote>
+<p>Map: HashMap, TreeMap, LinkedHashMap CocurrentHashMap</p>
+</blockquote>
+<h1 id="HashMap的实现原理？"><a href="#HashMap的实现原理？" class="headerlink" title="HashMap的实现原理？"></a>HashMap的实现原理？</h1><blockquote>
+<p>存储结构：node类型的数组 Node[]</p>
+<p>拉链法解决冲突，链表使用头插法插入元素</p>
+<p>散列函数：除留余数法 初始的capacity是16 。tip 取模是通过位运算，2的n次方可以极大的简化解决冲突</p>
+</blockquote>
+<blockquote>
+<p>当capacity为64时优先扩容，一个链表的长度等于8时，会将链表转换为红黑树</p>
+</blockquote>
+<blockquote>
+<p>扩容原理：</p>
+<p>1、capacity &lt;&lt; 1 重新计算 size threshold </p>
+<p>2、遍历旧的table，由于每次扩容都是左移一位，所以重新散列的位置是当前位置或者当前位置加上旧数组的长度的位置</p>
+<p>3、将遍历的节点复制到新的table上</p>
+<p>4、如果是红黑树则需要重建红黑树</p>
+</blockquote>
+<blockquote>
+<p>JDK 1.7 使用分段锁机制来实现并发更新操作，核心类为 Segment，它继承自重入锁 ReentrantLock，并发度与 Segment 数量相等。</p>
+<p>JDK 1.8 使用了 CAS 操作来支持更高的并发度，在 CAS 操作失败时使用内置锁 synchronized。</p>
+<p>并且 JDK 1.8 的实现也在链表过长时会转换为红黑树。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面试-Java并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1397,163 +1499,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-六级翻译常考单词梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E5%B8%B8%E8%80%83%E5%8D%95%E8%AF%8D%E6%A2%B3%E7%90%86/">六级翻译常考单词梳理</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E5%B8%B8%E8%80%83%E5%8D%95%E8%AF%8D%E6%A2%B3%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-10-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="六级翻译常考单词梳理"><a href="#六级翻译常考单词梳理" class="headerlink" title="六级翻译常考单词梳理"></a>六级翻译常考单词梳理</h3><h4 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h4><ul>
-<li>For thousands of years, </li>
-<li> During this period, During Spring Festival,Mid-autumn Festival, Dragon Boat Festival, Lantern Festival</li>
-<li>Nowadays, In recent years</li>
-<li>For decades</li>
-<li>with time goes by 日积月累</li>
-<li>First half of the 上半叶</li>
-<li>Second half of 下半叶</li>
-</ul>
-<h4 id="数量"><a href="#数量" class="headerlink" title="数量"></a>数量</h4><ul>
-<li>Hundreds of</li>
-<li>majority of, minority of</li>
-<li>variety，various </li>
-</ul>
-<h4 id="程度"><a href="#程度" class="headerlink" title="程度"></a>程度</h4><ul>
-<li>barely、hardly</li>
-<li>often、usually</li>
-<li>extremely、quite、entirely、completely、really</li>
-<li>nearly，almost</li>
-</ul>
-<h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><p>accompany accomplish</p>
-<p>exert generate have</p>
-<h4 id="修饰"><a href="#修饰" class="headerlink" title="修饰"></a>修饰</h4><ul>
-<li>经济文化方面</li>
-</ul>
-<h4 id="神话时期"><a href="#神话时期" class="headerlink" title="神话时期"></a>神话时期</h4><ul>
-<li>myth myths 神话、神话故事</li>
-<li>mythology 神话</li>
-<li>folk story 民间故事</li>
-</ul>
-<h4 id="远古时期"><a href="#远古时期" class="headerlink" title="远古时期"></a>远古时期</h4><ul>
-<li>ancient 古代的、远古的</li>
-</ul>
-<blockquote>
-<p>ancient China,ancient Rome,ancient architecture,ancient people, ancient civilization,ancient literature,ancient society</p>
-<p>ancient emperor</p>
-</blockquote>
-<ul>
-<li>dynasty 朝代</li>
-</ul>
-<blockquote>
-<p>dynastic, the reign of a dynasty,  , emperor, culture heritage</p>
-</blockquote>
-<ul>
-<li>rule 统治</li>
-<li>emperor 皇帝</li>
-<li>poet,poetic,poetry 诗人， 诗歌的，诗歌</li>
-<li>painter,painting,drawing 画家，画作</li>
-<li>war, enemy, territory 战争，敌人的， 领土</li>
-</ul>
-<h4 id="现代"><a href="#现代" class="headerlink" title="现代"></a>现代</h4><ul>
-<li>contemporary/modern age</li>
-<li>govern,governance,government</li>
-</ul>
-<blockquote>
-<p>government sector,government official,government agencies,government subsidy/subsidies,government work report, government document, government staff, government intervention, government policy</p>
-</blockquote>
-<ul>
-<li>artificial intelligence</li>
-</ul>
-<blockquote>
-<p>intelligent components</p>
-</blockquote>
-<ul>
-<li>disaster 灾难</li>
-</ul>
-<blockquote>
-<p>disasters, disaster relief, disaster recovery, disaster-hit, disaster management, disaster prevention, disaster response</p>
-</blockquote>
-<ul>
-<li>industry 工业</li>
-</ul>
-<blockquote>
-<p>industrial, the industrial revolution, the industry park, industry manufacture, industrialization, industrialize, Industrial production</p>
-</blockquote>
-<ul>
-<li>origin 起源</li>
-</ul>
-<blockquote>
-<p>original, originate, original, originally, originality, origination</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">English learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/08/%E5%85%AD%E7%BA%A7%E7%BF%BB%E8%AF%91%E5%B8%B8%E8%80%83%E5%8D%95%E8%AF%8D%E6%A2%B3%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 

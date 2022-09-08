@@ -393,6 +393,85 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-diary-2022-0908-1417" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/16/diary-2022-0908-1417/">坚持，熬过去就好了</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/16/diary-2022-0908-1417/" class="archive-article-date">
+  	<time datetime="2022-04-16T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="坚持，熬过去就好了"><a href="#坚持，熬过去就好了" class="headerlink" title="坚持，熬过去就好了"></a>坚持，熬过去就好了</h2><p>找工作真的是太难了</p>
+<p>还要学英语</p>
+<p>只能说</p>
+<p>坚持，熬过去就好了</p>
+<p>无时无刻 都要相信</p>
+<p>我可以同时做好很多事</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/16/diary-2022-0908-1417/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-diary-2022-0414-2303" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1223,111 +1302,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-面试-Java容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/">Java容器</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="List，Set，Map有哪些实现类？底层数据结构是什么？"><a href="#List，Set，Map有哪些实现类？底层数据结构是什么？" class="headerlink" title="List，Set，Map有哪些实现类？底层数据结构是什么？"></a>List，Set，Map有哪些实现类？底层数据结构是什么？</h2><blockquote>
-<p>List: ArrayList（数组）, LinkedList（双向链表）, Vector</p>
-</blockquote>
-<blockquote>
-<p>Set: HashSet（HashMap）, TreeSet（红黑树）, LinkedHashSet</p>
-</blockquote>
-<blockquote>
-<p>Map: HashMap, TreeMap, LinkedHashMap CocurrentHashMap</p>
-</blockquote>
-<h1 id="HashMap的实现原理？"><a href="#HashMap的实现原理？" class="headerlink" title="HashMap的实现原理？"></a>HashMap的实现原理？</h1><blockquote>
-<p>存储结构：node类型的数组 Node[]</p>
-<p>拉链法解决冲突，链表使用头插法插入元素</p>
-<p>散列函数：除留余数法 初始的capacity是16 。tip 取模是通过位运算，2的n次方可以极大的简化解决冲突</p>
-</blockquote>
-<blockquote>
-<p>当capacity为64时优先扩容，一个链表的长度等于8时，会将链表转换为红黑树</p>
-</blockquote>
-<blockquote>
-<p>扩容原理：</p>
-<p>1、capacity &lt;&lt; 1 重新计算 size threshold </p>
-<p>2、遍历旧的table，由于每次扩容都是左移一位，所以重新散列的位置是当前位置或者当前位置加上旧数组的长度的位置</p>
-<p>3、将遍历的节点复制到新的table上</p>
-<p>4、如果是红黑树则需要重建红黑树</p>
-</blockquote>
-<blockquote>
-<p>JDK 1.7 使用分段锁机制来实现并发更新操作，核心类为 Segment，它继承自重入锁 ReentrantLock，并发度与 Segment 数量相等。</p>
-<p>JDK 1.8 使用了 CAS 操作来支持更高的并发度，在 CAS 操作失败时使用内置锁 synchronized。</p>
-<p>并且 JDK 1.8 的实现也在链表过长时会转换为红黑树。</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-Java%E5%AE%B9%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
