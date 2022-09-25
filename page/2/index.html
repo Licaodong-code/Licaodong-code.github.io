@@ -159,6 +159,197 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2022-03-31T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><blockquote>
+<p>创建型设计模式：保证一个类只有一个实例，并提供一个访问该实例的全局节点</p>
+</blockquote>
+<ul>
+<li><p>饿汉式</p>
+<p>类加载时就初始化，浪费内存，不能延迟加载</p>
+<p>基于<code>classloader</code>机制避免多线程同步问题，线程安全</p>
+<p>没有加锁，调用效率高</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>懒汉式</li>
+</ul>
+<p>​        线程不安全，实现了延迟加载</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>​        实现延迟加载的同时保证线程安全，但是效率偏低</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>双重检验锁</p>
+<p>双重判断，延迟加载，线程安全</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">synchronized</span>(Singleton.class)&#123; <span class="comment">// 代码块上锁</span></span><br><span class="line">                <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">                    instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>静态内部类</li>
+</ul>
+<p>​        只有调用<code>getInstance</code> 方法时，才装载静态内部类，从而实例化instance，线程安全、延迟加载、效率高</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> class <span class="title">SingletonInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton Instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonInstance.Instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>枚举</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><blockquote>
+<p>创建型设计模式：能够复制对象，且无需使代码依赖他们所属的类</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Prototype implements Cloneable&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Date time;</span><br><span class="line">    </span><br><span class="line">     <span class="comment">// 浅克隆</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.clone();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line">        Prototype v = (Prototype) <span class="keyword">super</span>.clone();</span><br><span class="line">        <span class="comment">// 深克隆：</span></span><br><span class="line">        <span class="comment">// 将原型类中的对象也克隆</span></span><br><span class="line">        v.createTime = (Date) v.time.clone();</span><br><span class="line">        <span class="keyword">return</span> v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/31/%E9%9D%A2%E8%AF%95-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试-JAVA虚拟机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/27/%E9%9D%A2%E8%AF%95-JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java容器</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/27/%E9%9D%A2%E8%AF%95-JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="archive-article-date">
+  	<time datetime="2022-03-27T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面试-Java容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -836,6 +1027,11 @@ var _hmt = _hmt || [];
 <li>actually the answer might be right or no depend on your <strong>circumstances</strong>.</li>
 <li>he concluded that the <strong>curiosity</strong> and sense of wonder make children ready for <strong>philosophical</strong> inquiry. </li>
 </ul>
+<h3 id="听力"><a href="#听力" class="headerlink" title="听力"></a>听力</h3><blockquote>
+<p>听前：预测 读音 内容</p>
+<p>听中：集中注意 勾选你听到的，对应程度高为正确选项</p>
+<p>听后：往下读题，不听题目</p>
+</blockquote>
 
       
 
@@ -920,6 +1116,11 @@ var _hmt = _hmt || [];
 <li>注意转折</li>
 <li>注意另起一句的情况，1.主语不同。2.转折。3. </li>
 </ul>
+</blockquote>
+<h3 id="善于用同位语从句-适合一句话中有两小句以上的话"><a href="#善于用同位语从句-适合一句话中有两小句以上的话" class="headerlink" title="善于用同位语从句(适合一句话中有两小句以上的话)"></a>善于用同位语从句(适合一句话中有两小句以上的话)</h3><blockquote>
+<p>The novel, based on the story of historical figures,Song Jiang and his companions who rebelled against the feudal emperor,has gained popularity among Chinese readers for centuries.</p>
+<p>Mao Zedong and other older-generation revolutionaries lived and fought here for thirteen years, leading the Anti-Japanese War and War of liberation,cultivating the Yan’an spirit and making the great contribution to Chinese revolution.</p>
+<p>The Pipa, a traditional instrument, has a history of more than 2000 years. </p>
 </blockquote>
 <h4 id="语言点一：之一-one-of-名词复数"><a href="#语言点一：之一-one-of-名词复数" class="headerlink" title="语言点一：之一 one of  + 名词复数"></a>语言点一：之一 one of  + 名词复数</h4><blockquote>
 <p>Water Marine is one of the four classical novels in Chinese literature.</p>
@@ -1182,46 +1383,43 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-diary-2021-1116-0031" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-六级阅读篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/16/diary-2021-1116-0031/">是为别人而活，也是为自己而活</a>
+      <a class="article-title" href="/2021/12/08/%E5%85%AD%E7%BA%A7%E9%98%85%E8%AF%BB%E7%AF%87/">六级阅读</a>
     </h1>
   
 
         
-        <a href="/2021/11/16/diary-2021-1116-0031/" class="archive-article-date">
-  	<time datetime="2021-11-15T16:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-16</time>
+        <a href="/2021/12/08/%E5%85%AD%E7%BA%A7%E9%98%85%E8%AF%BB%E7%AF%87/" class="archive-article-date">
+  	<time datetime="2021-12-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="是为自己而活，也是为自己而活"><a href="#是为自己而活，也是为自己而活" class="headerlink" title="是为自己而活，也是为自己而活"></a>是为自己而活，也是为自己而活</h3><p>我其实很长久地思考过一个问题</p>
-<p>人究竟该为自己而活还是该为别人而活</p>
-<p>我一直觉得我不只是为自己而活</p>
-<p>我现在有父母、以后会有爱人</p>
-<p>很多时候我都会觉得他们开心我就会开心，我愿意付出一切为了他们</p>
-<p>So 这不就是为别人而活吗</p>
-<p>如果是为自己而活，我为什么会有这么宽广的胸怀hhh</p>
-<p>但是今天我就觉得我是为自己而活</p>
-<p>事出有因</p>
-<p>同学找工作，最终选择不去互联网公司，理由是他觉得他卷不过别人了</p>
-<p>他说他刷题白刷了</p>
-<p>最后还是没有去互联网公司</p>
-<p>而我和北理工硕士的水平比起来，菜到十万八千里</p>
-<p>我开始自我否定了hhh</p>
-<p>但是啊</p>
-<p>我才发现我要为自己而活</p>
-<p>别人如何出色、优秀</p>
-<p>我如何不足、辣鸡</p>
-<p>我都应该做好自己的本职工作，给自己一个满意的结果</p>
-<p>而不是跟随别人的脚步</p>
+        <h3 id="仔细阅读篇"><a href="#仔细阅读篇" class="headerlink" title="仔细阅读篇"></a>仔细阅读篇</h3><blockquote>
+<p>步骤：先看题目—推测文章大意—-定位出题句—-对比选择</p>
+</blockquote>
+<p>原则：与文章中提到的越贴合越好想</p>
+<h3 id="长篇阅读篇"><a href="#长篇阅读篇" class="headerlink" title="长篇阅读篇"></a>长篇阅读篇</h3><blockquote>
+<p>长篇阅读：勾———题目中的重点词语（前五题、后五题）    读———-反复读     选———2+1原则  2个原词 + 1个同义替换</p>
+</blockquote>
+<h3 id="选词填空"><a href="#选词填空" class="headerlink" title="选词填空"></a>选词填空</h3><blockquote>
+<p>n v adj adv</p>
+<p>adj—–&gt; n   v ——&gt;adv</p>
+</blockquote>
+<p>The/a/形容词/名词所有格</p>
+<p>Marry’s/my/more + 形容词 + 名词</p>
+<p>To + 动词原型</p>
+<p>Would/Could/can/should + 动词原型</p>
+<p>Have/Has/Had + 过去完成时</p>
+<p>Of 前后是名词</p>
 
       
 
@@ -1235,7 +1433,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">English learning</a>
         		</li>
       		
 		</ul>
@@ -1245,231 +1443,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/16/diary-2021-1116-0031/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面试-leetCode刷题总结之位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/10/%E9%9D%A2%E8%AF%95-leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/">leetCode刷题总结の位运算</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/10/%E9%9D%A2%E8%AF%95-leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2021-10-10T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><h3 id="java中的运算符"><a href="#java中的运算符" class="headerlink" title="java中的运算符"></a>java中的运算符</h3><ul>
-<li>算数运算符</li>
-</ul>
-<blockquote>
-<p>+     -     *     /     %     ++     –</p>
-</blockquote>
-<p>​    这里重点是区分 /  %两个操作，123 / 100 = 1，123 / 10 = 12， 123 / 1 = 123；123 % 100 = 23， 123 % 10 = 3， 123 % 1 = 0；</p>
-<ul>
-<li>关系运算符<blockquote>
-<p>==     !=     &gt;     &lt;     &gt;=     &lt;=     </p>
-</blockquote>
-</li>
-<li>位运算符（重点）<blockquote>
-<p>&amp;     ^     |    ~     &lt;&lt;     &gt;&gt;     &gt;&gt;&gt;<br>​    左移运算a&lt;&lt;b的实质就是二进制位向左移动b位，低位补零（其实就是补零操作啦）<code> a * Math.pow(2,b)</code> 例如 ```1 &lt;&lt; 3 == 8``</p>
-</blockquote>
-</li>
-</ul>
-<p>​    右移运算a&lt;&lt;b的实质就是二进制位向右移动b位，低位舍去（其实就是舍去操作啦）<code>a / Math.pow(2,b)</code> 例如 <code>8 &gt;&gt; 3 ==1</code></p>
-<p>​    按位与运算 &amp; 的实质就是对应位均为1时结果为1，对应位的与判断，例如 a &amp; 1 == 0 判断a的奇偶性</p>
-<p>​    按位或运算 |的实质就是对应位有1时结果为1，对应位的或判断</p>
-<p>​    按位异或运算 ^ 的实质就是对应位相异时返回1，对应为的异或判断，例如mask = 111（掩码） 111 ^ 000 = 111^000 = 111</p>
-<ul>
-<li>逻辑运算符<blockquote>
-<p>&amp;&amp;     ||     !</p>
-</blockquote>
-</li>
-<li>赋值运算符<blockquote>
-<p>=     +=     -=     *=         /=         %=      &lt;&lt; =     &gt;&gt; =     ^=  </p>
-</blockquote>
-</li>
-<li>短路逻辑运算符</li>
-</ul>
-<blockquote>
-<p>大概就是这样来设计短路逻辑 （boolean）&amp;&amp;（boolean）hhh</p>
-</blockquote>
-<ul>
-<li>条件运算符<blockquote>
-<p>? :    相比于<code>if else</code> ,条件运算符更简洁。你为什么常常会想不到用这个呢？！</p>
-</blockquote>
-<h3 id="怎样写好循环"><a href="#怎样写好循环" class="headerlink" title="怎样写好循环"></a>怎样写好循环</h3></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( 布尔表达式 ) &#123;</span><br><span class="line">  <span class="comment">//循环内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">       <span class="comment">//代码语句</span></span><br><span class="line">&#125;<span class="keyword">while</span>(布尔表达式);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(初始化; 布尔表达式; 更新) &#123;</span><br><span class="line">    <span class="comment">//代码语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(声明语句 : 表达式)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">//代码句子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>思考进入循环的条件</p>
-</blockquote>
-<blockquote>
-<p>思考如何跳出循环（逻辑）</p>
-</blockquote>
-<ul>
-<li>跳出循环的两种情况：1、循环直至循环条件不满足然后跳出循环。2、循环过程中目的完成跳出循环，这个时候尤其要注意break；不然循环可能一直进行下去，超出时间限制。</li>
-</ul>
-<blockquote>
-<p>跳出循环后的操作</p>
-</blockquote>
-<ul>
-<li>一定要对循环后的操作进行条件限制，不然跳出循环后都会执行。</li>
-</ul>
-<blockquote>
-<p>思考边界问题，防止indexofbound。</p>
-</blockquote>
-<h3 id="经常要考虑的溢出问题"><a href="#经常要考虑的溢出问题" class="headerlink" title="经常要考虑的溢出问题"></a>经常要考虑的溢出问题</h3><p>溢出问题是特定的数据类型的变量的值不在取值范围内出现的情况，所以首先要清楚该数据类型的取值范围。</p>
-<p>leetCode上的题很多是对整型的操作，So，怎么着都得对整型的范围了如指掌。0x7fffffff ~0x80000000.</p>
-<p><img src="/assets/blogImg/int.png" alt="int"></p>
-<h3 id="ACM模式下的输入输出问题"><a href="#ACM模式下的输入输出问题" class="headerlink" title="ACM模式下的输入输出问题"></a>ACM模式下的输入输出问题</h3><p><img src="/assets/blogImg/scanner.png" alt="int"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/10/%E9%9D%A2%E8%AF%95-leetCode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-diary-2021-1008-2243" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/08/diary-2021-1008-2243/">长沙行</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/08/diary-2021-1008-2243/" class="archive-article-date">
-  	<time datetime="2021-10-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="长沙行，不看风景看朋友"><a href="#长沙行，不看风景看朋友" class="headerlink" title="长沙行，不看风景看朋友"></a>长沙行，不看风景看朋友</h3><p>长沙是一个我向往的城市，哈哈哈。房价低，朋友多，菜合乎口味等等，优点真的数不胜数</p>
-<p>国庆这一次长沙行，其实就待了一天，但是还是很难得，心情变得很好，很放松</p>
-<p>对于压抑已久的我，真的是一种释放，妈呀hhh</p>
-<img src="/assets/blogImg/长沙_20211008231515.jpg" alt="长沙_20211008231515" style="zoom:25%;" />
-
-<p><em>刚按摩完的兴奋劲</em></p>
-<img src="/assets/blogImg/长沙_20211008231528.jpg" alt="长沙_20211008231528" style="zoom:25%;" />
-
-<p><em>印象中每次去长沙都会吃牛蛙</em></p>
-<img src="/assets/blogImg/长沙_20211008231339.jpg" alt="长沙_20211008231339" style="zoom:25%;" />
-
-<p><em>证明自己来了长沙</em></p>
-<p>欢乐的时光总是如此短暂，回到北京的我感觉神经如此绷紧，整理整理我又得做回那个心态平和的小伙子</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/08/diary-2021-1008-2243/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/12/08/%E5%85%AD%E7%BA%A7%E9%98%85%E8%AF%BB%E7%AF%87/">展开全文 >></a>
         </p>
       
 
