@@ -159,6 +159,451 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试-操作系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/10/%E9%9D%A2%E8%AF%95-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">面试-操作系统</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/10/%E9%9D%A2%E8%AF%95-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+  	<time datetime="2021-09-10T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进程和线程的区别？"><a href="#进程和线程的区别？" class="headerlink" title="进程和线程的区别？"></a>进程和线程的区别？</h2><blockquote>
+<p>进程是程序的一次执行过程，是系统运行程序的基本单位，系统以进程为单位进行调度和分配资源。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java中，当我们启动 main 函数时其实就是启动了一个 JVM 的进程，而 main 函数所在的线程就是这个进程中的一个线程，也称主线程。</span><br></pre></td></tr></table></figure>
+
+<p>线程就是依赖进程而存在，一个进程至少一个线程，是cpu调度和资源分派的基本单位</p>
+</blockquote>
+<blockquote>
+<p>进程有自己独立的地址空间，线程共享所属进程的地址空间</p>
+<p>线程不拥有资源，只占有一些必要的系统资源。如：程序计数器、虚拟机栈、本地方法栈</p>
+<p>进程切换的开销远大于线程切换的开销</p>
+<p>线程之间通信更加方便</p>
+</blockquote>
+<h2 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h2><blockquote>
+<p>创建 就绪 运行 阻塞 结束</p>
+</blockquote>
+<h2 id="进程之间的通信方式有哪些？"><a href="#进程之间的通信方式有哪些？" class="headerlink" title="进程之间的通信方式有哪些？"></a>进程之间的通信方式有哪些？</h2><blockquote>
+<p>消息队列</p>
+<p>套接字</p>
+<p>共享内存</p>
+<p>信号</p>
+<p>管道</p>
+<p>信号量   </p>
+</blockquote>
+<h2 id="进程调度的方式有哪些？"><a href="#进程调度的方式有哪些？" class="headerlink" title="进程调度的方式有哪些？"></a>进程调度的方式有哪些？</h2><blockquote>
+<p>先来先服务、最短作业优先、最短剩余时间优先、最高响应比优先、时间片轮转、优先级调度（容易出现优先级反转）、多级反馈队列调度算法</p>
+</blockquote>
+<h2 id="什么是死锁？如何解决死锁问题？"><a href="#什么是死锁？如何解决死锁问题？" class="headerlink" title="什么是死锁？如何解决死锁问题？"></a>什么是死锁？如何解决死锁问题？</h2><blockquote>
+<p>两个或者两个以上的进程中， 如果每个进程持有某种资源而又等待其他进程释放资源。无限期的阻塞，相互等待。</p>
+<p>导致死锁的四个必要条件：互斥、占有并等待、不可抢占、循环等待</p>
+<p>预防死锁：打破导致死锁的四个条件</p>
+<p>避免死锁：动态检测资源的分配状态，以确保循环等待条件不成立，如：银行家算法</p>
+<p>解除死锁：终止一个或者多个进程、抢占一个进程的资源</p>
+</blockquote>
+<h2 id="线程的分类？"><a href="#线程的分类？" class="headerlink" title="线程的分类？"></a>线程的分类？</h2><blockquote>
+<p>用户级线程：应用程序管理的线程</p>
+<p>内核级线程：系统内核管理的线程</p>
+</blockquote>
+<h2 id="什么是线程死锁？"><a href="#什么是线程死锁？" class="headerlink" title="什么是线程死锁？"></a>什么是线程死锁？</h2><blockquote>
+<p>线程死锁是指两个或两个以上的线程互相持有对方所需要的资源, 一般在Java多线程中死锁是由于锁的顺序、锁的加锁时限引起的。</p>
+</blockquote>
+<h2 id="Linux的常见命令"><a href="#Linux的常见命令" class="headerlink" title="Linux的常见命令"></a>Linux的常见命令</h2><ul>
+<li>目录切换</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd .. cd / cd ~ cd + 目录名</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>目录操作(增删改查)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">makdir 目录名称</span><br><span class="line">rm -rf 目录/文件/压缩包</span><br><span class="line">mv 目录名称 目录新名称；mv 目录名称 目录新位置；cp -r 目录名称 目录拷贝的目标位置</span><br><span class="line">ls ll find 目录 参数 例如find /home -name &quot;*.txt&quot;</span><br><span class="line">pwd 显示当前所在位置</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>文件操作(增删改查解压缩)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">touch 文件名称</span><br><span class="line">rm -tf 文件名称</span><br><span class="line">vim 文件名称</span><br><span class="line">cat/more/less/tail 文件名称 tail -f 文件名称可以对文件进行动态监控</span><br><span class="line">grep 要搜索的字符串 要搜索的文件 --color</span><br><span class="line">tar -zcvf 打包压缩文件名 要打包压缩的文件 tar -zcvf test.tar.gz aaa.txt bbb.txt ccc.txt</span><br><span class="line">tar -xvf 压缩文件 -C 解压的位置 tar -xvf test.tar.gz -C /user/....</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>权限操作</li>
+</ul>
+<blockquote>
+<p>权限分为读 r 4写 w 2执行 x  1文件类型 d代表目录 -代表文件 l 代表软链接  三级权限 属主owner 属组group 其他用户other</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 数字组合 文件名称 chmod 764 aaa.txt</span><br><span class="line">sudo + 其它命令 以系统管理员的身份执行命令</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用户管理</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useradd 选项 用户名  useradd –d  /home/sam -m sam</span><br><span class="line">userdel 选项 用户名 userdel -r sam</span><br><span class="line">usermod 选项 用户名 usermod -s /bin/ksh -d /home/z –g developer sam</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>网络通信</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ps -ef/ ps -aux 查看系统当前正在运行的进程</span><br><span class="line">ps -ef/aux | grep 进程名称</span><br><span class="line">kill -9 进程的pid</span><br><span class="line">ifconfig 当前系统网卡信息</span><br><span class="line">ping 查看与某台机器的连接情况</span><br><span class="line">netstat -an 查看当前系统的端口占用情况</span><br><span class="line">netstat -an | grep 端口号</span><br><span class="line">kill -9 端口的pid </span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/10/%E9%9D%A2%E8%AF%95-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-diary-2021-0909-0017" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/08/diary-2021-0909-0017/">永远不要期待共情能力</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/08/diary-2021-0909-0017/" class="archive-article-date">
+  	<time datetime="2021-09-07T16:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/blogImg/chord1.jpg"></p>
+<p>期待别人的感同身受其实是一件无比困难的事</p>
+<p>有这种感受</p>
+<p>其实和我最近一段时间（其实是很长一段时间）的情绪有关系</p>
+<p>我在这两年遇到的糟心事真不是三言两语可以说清楚的</p>
+<p>但是身边的朋友其实难以感同身受</p>
+<p>所以</p>
+<p>最理想的状态还是我们自己消化一些坏情绪</p>
+<p>但是</p>
+<p>unfortunately</p>
+<p>我还是将自己的不耐烦宣泄到了一些具体的事与人上面</p>
+<p>其实我还是很理解那个状态的自己</p>
+<p>人是很复杂的</p>
+<p>控制自己不容易</p>
+<p>期待别人更难</p>
+<p>所以我是很宽容的给自己足够的时间</p>
+<p>希望去遇见一个更加平和的自己</p>
+<blockquote>
+<p>good night</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/08/diary-2021-0909-0017/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-git实用教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/07/git%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">git实用教程</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/07/git%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2021-09-07T14:33:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Git实用教程"><a href="#Git实用教程" class="headerlink" title="Git实用教程"></a>Git实用教程</h2><blockquote>
+<p>前言：最近被git指令搞得晕头转向，我实在是太菜了。其实git总共没多少指令，日常常用的指令更是不多，实在是受不了了决心好              好整理一番，以常用概念和指令为主。这次主要参考自—-廖雪峰的git教程</p>
+</blockquote>
+<p>Git：世界上最先进的版本控制系统。</p>
+<blockquote>
+<p>相当于git的登录，用下列指令</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Licaodong-code&quot;</span><br><span class="line">$ git config --global user.email &quot;1776782142@qq.com&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建版本库，步骤如图</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+
+
+<img src="/assets/blogImg/git1.png" alt="git1" style="zoom:50%;" />
+
+<blockquote>
+<p>把文件添加到版本库,然后把文件提交到版本库</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git add file1.txt</span><br><span class="line">$ git add file2.txt file3.txt</span><br><span class="line">$ git commit -m &quot;add 3 files.&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>掌握当前版本库状态</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看主要差别，细查</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff file.txt</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看提交日志</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">$ git log --pretty=oneline</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>版本回退</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard HEAD^</span><br><span class="line">$ git reset --hard HEAD^^</span><br><span class="line">$ git reset --hard 635e56b(版本号)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看回退历史</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/blogImg/git.jpg" alt="git" style="zoom: 67%;" />
+
+<img src="/assets/blogImg/git1.jpg" alt="git1" style="zoom:67%;" />
+
+<img src="/assets/blogImg/git2.jpg" alt="git2" style="zoom:67%;" />
+
+
+<blockquote>
+<p>撤销修改,与上述回退不一样，这里是撤销文件修改的内容，一键还原</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout --file</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果添加到了暂存区，则需要先撤回工作区再还原</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog HEAD file</span><br><span class="line">$ git checkout --file</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>删除文件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rm file</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>设置远程仓库，这一步我出现了大问题，因为这个命令是有前提的，就是你在远程仓库是要建一个同名的远程仓库的，而我没有建则会找不到仓库。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:Licaodong-code/git_learn.git</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>把本地库的所有内容推送到远程库,origin就是远程仓库的意思</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>发现了排查错误的一个很重要的指令,看看SSH是否连接成功</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看远程库信息</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>切断与远程库的联系</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>从远程库克隆</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone (remote a)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建并切换分支，其实做的工作非常小，新建了一个指针叫<code>dev</code>，指向<code>master</code>相同的提交，再把<code>HEAD</code>指向<code>dev</code>，就表示当前分支在<code>dev</code>上</p>
+</blockquote>
+<p><img src="/assets/blogImg/brand.png" alt="brand"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br><span class="line">$ git checkout -b dev(创建新的分支并指向它)</span><br><span class="line">$ git switch -c features(创建新分支并指向它)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>然后当然是正常提交啦，内部是这样的变化</p>
+</blockquote>
+<p><img src="/assets/blogImg/branch.png" alt="branch"></p>
+<blockquote>
+<p>切换到主分支，发现内容并不存在</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git switch master</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/blogImg/branch1.png" alt="branch1"></p>
+<blockquote>
+<p>合并分支</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>删除分支</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d dev</span><br><span class="line">$ git branch 查看分支</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/blogImg/branch3.png" alt="branch3"></p>
+<blockquote>
+<p>合并冲突</p>
+</blockquote>
+<img src="/assets/blogImg/gitc.png" alt="gitc" style="zoom:67%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git status (可以查看冲突)</span><br><span class="line">$ cat readme.txt(可以查看冲突的具体细节)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/07/git%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-二分类问题，应该选择sigmoid还是softmax？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -559,7 +1004,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 Caodong Li
+    		&copy; 2023 Caodong Li
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -671,6 +1116,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
               </li>
             
             <div class="clearfix"></div>
