@@ -159,6 +159,195 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试-Java基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/10/%E9%9D%A2%E8%AF%95-Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/10/%E9%9D%A2%E8%AF%95-Java%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2021-09-10T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java三大特性是什么？具体表现是什么？"><a href="#Java三大特性是什么？具体表现是什么？" class="headerlink" title="Java三大特性是什么？具体表现是什么？"></a>Java三大特性是什么？具体表现是什么？</h2><blockquote>
+<p>封装、继承、多态</p>
+</blockquote>
+<blockquote>
+<p>封装：将一个对象的属性、方法结合成一个独立的单元，隐蔽其中的细节。一个封装好的对象，我们只需要知道如何调用就行了。</p>
+</blockquote>
+<blockquote>
+<p>继承：子类对象可以继承父类的全部属性和方法，提高代码的复用</p>
+</blockquote>
+<blockquote>
+<p>多态：多态是建立在继承上的一种机制，父类型的变量可以引用子类型的对象，所以同一个行为具有不同的表现形式。（刷码支付为例）<strong>动态绑定</strong></p>
+</blockquote>
+<h2 id="Java几种基本的数据类型是什么？对应的包装类型？为什么要有包装类型？各自占用多少字节？什么是缓冲池？"><a href="#Java几种基本的数据类型是什么？对应的包装类型？为什么要有包装类型？各自占用多少字节？什么是缓冲池？" class="headerlink" title="Java几种基本的数据类型是什么？对应的包装类型？为什么要有包装类型？各自占用多少字节？什么是缓冲池？"></a>Java几种基本的数据类型是什么？对应的包装类型？为什么要有包装类型？各自占用多少字节？什么是缓冲池？</h2><blockquote>
+<p>byte 1、short 2、int 4、long 8、float 4、double 8、char 2、boolean 1</p>
+</blockquote>
+<blockquote>
+<p>Byte Short Integer Long Float Double Character Boolean</p>
+</blockquote>
+<blockquote>
+<p>为每个基本数据类型提供一个包装类是为了使其具备面向对象的基本功能</p>
+</blockquote>
+<blockquote>
+<p>JDK1.8所有数值类均有缓冲池，默认-127 – 128，使用 <code>Integer.valueof()</code>会有缓冲池</p>
+</blockquote>
+<h2 id="String-StringBuffer-and-StringBuilder三者之间的不同是什么？"><a href="#String-StringBuffer-and-StringBuilder三者之间的不同是什么？" class="headerlink" title="String, StringBuffer and StringBuilder三者之间的不同是什么？"></a>String, StringBuffer and StringBuilder三者之间的不同是什么？</h2><blockquote>
+<p>可变性：String是不可变的，其它两个是可变的。String的不可变是因为String中的value被final修饰。</p>
+</blockquote>
+<blockquote>
+<p>线程安全性：String和StringBuffer 是线程安全的，StringBuilder是线程不安全的。String是天然的线程安全，buffer是加锁安全。</p>
+</blockquote>
+<blockquote>
+<p>应用场景：String应用于少量字符串操作，StringBuffer大量字符串操作且线程安全，StringBuilder应用大量字符串操作效率比较高，但是线程不安全</p>
+</blockquote>
+<h2 id="final关键字、static关键字"><a href="#final关键字、static关键字" class="headerlink" title="final关键字、static关键字"></a>final关键字、static关键字</h2><blockquote>
+<p>final关键字可以修饰变量、方法和类</p>
+<p>修饰变量：基本数据类型是值不变、引用是对象不变，但对象是可以修改的</p>
+<p>修饰方法：方法不能被重写</p>
+<p>修饰类：类不能被继承</p>
+</blockquote>
+<blockquote>
+<p>static关键字可以修饰代码块、内部类、方法和变量</p>
+<p>静态代码块是在类中只执行一次，可以用于实现一些公共的初始化操作</p>
+<p>静态内部类可以不依赖外部类的实例，可以直接通过类名引用</p>
+<p>静态方法可以不依赖类的实例，可以直接通过类名引用</p>
+<p>静态变量在内存中只存在一份，类的所有实例共享</p>
+</blockquote>
+<h2 id="重写和重载的区别"><a href="#重写和重载的区别" class="headerlink" title="重写和重载的区别"></a>重写和重载的区别</h2><blockquote>
+<p>重载是指实现一个方法：在一个类中，方法名相同，参数类型、个数、顺序不同的方法</p>
+</blockquote>
+<blockquote>
+<p>重写是发生在运行期间，子类对父类允许访问的方法进行重新编写</p>
+</blockquote>
+<h2 id="什么是反射？"><a href="#什么是反射？" class="headerlink" title="什么是反射？"></a>什么是反射？</h2><blockquote>
+<p>每个类都有一个Class对象，包含与类有关的信息，编译一个新类时，会产生同名的.class文件</p>
+</blockquote>
+<blockquote>
+<p>类加载相当于class对象的加载，类在第一次使用时才动态加载到JVM中</p>
+</blockquote>
+<blockquote>
+<p>反射可以提供运行时的类信息，包括filed，method，constructor</p>
+</blockquote>
+<blockquote>
+<p>反射的优点是：可扩展性好</p>
+<p>缺点是：性能开销大、安全限制、内部暴露</p>
+</blockquote>
+<h2 id="Java的泛型是如何工作的-什么是类型擦除"><a href="#Java的泛型是如何工作的-什么是类型擦除" class="headerlink" title="Java的泛型是如何工作的 ? 什么是类型擦除 ?"></a>Java的泛型是如何工作的 ? 什么是类型擦除 ?</h2><blockquote>
+<p>编译器在编译时擦除了所有类型相关的信息，所以在运行时不存在任何类型相关的信息。泛型附加的类型信息对JVM来说是不可见的</p>
+</blockquote>
+<h2 id="List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别"><a href="#List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别" class="headerlink" title="List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?"></a>List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?</h2><blockquote>
+<p>List&lt;? extends T&gt;接受任何继承至T的数据类型</p>
+</blockquote>
+<blockquote>
+<p>List &lt;? super T&gt;接受任何T的父类的数据类型</p>
+</blockquote>
+<h2 id="拆箱和装箱的含义和底层实现"><a href="#拆箱和装箱的含义和底层实现" class="headerlink" title="拆箱和装箱的含义和底层实现"></a>拆箱和装箱的含义和<strong>底层实现</strong></h2><blockquote>
+<p>自动装箱：基本数据类型自动转化为对应的引用数据类型 ValueOf()</p>
+</blockquote>
+<blockquote>
+<p>自动拆箱：引用数据类型转换成基本数据类型 xxx = xxxValue();</p>
+</blockquote>
+<blockquote>
+<p>Integer i =  10; // 自动装箱</p>
+<p>int b = i; // 自动拆箱</p>
+</blockquote>
+<h2 id="Exception的继承体系，基类是什么，Error什么时候会用到，Exception什么时候会用到？"><a href="#Exception的继承体系，基类是什么，Error什么时候会用到，Exception什么时候会用到？" class="headerlink" title="Exception的继承体系，基类是什么，Error什么时候会用到，Exception什么时候会用到？"></a>Exception的继承体系，基类是什么，Error什么时候会用到，Exception什么时候会用到？</h2><blockquote>
+<p>父类是Throwable, 子类RuntimeException（NullPointException）和 IOException（FileNotfoundException）</p>
+<p>Error是非受检错误，主要遇到的是虚拟机错误，比如StackOverflow和OutofMemory</p>
+</blockquote>
+<h2 id="引用传递和值传递的区别？"><a href="#引用传递和值传递的区别？" class="headerlink" title="引用传递和值传递的区别？"></a>引用传递和值传递的区别？</h2><blockquote>
+<p><strong>值传递</strong> 是对基本型变量而言的,传递的是该变量的一个副本,改变副本不影响原变量。<br><strong>引用传递</strong> 一般是对于对象型变量而言的,传递的是该对象地址的一个副本, 并不是原对象本身 。</p>
+<p>java的参数传递方式实际上是值传递，对于对象而言，实际上是通过值传递的方式传递对象的地址，以地址的方式进行值传递。</p>
+</blockquote>
+<h2 id="接口和抽象类的区别？"><a href="#接口和抽象类的区别？" class="headerlink" title="接口和抽象类的区别？"></a>接口和抽象类的区别？</h2><blockquote>
+<p>接口只有定义没有方法的实现，而抽象类可以实现方法</p>
+<p>继承接口的关键字是implement, 继承抽象类的关键字是extends，接口可以实现多个接口，一个类只能继承一个抽象类。使用接口可以间接的完成多重继承</p>
+<p>接口强调特定功能的实现，抽象类强调所属关系</p>
+</blockquote>
+<h2 id="Object的通用方法"><a href="#Object的通用方法" class="headerlink" title="Object的通用方法"></a>Object的通用方法</h2><blockquote>
+<p>.equals() 表示等价 区别于 == 表示引用的对象是否等价，判断两个参数是否引用同一个对象。实际开发中需要对equals进行重写，判断两个对象的内容是否等价。</p>
+<p>.toString() 打印输出的形式</p>
+<p>.hashCode()</p>
+<p>.clone()</p>
+</blockquote>
+<h2 id="different-between-JRE-and-JDK"><a href="#different-between-JRE-and-JDK" class="headerlink" title="different between JRE and JDK"></a>different between JRE and JDK</h2><blockquote>
+<p>JRE JAVA 运行环境 包括核心的JVM程序以及Java的核心库</p>
+<p>JDK JAVA的开发及运行环境 相比于JRE还多编译Java源码的编译器javac之类的</p>
+</blockquote>
+<h2 id="JAVA和C-的区别"><a href="#JAVA和C-的区别" class="headerlink" title="JAVA和C++的区别"></a>JAVA和C++的区别</h2><blockquote>
+<p>java 完全面向对象</p>
+<p>Java有JVM虚拟机实现跨平台</p>
+<p>Java实现自动垃圾回收</p>
+<p>java没有指针，不能进行地址操作</p>
+<p>不支持多重继承</p>
+<p>不支持操作符重载</p>
+<p>goto</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/10/%E9%9D%A2%E8%AF%95-Java%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面试-操作系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -312,7 +501,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/08/diary-2021-0909-0017/">永远不要期待共情能力</a>
+      <a class="article-title" href="/2021/09/08/diary-2021-0909-0017/">diary-2021-0909-0017</a>
     </h1>
   
 
@@ -325,27 +514,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/chord1.jpg"></p>
-<p>期待别人的感同身受其实是一件无比困难的事</p>
-<p>有这种感受</p>
-<p>其实和我最近一段时间（其实是很长一段时间）的情绪有关系</p>
-<p>我在这两年遇到的糟心事真不是三言两语可以说清楚的</p>
-<p>但是身边的朋友其实难以感同身受</p>
-<p>所以</p>
-<p>最理想的状态还是我们自己消化一些坏情绪</p>
-<p>但是</p>
-<p>unfortunately</p>
-<p>我还是将自己的不耐烦宣泄到了一些具体的事与人上面</p>
-<p>其实我还是很理解那个状态的自己</p>
-<p>人是很复杂的</p>
-<p>控制自己不容易</p>
-<p>期待别人更难</p>
-<p>所以我是很宽容的给自己足够的时间</p>
-<p>希望去遇见一个更加平和的自己</p>
-<blockquote>
-<p>good night</p>
-</blockquote>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2021/09/08/diary-2021-0909-0017/#more">more >></a>
+        
       
 
       
@@ -715,7 +887,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/06/diary-2021-0906-2222/">迷茫的日常</a>
+      <a class="article-title" href="/2021/09/06/diary-2021-0906-2222/">diary-2021-0906-2222</a>
     </h1>
   
 
@@ -728,25 +900,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/ckxt3.jpg"></p>
-<p>迷茫是最让人头疼的事，都说面包和爱情是现阶段最重要的两件事</p>
-<p>迷茫就是你都想要，但却不知道自己该要怎么样的面包，不知道什么是美好的爱情</p>
-<p>父母已经开始暗戳戳地提醒我了，真要命hhh</p>
-<p>但是显然父母会考虑得更多</p>
-<p>“先找个好工作，缘分很重要”</p>
-<p>最近在北京实习，糟心事是一遭又一遭，这让我十分的郁闷，经常我就戴着我的耳机，不想说话</p>
-<p>公然表演无语</p>
-<p>举个栗子</p>
-<p>宿管说我们房子的马桶漏水，两个月漏了1300吨，天呐，我们是造什么孽能漏这么多的水</p>
-<p>后面一查，只有8.8-9.6也就是今天的记录，用了不到100吨，前一个月没有抄表。。。</p>
-<p>这个宿管是个男的，所以我得出结论，男的恶心起来真的没谁了</p>
-<p>但话又说回来，我只能努力让自己中年变得和蔼可亲</p>
-<p>想起了和丁老师聊过的</p>
-<p>“我们无法改变别人，做好自己的，才是最重要的”</p>
-<p>当然我也忘了原话，我只是记得这么个意思</p>
-<p>所以遇到坏人，我也不想说什么了，不积德总会有报应吧</p>
-<p>希望吧</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2021/09/06/diary-2021-0906-2222/#more">more >></a>
+        
       
 
       

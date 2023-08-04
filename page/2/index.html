@@ -159,6 +159,225 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
+  	<time datetime="2022-04-01T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MySQL事务的ACID是什么？"><a href="#MySQL事务的ACID是什么？" class="headerlink" title="MySQL事务的ACID是什么？"></a>MySQL事务的ACID是什么？</h2><blockquote>
+<p>原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。</p>
+<p>一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</p>
+<p>隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。</p>
+<p>持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失。</p>
+<p>系统发生崩溃可以用重做日志（redo log）进行恢复，从而实现持久化。</p>
+<p>与回滚日志记录数据的逻辑修改不同，重做日志记录的是数据页的物理修改。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 只有满足一致性，事务的执行结果才是正确的。</span><br><span class="line">- 在无并发的情况下，事务串行执行，隔离性一定能够满足。此时只要能满足原子性，就一定能满足一致性。</span><br><span class="line">- 在并发的情况下，多个事务并行执行，事务不仅要满足原子性，还需要满足隔离性，才能满足一致性。</span><br><span class="line">- 事务满足持久化是为了能应对系统崩溃的情况。</span><br></pre></td></tr></table></figure>
+
+<h2 id="并发情况下可以导致什么一致性问题？"><a href="#并发情况下可以导致什么一致性问题？" class="headerlink" title="并发情况下可以导致什么一致性问题？"></a>并发情况下可以导致什么一致性问题？</h2><blockquote>
+<p>在 XXXX 隔离级别，会出现 XXXX问题。</p>
+<p>在“读未提交”隔离级别下，会出现“丢失修改”、“脏读”、“不可重复读”、“幻读”问题</p>
+<p>在“读已提交”隔离级别下，会出现“不可重复读”、“幻读”问题</p>
+<p>在“可重复读”隔离级别下，会出现“幻读”问题，<code>mysql</code>的默认隔离级别，实现手段是加行锁</p>
+<p>在“可串行化”隔离级别下，不会出现上述问题，并发效率低，<code>mysql</code>实现可串性化的手段是加锁</p>
+</blockquote>
+<h2 id="什么是三级封锁协议？"><a href="#什么是三级封锁协议？" class="headerlink" title="什么是三级封锁协议？"></a>什么是三级封锁协议？</h2><blockquote>
+<p>1 级封锁协议是：事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。事务结束包括正常结束(COMMIT)和非正常结束(ROLLBACK)。 1级封锁协议可防止丢失修改，并保证事务T是可恢复的。在1级封锁协议中，如果仅仅是读数据不对其进行修改，是不需要加锁的，所以它不能保证可重复读和不 读”脏”数据。</p>
+<p>2级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，读完后即可释放S锁。2级封锁协议除防止了丢失修改，还可进一步防止读”脏”数据。</p>
+<p>3级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，直到事务结束才释放。3级封锁协议除防止了丢失修改和不读’脏’数据外，还进一步防止了不可重复读。</p>
+</blockquote>
+<h2 id="Mysql如何实现可重复读？"><a href="#Mysql如何实现可重复读？" class="headerlink" title="Mysql如何实现可重复读？"></a><code>Mysql</code>如何实现可重复读？</h2><blockquote>
+<p>主要是通过MVCC机制实现</p>
+</blockquote>
+<blockquote>
+<p>MVCC是一种读写分离的机制，可以减少不必要的加锁。写当前版本快照，读旧版本快照</p>
+<p>MVCC 的多版本指的是多个版本的快照，快照存储在 Undo 日志中，该日志通过回滚指针 ROLL_PTR 把一个数据行的所有快照连接起来。</p>
+<p>MVCC可以实现可重复读，在一定程度上也能避免幻读(<code>readview</code>被复用)</p>
+</blockquote>
+<h2 id="Mysql的索引底层要用B-树？"><a href="#Mysql的索引底层要用B-树？" class="headerlink" title="Mysql的索引底层要用B+树？"></a><code>Mysql</code>的索引底层要用B+树？</h2><blockquote>
+<p>相比于红黑树，B+树访问磁盘有更高的性能。内存与磁盘以叶为单位交换数据，B+树将索引的一个节点的大小设置为页的大小</p>
+</blockquote>
+<blockquote>
+<p>相比于B树，B+树只在叶子节点存储数据，非叶子节点只存储索引，所以更加的矮胖，查询的效率更高</p>
+</blockquote>
+<h2 id="Mysql进行索引优化的方法？"><a href="#Mysql进行索引优化的方法？" class="headerlink" title="Mysql进行索引优化的方法？"></a><code>Mysql</code>进行索引优化的方法？</h2><blockquote>
+<p>独立的列：进行查询时，索引不能是表达式的一部分，也不能是函数的参数，否则索引失效</p>
+<p>多列索引：进行查询时，尽量通过建立多列索引尽可能减少查询次数</p>
+<p>索引顺序：进行查询时，选择性强的放左边</p>
+</blockquote>
+<blockquote>
+<p>使用前缀索引</p>
+<p>使用联合索引+覆盖索引（索引包含查询的字段）减少开销</p>
+</blockquote>
+<blockquote>
+<p>删除一些不必要的索引：进行数据修改后，需要更新索引，假如索引太多，会严重影响<code>mysql</code>的性能。</p>
+</blockquote>
+<blockquote>
+<p>最左前缀匹配原则</p>
+<p>尽量选择区分度高的列作为索引</p>
+<p>索引不能参与计算，尽量保持干净</p>
+<p>尽量的扩展索引，不要新建索引</p>
+</blockquote>
+<h2 id="mysql索引原理及慢SQL优化"><a href="#mysql索引原理及慢SQL优化" class="headerlink" title=" mysql索引原理及慢SQL优化"></a><code> mysql</code>索引原理及慢SQL优化</h2><ul>
+<li>首先明确索引的目的<blockquote>
+<p>提高查询效率</p>
+</blockquote>
+</li>
+<li>其次了解索引的原理<blockquote>
+<p>磁盘的IO是以页为单位，一般4k或者8k<br>索引的数据结构是B+树，数据项占的空间越小，数据项的数量越多，树的高度越低。b+树按照从左到右的顺序来建立搜索树，</p>
+</blockquote>
+</li>
+<li>慢SQL优化<blockquote>
+<p>联合索引+最左前缀匹配 + 覆盖索引 + 综合评估</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="常见日志分类及作用？"><a href="#常见日志分类及作用？" class="headerlink" title="常见日志分类及作用？"></a>常见日志分类及作用？</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- 1. redo 重做日志:</span><br><span class="line">- 作用：确保事务的持久性，防止在发生故障，脏页未写入磁盘。重启数据库会进行redo log执行重做，到达事务一致性</span><br><span class="line"></span><br><span class="line">- 2. undo 回滚日志</span><br><span class="line">- 作用：保证数据的原子性，记录事务发生之前的数据的一个版本，用于回滚。innodb事务的可重复读和读取已提交 隔离级别就是通过mvcc+undo实现</span><br><span class="line"></span><br><span class="line">- 3. errorlog 错误日志</span><br><span class="line">- 作用：Mysql本身启动、停止、运行期间发生的错误信息</span><br><span class="line"></span><br><span class="line">- 4. slow query log 慢查询日志</span><br><span class="line">- 作用：记录执行时间过长的sql，时间阈值可以配置，只记录执行成功</span><br><span class="line"></span><br><span class="line">- 5. binlog 二进制日志</span><br><span class="line">- 作用：用于主从复制，实现主从同步</span><br><span class="line"></span><br><span class="line">- 6. relay log 中继日志</span><br><span class="line">- 作用：用于数据库主从同步，将主库发送来的binlog先保存在本地，然后从库进行回放</span><br><span class="line"></span><br><span class="line">- 7. general log 普通日志</span><br><span class="line">- 作用：记录数据库操作明细，默认关闭，开启会降低数据库性能</span><br></pre></td></tr></table></figure>
+<h2 id="数据库发生崩溃后如何进行恢复？"><a href="#数据库发生崩溃后如何进行恢复？" class="headerlink" title="数据库发生崩溃后如何进行恢复？"></a>数据库发生崩溃后如何进行恢复？</h2><blockquote>
+<p>两阶段提交：先写redo_log 并设置为prepare ——&gt;再写bin_log——&gt;将redo_log设置为commit</p>
+</blockquote>
+<blockquote>
+<p>进行两阶段提交 Write ahead Logging 的原因是对redo_log只进行一次写入会出现问题</p>
+</blockquote>
+<blockquote>
+<p>在做Crash recovery时，分为以下3种情况：<br> bin_log有记录，redo_log状态commit：正常完成的事务，不需要恢复；<br> bin_log有记录，redo_log状态prepare：在bin_log写完提交事务之前的crash，恢复操作：提交事务。（因为之前没有提交）</p>
+<p>​            判断bin_log是否完整 是 则提交 否则 回滚</p>
+<p> bin_log无记录，redo_log状态prepare：在bin_log写完之前的crash，恢复操作：回滚事务（因为crash时并没有成功写入数据库）</p>
+</blockquote>
+<h2 id="数据库角度-缓解数据库压力，实现高并发的手段有哪些？"><a href="#数据库角度-缓解数据库压力，实现高并发的手段有哪些？" class="headerlink" title="数据库角度 缓解数据库压力，实现高并发的手段有哪些？"></a>数据库角度 缓解数据库压力，实现高并发的手段有哪些？</h2><blockquote>
+<p>从数据库的角度看，分库分表是请求已经到达数据库的一个重要的办法</p>
+</blockquote>
+<h3 id="字段拆分"><a href="#字段拆分" class="headerlink" title="字段拆分"></a>字段拆分</h3><blockquote>
+<p>将字段进行更加详细的拆分，比如手机品牌+手机型号</p>
+</blockquote>
+<h3 id="切片（分表）"><a href="#切片（分表）" class="headerlink" title="切片（分表）"></a>切片（分表）</h3><blockquote>
+<p>水平切分：将同一个表的记录拆分到多个结构相同的表中，将数据分布到集群的不同节点上，从而缓解单个数据库的压力</p>
+</blockquote>
+<blockquote>
+<p>垂直切分：将一张表分成两张以上的表</p>
+</blockquote>
+<h3 id="复制（分库）"><a href="#复制（分库）" class="headerlink" title="复制（分库）"></a>复制（分库）</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><blockquote>
+<p>主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程。</p>
+<ul>
+<li><strong>binlog 线程</strong> ：负责将主服务器上的数据更改写入二进制日志（Binary log）中。</li>
+<li><strong>I/O 线程</strong> ：负责从主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）。</li>
+<li><strong>SQL 线程</strong> ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中重放（Replay）。</li>
+</ul>
+</blockquote>
+<h3 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h3><blockquote>
+<p>主服务器处理写操作以及实时性要求比较高的读操作，而从服务器处理读操作。</p>
+<p>读写分离能提高性能的原因在于：</p>
+<ul>
+<li>主从服务器负责各自的读和写，极大程度缓解了锁的争用；</li>
+<li>从服务器可以使用 MyISAM，提升查询性能以及节约系统开销；</li>
+<li>增加冗余，提高可用性。</li>
+</ul>
+<p>读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。</p>
+</blockquote>
+<h2 id="如何设计mysql数据库表"><a href="#如何设计mysql数据库表" class="headerlink" title="如何设计mysql数据库表"></a>如何设计mysql数据库表</h2><h4 id="选择正确的数据类型对于获得高性能至关重要"><a href="#选择正确的数据类型对于获得高性能至关重要" class="headerlink" title="选择正确的数据类型对于获得高性能至关重要"></a>选择正确的数据类型对于获得高性能至关重要</h4><blockquote>
+<ul>
+<li>确定合适的大类型（数值、字符串、时间、二进制）使用更小长度的数据类型、处理数据会快一点</li>
+<li>确定具体的类型：有无符号、取值范围、变长定长等</li>
+<li>一般要将字段定义成NOT NULL</li>
+</ul>
+<p>数值型：INT DECIMAL TINYINT</p>
+<p>时间：尽量用DATE DATETIME TIME</p>
+<p>字符串：VARCHAR CHAR</p>
+</blockquote>
+<h4 id="设计主键"><a href="#设计主键" class="headerlink" title="设计主键"></a>设计主键</h4><blockquote>
+<p>设计原则</p>
+<ul>
+<li>尽量使用自增主键（防止插入数据时从中间插入，引发页分裂，产生表碎片）</li>
+<li>主键最好不要有业务含义</li>
+<li>雪花算法、百度uid-generator、美团leaf</li>
+</ul>
+</blockquote>
+<h4 id="设计表"><a href="#设计表" class="headerlink" title="设计表"></a>设计表</h4><blockquote>
+<p>规范化：理论层面上说就是要消除部分函数依赖、传递函数依赖</p>
+<p>表最好不要存储图片、音频、视频等大容量内容 防止binlog内容多导致主从复制效率变慢</p>
+<p>表名最好要避开保留字、长度什么的不宜过长</p>
+</blockquote>
+<h4 id="设计索引"><a href="#设计索引" class="headerlink" title="设计索引"></a>设计索引</h4><blockquote>
+<ul>
+<li><p>创建联合索引（联合索引要注意最左匹配原则，一定是从最左边的字段开始依次在b+树的叶子节点进行搜索）减少开销（建立一个索引相当于建立多个索引）防止回表（如果索引没有某个字段需要先回表搜索主键）过滤效率高</p>
+</li>
+<li><p>创建前缀索引 减少索引长度来提升性能</p>
+</li>
+<li><p>设计复合索引，将选择性能好的列作为前导列</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="考虑乱码问题"><a href="#考虑乱码问题" class="headerlink" title="考虑乱码问题"></a>考虑乱码问题</h4><blockquote>
+<p>防止乱码的关键是统一数据集，包括客户端、服务器端、linux客户端字符集，一般mysql采用 utf8_general_ci</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-diary-2022-0401-2203" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -166,7 +385,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/01/diary-2022-0401-2203/">不想看朋友圈的一天</a>
+      <a class="article-title" href="/2022/04/01/diary-2022-0401-2203/">diary-2022-0401-2203</a>
     </h1>
   
 
@@ -179,16 +398,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="不想看朋友圈的一天"><a href="#不想看朋友圈的一天" class="headerlink" title="不想看朋友圈的一天"></a>不想看朋友圈的一天</h2><p>偷偷的点开人家的头像</p>
-<p>浏览别人的朋友圈</p>
-<p>很想说一声毕业快乐</p>
-<p>怎么能说出口呢</p>
-<p>这不是特殊的癖好</p>
-<p>是对记忆的怀念</p>
-<p>想念单纯的时候</p>
-<p>但也希望快快忘记</p>
-<p>向前看好像才是正道吧</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2022/04/01/diary-2022-0401-2203/#more">more >></a>
+        
       
 
       
@@ -1020,283 +1233,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/03/27/%E9%9D%A2%E8%AF%95-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-六级作文逻辑模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/08/%E5%85%AD%E7%BA%A7%E4%BD%9C%E6%96%87%E9%80%BB%E8%BE%91%E6%A8%A1%E6%9D%BF/">英语六级作文逻辑模板</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/08/%E5%85%AD%E7%BA%A7%E4%BD%9C%E6%96%87%E9%80%BB%E8%BE%91%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
-  	<time datetime="2021-12-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="英语六级作文逻辑模板"><a href="#英语六级作文逻辑模板" class="headerlink" title="英语六级作文逻辑模板"></a>英语六级作文逻辑模板</h2><h3 id="第一段"><a href="#第一段" class="headerlink" title="第一段"></a>第一段</h3><p><strong>题目问法总结</strong></p>
-<blockquote>
-<p>why we should balabala? 这种一般就要吹特别重要，找完原因后，吹功能吹疗效</p>
-<p>what we shoud balabala? 这种就要提出一种或几种方法，吹功能吹疗效</p>
-<p>give comment on balabala。 找原因，吹功能吹疗效</p>
-</blockquote>
-<ul>
-<li><p>现象解释</p>
-<p>提出观点、引出下文。</p>
-</li>
-</ul>
-<blockquote>
-<p>In the contemporary world,(主题theme) have/has become increasingly important. it’s of great necessity for(对象 students,senior people,fresh people,citizens,residents,staff,parents,patients) to (do something). The following are the <strong>reasons</strong> to support my view point.</p>
-</blockquote>
-<ul>
-<li>观点选择</li>
-</ul>
-<blockquote>
-<p>In the contemporary world, (something) have/has become increasing important. (People have different view on the (something))When facing with the decision of (something), quite a few would <strong>deem</strong> that(one choice), but others, in contrast, believe that (the other one) the <strong>premier</strong> choice. In my opinion (both options are suitable, the key lies in our interest)(we should choose something). The following are the <strong>reasons</strong> to support my view point.</p>
-</blockquote>
-<ul>
-<li>问题解决</li>
-</ul>
-<blockquote>
-<p> In the contemporary world,(主题theme) have/has become increasingly important. it’s of great necessity for(对象 students,senior people,fresh people,citizens,residents,staff,parents,patients) to (do something). The following are the <strong>solutions</strong> to account for the issue properly.</p>
-</blockquote>
-<ul>
-<li>谚语类</li>
-</ul>
-<blockquote>
-<p>As old saying goes: (谚语照抄). For our college students, It has an increasingly important significance : (含义). The following are the reasons to support my view point.</p>
-</blockquote>
-<ul>
-<li>图表类</li>
-</ul>
-<blockquote>
-<p>As is <strong>starkly</strong> mirrored(reflected) in the image/chart/diagram that (观点), it is <strong>revealed</strong> that (内涵). The following are the reasons to account for this issue.</p>
-</blockquote>
-<p><strong>核心难点：</strong> 要提炼出一个准确表达题目意思的<strong>词</strong>或<strong>句子</strong>。</p>
-<blockquote>
-<p>简单句就行</p>
-<p>if we want to do something, we should balabala <strong>instead of</strong> balabala;</p>
-</blockquote>
-<h3 id="第二段"><a href="#第二段" class="headerlink" title="第二段"></a>第二段</h3><ol>
-<li>论点</li>
-</ol>
-<blockquote>
-<p>In the first place,there is no doubt that (简单句) we can not divorce from reality that (something) play an important role in one’s success.</p>
-</blockquote>
-<ol start="2">
-<li>论据</li>
-</ol>
-<blockquote>
-<p>Base on big data,most of the (such as social elites) admitted that they’ve spent 2/3 of their time in (something) </p>
-</blockquote>
-<ol>
-<li>论点</li>
-</ol>
-<blockquote>
-<p>Moreover, no one can deny that (简单句)</p>
-</blockquote>
-<ol start="2">
-<li>论据</li>
-</ol>
-<blockquote>
-<p>Where there is/are (something), there are/is (something)</p>
-</blockquote>
-<ol>
-<li>论点</li>
-</ol>
-<blockquote>
-<p>Last but not least, I firmly believe that without (观点), we can’t make any achievements</p>
-</blockquote>
-<ol start="2">
-<li>论据</li>
-</ol>
-<blockquote>
-<p>The + (比较级)， The + (比较级)</p>
-</blockquote>
-<p><strong>furthermore/besides/in addition/moreover，more evidences of our views can be chosen.</strong></p>
-<ul>
-<li>举例子，正例、反例、名人、自己、某方面的事</li>
-</ul>
-<blockquote>
-<p>for instance, Thomas Edison’s success is a good case in point. Without (观点), how could he, the greatest inventor throughout the history of mankind who experienced numerous failed attempts, invent the first bulb.</p>
-</blockquote>
-<blockquote>
-<p>for instance, if we are trying to eat healthier food, Without(观点), how could us stay away from junk food.</p>
-</blockquote>
-<ul>
-<li>引用一些名人名言</li>
-</ul>
-<blockquote>
-<p>There is an well-known saying : “have ever seen the scene of Los Angel at 4 am” by Kobe Bryant.</p>
-</blockquote>
-<p>关于论据的几点思考</p>
-<ol>
-<li>什么？ 谁？ 起到了巨大的（重要的）作用</li>
-<li>我们不能从现实中抽离，什么？使我们怎么样？</li>
-<li>没有什么，我们将会怎么样？</li>
-<li>什么也是不可以忽视的。</li>
-<li>有什么， 我们将会怎么样？</li>
-</ol>
-<h3 id="第三段"><a href="#第三段" class="headerlink" title="第三段"></a>第三段</h3><ol>
-<li>总结重申观点</li>
-</ol>
-<blockquote>
-<p>In conclusion, (something) is essential for everyone.</p>
-</blockquote>
-<ol>
-<li>提出期望</li>
-</ol>
-<blockquote>
-<p>If we spare no effort to cultivate this ability, the future of our study and career will be both hopeful and rosy.</p>
-</blockquote>
-<h4 id="2021年作文"><a href="#2021年作文" class="headerlink" title="2021年作文"></a>2021年作文</h4><blockquote>
-<p>As is starkly mirrored in the diagram that Chinese rural population of poverty has been reduced to 0% of the rural population, it is revealed that China’ s achievements in poverty alleviation are <strong>==extraordinary==</strong>. The following are the reasons to account for this issue.</p>
-</blockquote>
-<blockquote>
-<p>In the first place, there is no doubt that official in Chinese governments have played an important role in this process. Base on the big data, most of the governors involved have admitted that they’ve spent 2/3 of their time in rural area for the poverty alleviation. </p>
-</blockquote>
-<blockquote>
-<p>Moreover, no one can deny that the poverty alleviation policies are indeed ==<strong>beneficial</strong>==. Where there are specific policies, there is <strong>incentives</strong>(动力)/<strong>motivation</strong>.</p>
-</blockquote>
-<blockquote>
-<p>Last but not least, I firmly believe that the personal efforts of the rural residents can not be ignored. The more hardworking they are, the wealthier they are.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, the <strong>accomplishment</strong> of the poverty alleviation in China is <strong>==outstanding==</strong>. if we spare no efforts to implement the policies and maintain hardworking, the future of our country will be both hopeful and prospective/rosy.</p>
-</blockquote>
-<h4 id="2020年作文"><a href="#2020年作文" class="headerlink" title="2020年作文"></a>2020年作文</h4><blockquote>
-<p>In contemporary world, the ability to meet the challenges has become increasingly important, it’s of great necessity to develop the ability to meet the challenges. The following are the reasons and concrete evidence to support my view point. </p>
-</blockquote>
-<blockquote>
-<p>In the first place, there is no doubt that we can not divorce from the reality that challenge is everywhere. Base on the big data,most of the social elites spent about 2/3 of their time in facing the challenges.</p>
-</blockquote>
-<blockquote>
-<p>Moreover, no one can deny that challenges make us stronger. Where there are difficulties, where there are opportunities.</p>
-</blockquote>
-<blockquote>
-<p>Last but not least, I firmly believe that without the ability to meet the challenge, we can not make great achievement. The more problem we solve, the smarter and capable we are.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, the ability to meet the challenges and solve problems is essential for everyone. if we spare no effort to <strong>cultivate</strong> the ability, the future of our study and career will become both hopeful and rosy.(prospective/promising)</p>
-</blockquote>
-<h4 id="2019年作文"><a href="#2019年作文" class="headerlink" title="2019年作文"></a>2019年作文</h4><blockquote>
-<p>As old saying goes : What is worth doing is worth doing well. For our college students, it has an increasingly significance: we can benefit from a lot from a <strong>==serious==</strong> attitude. The following are the reasons to support my view point.</p>
-</blockquote>
-<blockquote>
-<p>In the first place, there is no doubt that attitude plays an <strong>==vital==</strong> role in one’s success. Base on the big data, most of the successful social elites admitted that they have maintain an serious attitude towards everything. Moreover, no one can deny that a serious attitude can help us cherish the <strong>==rare==</strong> opportunity to meet the success. Where there is a serious attitude, there is a <strong>probability</strong>. Last but not least, I firmly believe that without maintaining a serious attitude, we can not making any achievement. The more serious we are, The more <strong>possibility</strong> you will success.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, an serious attitude is essential for everyone. if we spare no efforts to <strong>cultivate</strong> an serious attitude, the future of  our study and career will both hopeful and rosy/prospective</p>
-</blockquote>
-<h4 id="2018年作文"><a href="#2018年作文" class="headerlink" title="2018年作文"></a>2018年作文</h4><blockquote>
-<p>In contemporary world,  balancing job responsibilities and personal interests is increasingly important. It’s of necessity for a <strong>staff</strong> to balance job responsibilities and personal interests. The following are the solutions to account for this issue <strong>==properly==</strong>.</p>
-</blockquote>
-<blockquote>
-<p>Firstly, there is no doubt that a <strong>win win situation</strong> can be reached if we cultivate interests related to our job responsibilities. Base on the big data, most of the successful social elites admitted that they’ve done a great job in <strong>combining</strong>  job responsibilities and personal interests. Furthermore, no one can deny that a correct outlook on job responsibilities and personal interests plays an important role in balancing them. Where there is a preference for anyone of them, there is a unbalance. Last but not least, I firmly believe that a <strong>==detail==</strong> plan is benefit for the distribution of time. With the detail plan, we can be clear to balance job responsibilities and personal interests. </p>
-</blockquote>
-<blockquote>
-<p>In conclusion, the balance of job responsibilities and personal interests is essential for us to succeed. if we spare no effort to understand the solution above, the future of our career and life will be prospective and rosy.</p>
-</blockquote>
-<h4 id="2017年作文"><a href="#2017年作文" class="headerlink" title="2017年作文"></a>2017年作文</h4><blockquote>
-<p>As old saying goes: the best preparation for tomorrow is doing your best today. For us college students, it is increasing important significance: if we want to achieve something , we need to overcome procrastination, The following are the reasons to support my view point.</p>
-</blockquote>
-<blockquote>
-<p>In first place, there is no doubt that we can not divorce from reality that time play an important role in one’s success. Base on the big data, the successful social elites admitted that they must ensure enough time to struggle for success. Moreover, no one can deny that <strong>procrastination</strong> make us weak. where there is procrastination, there is time be wasted. Last but not least, I firmly believe that today’s enough time can make us finish our tasks to a perfect situation as we can. The more serious we are, the better degree of completion we can get.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, overcoming procrastination is essential for everyone to succeed. if we spare no effort to doing best today, the future of our and career will become hopeful and rosy.</p>
-</blockquote>
-<h4 id="2017年作文-1"><a href="#2017年作文-1" class="headerlink" title="2017年作文"></a>2017年作文</h4><blockquote>
-<p>In contemporary world, major in university is become increasingly important. When we facing with the major’s choice of choosing major, quite a few would deem that science is a beneficial choice, but others, in contrast,others believe that humanity is the <strong>premier</strong> choice. In my opinion, both choice are <strong>==suitable==</strong>, the key lies in our interest of which major. The following are the reasons to support my view point.</p>
-</blockquote>
-<blockquote>
-<p>In the first place, there is no doubt that we can deeply devote to learn the more interesting majors. Base on the big data, most of the successful social elites admitted that interest plays a important role in their success, with the interest, they have more <strong>incentives</strong> to achieve success. Furthermore, no one can deny that poor interest makes us weak, where there is poor interest, there is negative emotion. Last but not least, I firmly believe that interest can motivate us to learn more, even never be requested by our teachers.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, interest is essential for everyone to succeed. if we spare no effort to the major we interested in, the future of our study and career will become both hopeful and rosy/prospective.</p>
-</blockquote>
-<h4 id="作文预测一"><a href="#作文预测一" class="headerlink" title="作文预测一"></a>作文预测一</h4><blockquote>
-<p>In the contemporary world , information explosion is become increasingly <strong>==common==</strong>. It’s of necessity for our students to avoid being distracted by irrelevant information. The following are the solutions to account for this issue.</p>
-</blockquote>
-<blockquote>
-<p>In the first place, as old saying goes : a wealth of information creates a poverty of attention. It is no doubt that we can not divorce from the reality that the spirit of exploration plays an important role for us. Base on the big data, most of the social elites admitted that they’ve spent 2/3 of their time to explore the information what they really need rather than be recommend by system. Furthermore, no one can deny that the ability of self-control can make us get information properly. Where there is self-control, there is efficiency in our life. Last but not least, I firmly believe that a detailed plan’s <strong>impact</strong>/<strong>effect</strong> can not be ignored, the more detailed plan we make, the cleared in choosing information.</p>
-</blockquote>
-<blockquote>
-<p>In conclusion, avoiding being distracted by irrelevant information is really essential for us in this era of information explosion. if we make spare no effort to avoid being distracted by irrelevant information, the future of our study and life will be prospective and rosy.distinguish irrelevant information</p>
-</blockquote>
-<h4 id="作文预测二"><a href="#作文预测二" class="headerlink" title="作文预测二"></a>作文预测二</h4><blockquote>
-<p>As old saying goes : to admit that you were wrong is to declare that you are wiser now than you were before. For our students, It has increasingly significances : admitting mistakes make us grow. The following are the reasons to account for this issue.</p>
-<p>In the first place, it is no doubt that we can not divorce from the reality that admitting mistakes plays an important role for our success. Base on the big data, most of the social elites admitted that they have always choose to face mistakes when they have make mistakes. Furthermore, no one can deny that admitting mistakes can make us have an examination for ourselves. Where there is <strong>examination</strong>, there is no similar mistakes next time. Last but not least, I firmly believe that without admitting mistakes, we will pay less attention to them. The more mistakes we admitted, the more experience we will get.</p>
-<p>In conclusion, admitting mistakes is really essential for us to grow and succeed. if we spare no effort to face the mistakes, the future of our life and study will become hopeful and rosy.</p>
-</blockquote>
-<h4 id="作文预测三"><a href="#作文预测三" class="headerlink" title="作文预测三"></a>作文预测三</h4><blockquote>
-<p>As it starkly mirrored in the chart that most of the college students spend too much time on mobile social software, it revealed that the college students tend to keep in touch in the virtual world rather than reality. The following are the reasons to account for this issue.</p>
-<p>In the first place, It is no doubt that social software is more convenient for us to <strong>keep in touch with</strong> others. With the social software, we can chat with others whenever we want. At the same time, it is easier for us to misunderstand others. Furthermore, no one can deny that too much time on mobile social software make us unhealthy, Base on the big data, a large number of students addict to the mobile phone, which results them sleep later, eyes become tired and so on. Last but not least, I firmly believe that without communication in reality, our happiness will reduce. The more time we devote to the virtual world, the unhappier we are.</p>
-<p>In conclusion, In the contemporary world, mobile social is an important part of our life and study. If we spare no effort to use mobile software properly, the future of our life will become hopeful and rosy.</p>
-</blockquote>
-<h4 id="作文预测四"><a href="#作文预测四" class="headerlink" title="作文预测四"></a>作文预测四</h4><blockquote>
-<p>As it starkly mirrored in the picture that tumbler can not go ahead as it can not tumble. It revealed that we can make progress when we properly face our setbacks. The following are the solutions to account for this issue.</p>
-<p>In the first place, It is no doubt that a right mindset plays an important role when face the setbacks. Base on the big data, most of the social elites admitted that they have a right. </p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">English learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/08/%E5%85%AD%E7%BA%A7%E4%BD%9C%E6%96%87%E9%80%BB%E8%BE%91%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
         </p>
       
 

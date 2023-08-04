@@ -159,6 +159,60 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-sql语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>–统计所有已出租的房屋总收入(从出租时间到现在)<br>SELECT<br>SUM((SYSDATE - rent_date) * price) AS total_income<br>FROM HOUSE<br>WHERE status = 1;</p>
+<p>–所有未出租的房屋降低10%<br>UPDATE HOUSE<br>SET price = price * 0.9<br>WHERE status = 2;</p>
+<p>–统计所有已出租房租平均租赁天数<br>SELECT AVG(TO_NUMBER(SYSDATE - rent_date)) AS average_rental_days<br>FROM HOUSE<br>WHERE status = 1;</p>
+<p>–1) 如果地址不为空，按地址模糊查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE (address IS NOT NULL AND address LIKE ‘%南京市%’)<br>OR (address IS NULL);<br>–(2) 面积可以按低值到高值范围查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE<br>(area BETWEEN 50 AND 100);</p>
+<p>–(3) 出租日期可以按低值到高值范围查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE<br>(rent_date BETWEEN ‘01-2月 -22’ AND ‘01-2月 -23’);</p>
+<p>–(4) 状态不为空，可以按状态查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE<br>status IS NOT NULL AND STATUS = 1;</p>
+<p>–(5) 以上字段都不为空，使用and连接查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE address IS NOT NULL AND address LIKE ‘%北京市%’<br>AND area BETWEEN 50 AND 100<br>AND rent_date BETWEEN ‘01-2月 -22’ AND ‘01-2月 -23’<br>AND status IS NOT NULL;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/04/sql%E8%AF%AD%E5%8F%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Oracle笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -179,8 +233,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- select * from EMP;</span></span><br><span class="line"><span class="comment">-- select * from DEPT;</span></span><br><span class="line"><span class="comment">-- select * from SALGRADE;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- DDL 数据定义语言  不需要commit</span></span><br><span class="line"><span class="comment">-- 创建表</span></span><br><span class="line"><span class="comment">-- create table students</span></span><br><span class="line"><span class="comment">-- (</span></span><br><span class="line"><span class="comment">--     -- 主键  唯一标识数据  自然主键：和业务逻辑相关  代理主键：UUID 自增长主键</span></span><br><span class="line"><span class="comment">--     id int primary key ,</span></span><br><span class="line"><span class="comment">--     name varchar2(10),</span></span><br><span class="line"><span class="comment">--     generated varchar2(2),</span></span><br><span class="line"><span class="comment">--     age int</span></span><br><span class="line"><span class="comment">-- )</span></span><br><span class="line"><span class="comment">-- 删除表</span></span><br><span class="line"><span class="comment">-- drop table STUDENTS;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--创建表并赋默认值</span></span><br><span class="line"><span class="comment">-- create table students</span></span><br><span class="line"><span class="comment">-- (</span></span><br><span class="line"><span class="comment">--     id int primary key ,</span></span><br><span class="line"><span class="comment">--     name varchar2(10),</span></span><br><span class="line"><span class="comment">--     gender varchar2(10) default &#x27;男&#x27;,</span></span><br><span class="line"><span class="comment">--     age int</span></span><br><span class="line"><span class="comment">-- )</span></span><br><span class="line"><span class="comment">-- alter table STUDENTS</span></span><br><span class="line"><span class="comment">--     add (address varchar2(50),dept varchar2(10));</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- alter table STUDENTS</span></span><br><span class="line"><span class="comment">--     modify (address varchar2(30));</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- alter table STUDENTS</span></span><br><span class="line"><span class="comment">--     drop (ADDRESS, DEPT);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- varchar2 可变长度的处理 最大保存长度为10 但实际上可能只有2</span></span><br><span class="line"><span class="comment">/**数据类型</span></span><br><span class="line"><span class="comment">  数据型</span></span><br><span class="line"><span class="comment">    number(2) 最大数字 99</span></span><br><span class="line"><span class="comment">  weight number(5,2) 整数三位 999.99</span></span><br><span class="line"><span class="comment">  日期型</span></span><br><span class="line"><span class="comment">  data</span></span><br><span class="line"><span class="comment">  timestamp</span></span><br><span class="line"><span class="comment">  图片类型</span></span><br><span class="line"><span class="comment">  BLOB</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--- DML 数据操作语言  需要commit;  自动提交有风险</span></span><br><span class="line"><span class="comment">--- 插入</span></span><br><span class="line"><span class="comment">-- insert into STUDENTS</span></span><br><span class="line"><span class="comment">-- values (3, &#x27;李康&#x27;, &#x27;男&#x27;, 18);</span></span><br><span class="line"><span class="comment">-- select *</span></span><br><span class="line"><span class="comment">-- from STUDENTS;</span></span><br><span class="line"><span class="comment">-- commit;</span></span><br><span class="line"><span class="comment">-- insert into STUDENTS(id, name, age) VALUES (2, &#x27;杜甫&#x27;, 100);</span></span><br><span class="line"><span class="comment">-- commit ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--- 修改</span></span><br><span class="line"><span class="comment">-- update STUDENTS</span></span><br><span class="line"><span class="comment">-- set AGE = 25</span></span><br><span class="line"><span class="comment">-- where id = 3;</span></span><br><span class="line"><span class="comment">-- select  * from STUDENTS;</span></span><br><span class="line"><span class="comment">-- commit;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">---DQL 数据查询操作  从效率上来说，不建议*</span></span><br><span class="line"><span class="comment">-- select t.id, t.name, t.age</span></span><br><span class="line"><span class="comment">-- from STUDENTS t;</span></span><br><span class="line"><span class="comment">-- commit;</span></span><br><span class="line"><span class="comment">-- 子查询创建表</span></span><br><span class="line"><span class="comment">-- create table stu as</span></span><br><span class="line"><span class="comment">-- select id, name, age</span></span><br><span class="line"><span class="comment">-- from STUDENTS;</span></span><br><span class="line"><span class="comment">-- 在事务没有提交之前，可以回滚数据</span></span><br><span class="line"><span class="comment">-- delete from STUDENTS where id = 3;</span></span><br><span class="line"><span class="comment">-- select * from STUDENTS;</span></span><br><span class="line"><span class="comment">-- commit;</span></span><br><span class="line"><span class="comment">-- rollback ;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建序列</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- create sequence id_seq</span></span><br><span class="line"><span class="comment">-- increment by 1</span></span><br><span class="line"><span class="comment">-- start with 1</span></span><br><span class="line"><span class="comment">-- nomaxvalue</span></span><br><span class="line"><span class="comment">-- nocycle</span></span><br><span class="line"><span class="comment">-- nocache</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- select ID_SEQ.nextval from DUAL;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- insert into STUDENTS</span></span><br><span class="line"><span class="comment">-- values (ID_SEQ.nextval,&#x27;李白&#x27;,&#x27;男&#x27;,12);</span></span><br><span class="line"><span class="comment">-- commit;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--- 练习：创建staff表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> staff</span><br><span class="line">(</span><br><span class="line">    id      number(<span class="number">4</span>),</span><br><span class="line">    name    varchar2(<span class="number">20</span>),</span><br><span class="line">    sal     number(<span class="number">7</span>, <span class="number">2</span>),</span><br><span class="line">    dept    varchar2(<span class="number">50</span>),</span><br><span class="line">    staffno varchar2(<span class="number">4</span>),</span><br><span class="line">    gender  varchar2(<span class="number">10</span>),</span><br><span class="line">    age     number(<span class="number">2</span>)</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- 修改gender表默认字段为’女‘</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> staff</span><br><span class="line">    modify gender varchar2(<span class="number">10</span>) <span class="keyword">default</span> <span class="string">&#x27;女&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 添加deptno编号字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> staff</span><br><span class="line">    modify id number(<span class="number">4</span>) <span class="keyword">primary</span> key;</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> staff</span><br><span class="line">    <span class="keyword">add</span> deptno varchar2(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> sequence staff_id_seq</span><br><span class="line">    increment <span class="keyword">by</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">start</span> <span class="keyword">with</span> <span class="number">1</span></span><br><span class="line">    nomaxvalue</span><br><span class="line">    nocache;</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> staff</span><br><span class="line"><span class="keyword">values</span> (staff_id_seq.nextval, <span class="string">&#x27;李沁&#x27;</span>, <span class="number">5600.45</span>, <span class="string">&#x27;研发&#x27;</span>, <span class="string">&#x27;C239&#x27;</span>, <span class="string">&#x27;女&#x27;</span>, <span class="number">12</span>, <span class="string">&#x27;4867&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> staff;</span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br><span class="line">update staff</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">13</span></span><br><span class="line"><span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> staff;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2023/08/01/Oracle%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
       
 
       
@@ -240,7 +296,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/07/diary-2023-0607-1400/">毕业与离别，不妨开心一点</a>
+      <a class="article-title" href="/2023/06/07/diary-2023-0607-1400/">diary-2023-0607-1400</a>
     </h1>
   
 
@@ -253,8 +309,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="毕业与离别，不妨开心一点"><a href="#毕业与离别，不妨开心一点" class="headerlink" title="毕业与离别，不妨开心一点"></a>毕业与离别，不妨开心一点</h3><p>如果不算是一个很开朗的人，大概是很难接受离别吧</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2023/06/07/diary-2023-0607-1400/#more">more >></a>
+        
       
 
       
@@ -314,7 +372,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/05/diary-2022-1005-2025/">平凡的认知</a>
+      <a class="article-title" href="/2022/10/05/diary-2022-1005-2025/">diary-2022-1005-2025</a>
     </h1>
   
 
@@ -327,20 +385,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="平凡的认知"><a href="#平凡的认知" class="headerlink" title="平凡的认知"></a>平凡的认知</h3><p>今天看了一部关于盲人的纪录片</p>
-<p>算是倏忽间有了一些对于人生的思考</p>
-<p>同时这几天又本着修身养性的目的再看《平凡的世界》</p>
-<p>感觉对平凡有了一个新的认知</p>
-<p>我惊讶的发现   盲人的听力是远远好于正常人的</p>
-<p>总感觉上帝真的存在</p>
-<p>让你失去一个东西，也会在别的地方替你弥补</p>
-<p>除此之外</p>
-<p>我对于自己平凡的视力以及平凡的听力</p>
-<p>暗暗地感受到了一丝丝的庆幸</p>
-<p>毕竟平凡是这个社会以及这个时代的主流</p>
-<p>在茫茫的人海中能够保有自己的小特点外还能随大流</p>
-<p>是一种不小的幸福</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2022/10/05/diary-2022-1005-2025/#more">more >></a>
+        
       
 
       
@@ -400,7 +448,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/23/diary-2022-0923-1555/">关于理想，关于追求</a>
+      <a class="article-title" href="/2022/09/23/diary-2022-0923-1555/">diary-2022-0923-1555</a>
     </h1>
   
 
@@ -413,29 +461,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关于理想，关于追求"><a href="#关于理想，关于追求" class="headerlink" title="关于理想，关于追求"></a>关于理想，关于追求</h2><p>没曾想，秋招这么快的结束了</p>
-<p>最终结果也算是，意料之中；也属实，是意料之外</p>
-<p>在就业这样的人生大事中</p>
-<p>毫无意外地会有人和你谈理想、谈追求</p>
-<p>我常常会反问</p>
-<p>需要什么样的理想？要追求什么？</p>
-<p>在电影中国合伙人有一句关于理想的话，令人印象深刻</p>
-<p>大概意思是——生活有了理想，会更加快乐</p>
-<p>在这句话里面，理想再不是中心，成为了让你快乐的附属品</p>
-<p>关于追求什么其实算是你之所以迷惘的症结</p>
-<p>关于迷惘、迷茫也算是当代青年人的特征了（意思是，又有几个年轻人不迷惘、不迷茫）</p>
-<p>但毫无意外我们的很多追求</p>
-<p>确实是会主要基于世俗的眼光</p>
-<p>但世俗何尝不好呢，人本是社会性动物</p>
-<p>我们该有什么理想，我们该追求什么</p>
-<p>我想我们都该有理想和追求</p>
-<p>我们不该追求离我们很远的东西</p>
-<p>我们也不该追求太单一的东西，例如：only money</p>
-<p>我们也不该偏执对待自己的理想</p>
-<p>理想是decoration of the life</p>
-<p>当我们的生活处处洋溢着理想主义的点点星光</p>
-<p>或许这算是美好生活</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2022/09/23/diary-2022-0923-1555/#more">more >></a>
+        
       
 
       
@@ -495,7 +524,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/18/diary-2022-0918-1550/">三行情书合辑</a>
+      <a class="article-title" href="/2022/09/18/diary-2022-0918-1550/">diary-2022-0918-1550</a>
     </h1>
   
 
@@ -508,17 +537,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="三行情书"><a href="#三行情书" class="headerlink" title="三行情书"></a>三行情书</h3><p>三月不顾一切与春光相遇<br>大雨倾盆挡住你离开的路<br>我带了伞 能不能借点你头顶的雨</p>
-<p>经常问自己而不舍得问你</p>
-<p>什么是好？</p>
-<p>什么是不好？</p>
-<p>螃蟹在剥我的壳，笔记本在写我</p>
-<p>漫天的我落在枫叶上雪花上</p>
-<p>而你在想我</p>
-<p>无以复加的热情</p>
-<p>寂静如死的沉默</p>
-<p>碰撞出的究竟是花火还是火花</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2022/09/18/diary-2022-0918-1550/#more">more >></a>
+        
       
 
       
@@ -721,7 +743,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/16/diary-2022-0416-2303/">对爱情的几点看法</a>
+      <a class="article-title" href="/2022/04/16/diary-2022-0416-2303/">diary-2022-0416-2303</a>
     </h1>
   
 
@@ -734,25 +756,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="对爱情的几点看法"><a href="#对爱情的几点看法" class="headerlink" title="对爱情的几点看法"></a>对爱情的几点看法</h2><p>我一直有一个想法，以理科思维来解读爱情该是什么样的呢？</p>
-<p>我知道在经济学中经常会用一些例子来解读经济学现象</p>
-<p>例如美国烟草公司被禁止打广告，反而让烟草公司具备更高的投资价值，就是一种拿例子解释现象的情况</p>
-<hr>
-<blockquote>
-<p>所以，什么是爱情呢？大可以从一些典型故事中获得答案，这世界那么多爱情故事，不尽相同，往往又有惊人的相似度</p>
-</blockquote>
-<p>《麦琪的礼物》讲述的是一个圣诞节里发生在社会下层的小家庭中的故事。男主人公吉姆是一位薪金仅够维持生活的小职员，女主人公德拉是一位贤惠善良的主妇。他们的生活贫穷，但吉姆和德拉各自拥有一样极珍贵的宝物。吉姆有祖传的一块金表，德拉有一头美丽的瀑布般的秀发。为了能在圣诞节送给对方一件礼物，吉姆卖掉了他的金表为德拉买了一套“纯玳瑁做的，边上镶着珠宝”的梳子；德拉卖掉了自己的长发为吉姆买了一条白金表链。他们都为对方舍弃了自己最宝贵的东西，而换来的礼物却因此变得毫无作用了。</p>
-<p><strong>爱情是具象的，非虚无的，不是一种感觉。</strong></p>
-<p><strong>爱情是一种责任，需要彼此的付出</strong></p>
-<p>波伏娃和萨特是一对没有婚姻的终身伴侣，他们是契约式婚姻的实践者。也是1929年的事，波伏娃20岁，萨特23岁。某个午后，他们一起看完电影，萨特对波伏娃说道：“我们签个为期两年的协议吧。”契约式婚姻宣告诞生。萨特解释说，两人不必结婚，但又是亲密的生活伴侣，真诚相爱的同时，各自保持着爱情的独立自由。不久，他们又达成了另一个协议，“双方不应互相欺骗，而且不应互相隐瞒”。即是说他们彼此的“偶然爱情”都应该毫无保留地告知对方，双方都有爱其他异性的权利。这两个协议，他们竟然执行了一辈子。</p>
-<p>青年时期，萨特和波伏娃势均力敌、旗鼓相当，二人无疑是非常享受这种特殊的情感关系，毕竟，这关系不仅让二人体验到非常新潮又刺激的爱情，还为二人文学创作提供源源不断的灵感，二人因此在学术和文学上获得巨大成功，并肩成为当时西方文学界和思想界最亮眼的巨星。</p>
-<p>中年以后，随着波伏娃日渐衰老，其女性魅力日益减弱导致其对自身及二人感情的不自信增多，波伏娃与萨特开放式的感情关系的天平失衡，波伏娃陷入弱势地位，波伏娃在二人开放式情感关系中痛苦多过快乐。萨特则恰恰相反，中年萨特正处于其魅力值的巅峰，名气、财富、地位皆手到擒来，在如此开放式情感关系中萨特自是“如鱼得水”！</p>
-<p>晚年时期，萨特与波伏娃对社会对自己的哲学思想对二人的情感模式都进行了反思，反思之后失望多于满意。晚年的萨特最终发现自己并没有获得其孜孜以求的“绝对自由”，对于他自己提议的“开放式情感关系”也因“爱情天然具有排他性”而宣告失败，这对晚年的萨特无疑打击巨大。晚年的波伏娃，孤苦无依且贫病交织，生活的现实困境早就磨灭了她青年时期的宏大理想。</p>
-<p><strong>爱情可以坦荡、真诚、宽容</strong></p>
-<p><strong>爱情天然具备排他性</strong></p>
-<p><strong>爱情的美好是一定框架束缚下的产物</strong></p>
-<p>待补充。。。</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2022/04/16/diary-2022-0416-2303/#more">more >></a>
+        
       
 
       
@@ -812,7 +819,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/16/diary-2022-0908-1417/">坚持，熬过去就好了</a>
+      <a class="article-title" href="/2022/04/16/diary-2022-0908-1417/">diary-2022-0908-1417</a>
     </h1>
   
 
@@ -825,13 +832,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="坚持，熬过去就好了"><a href="#坚持，熬过去就好了" class="headerlink" title="坚持，熬过去就好了"></a>坚持，熬过去就好了</h2><p>找工作真的是太难了</p>
-<p>还要学英语</p>
-<p>只能说</p>
-<p>坚持，熬过去就好了</p>
-<p>无时无刻 都要相信</p>
-<p>我可以同时做好很多事</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2022/04/16/diary-2022-0908-1417/#more">more >></a>
+        
       
 
       
@@ -891,7 +895,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/14/diary-2022-0414-2303/">关于努力的几点思考</a>
+      <a class="article-title" href="/2022/04/14/diary-2022-0414-2303/">diary-2022-0414-2303</a>
     </h1>
   
 
@@ -904,23 +908,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关于努力的几点思考"><a href="#关于努力的几点思考" class="headerlink" title="关于努力的几点思考"></a>关于努力的几点思考</h2><p>偶然间刷视频看到了张朝阳的一段采访</p>
-<p>他说这个世界很不公平，我们不应该trying too hard</p>
-<p>其实很感慨，努力这件事真的是洗脑，从小到大，一致认可</p>
-<p>然后呢，我和我同学聊天却纷纷感慨</p>
-<p>有的时候，努力并不一定给我们呈现我们期待的结果</p>
-<p>努力其实像是一种选择</p>
-<p>我常常发现，难的不是努力本身，而是该如何选择</p>
-<p>因为结果未知啊</p>
-<p>毫无疑问的是你不知道自己的竞争力是不是努力就能起作用，还是凑数，为他人做陪衬</p>
-<p>我们的内心常常是该不该？要不要？</p>
-<p>要鼓起勇气去推自己一把才会有开始的决心</p>
-<p>后果就是很累，有点像折磨自己</p>
-<p>其实我现在也很难理解努力这件事</p>
-<p>什么样的努力才是好努力呢</p>
-<p>现在暂时的答应应该是</p>
-<p>”我不想被自己的鞭子抽着前进，不想大喘气地前进“。</p>
-
+        Welcome to my blog, enter password to read.
+        
+          <a class="article-more-a" href="/2022/04/14/diary-2022-0414-2303/#more">more >></a>
+        
       
 
       
@@ -944,225 +935,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/04/14/diary-2022-0414-2303/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面试-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2022-04-01T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="MySQL事务的ACID是什么？"><a href="#MySQL事务的ACID是什么？" class="headerlink" title="MySQL事务的ACID是什么？"></a>MySQL事务的ACID是什么？</h2><blockquote>
-<p>原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。</p>
-<p>一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</p>
-<p>隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。</p>
-<p>持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失。</p>
-<p>系统发生崩溃可以用重做日志（redo log）进行恢复，从而实现持久化。</p>
-<p>与回滚日志记录数据的逻辑修改不同，重做日志记录的是数据页的物理修改。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 只有满足一致性，事务的执行结果才是正确的。</span><br><span class="line">- 在无并发的情况下，事务串行执行，隔离性一定能够满足。此时只要能满足原子性，就一定能满足一致性。</span><br><span class="line">- 在并发的情况下，多个事务并行执行，事务不仅要满足原子性，还需要满足隔离性，才能满足一致性。</span><br><span class="line">- 事务满足持久化是为了能应对系统崩溃的情况。</span><br></pre></td></tr></table></figure>
-
-<h2 id="并发情况下可以导致什么一致性问题？"><a href="#并发情况下可以导致什么一致性问题？" class="headerlink" title="并发情况下可以导致什么一致性问题？"></a>并发情况下可以导致什么一致性问题？</h2><blockquote>
-<p>在 XXXX 隔离级别，会出现 XXXX问题。</p>
-<p>在“读未提交”隔离级别下，会出现“丢失修改”、“脏读”、“不可重复读”、“幻读”问题</p>
-<p>在“读已提交”隔离级别下，会出现“不可重复读”、“幻读”问题</p>
-<p>在“可重复读”隔离级别下，会出现“幻读”问题，<code>mysql</code>的默认隔离级别，实现手段是加行锁</p>
-<p>在“可串行化”隔离级别下，不会出现上述问题，并发效率低，<code>mysql</code>实现可串性化的手段是加锁</p>
-</blockquote>
-<h2 id="什么是三级封锁协议？"><a href="#什么是三级封锁协议？" class="headerlink" title="什么是三级封锁协议？"></a>什么是三级封锁协议？</h2><blockquote>
-<p>1 级封锁协议是：事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。事务结束包括正常结束(COMMIT)和非正常结束(ROLLBACK)。 1级封锁协议可防止丢失修改，并保证事务T是可恢复的。在1级封锁协议中，如果仅仅是读数据不对其进行修改，是不需要加锁的，所以它不能保证可重复读和不 读”脏”数据。</p>
-<p>2级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，读完后即可释放S锁。2级封锁协议除防止了丢失修改，还可进一步防止读”脏”数据。</p>
-<p>3级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，直到事务结束才释放。3级封锁协议除防止了丢失修改和不读’脏’数据外，还进一步防止了不可重复读。</p>
-</blockquote>
-<h2 id="Mysql如何实现可重复读？"><a href="#Mysql如何实现可重复读？" class="headerlink" title="Mysql如何实现可重复读？"></a><code>Mysql</code>如何实现可重复读？</h2><blockquote>
-<p>主要是通过MVCC机制实现</p>
-</blockquote>
-<blockquote>
-<p>MVCC是一种读写分离的机制，可以减少不必要的加锁。写当前版本快照，读旧版本快照</p>
-<p>MVCC 的多版本指的是多个版本的快照，快照存储在 Undo 日志中，该日志通过回滚指针 ROLL_PTR 把一个数据行的所有快照连接起来。</p>
-<p>MVCC可以实现可重复读，在一定程度上也能避免幻读(<code>readview</code>被复用)</p>
-</blockquote>
-<h2 id="Mysql的索引底层要用B-树？"><a href="#Mysql的索引底层要用B-树？" class="headerlink" title="Mysql的索引底层要用B+树？"></a><code>Mysql</code>的索引底层要用B+树？</h2><blockquote>
-<p>相比于红黑树，B+树访问磁盘有更高的性能。内存与磁盘以叶为单位交换数据，B+树将索引的一个节点的大小设置为页的大小</p>
-</blockquote>
-<blockquote>
-<p>相比于B树，B+树只在叶子节点存储数据，非叶子节点只存储索引，所以更加的矮胖，查询的效率更高</p>
-</blockquote>
-<h2 id="Mysql进行索引优化的方法？"><a href="#Mysql进行索引优化的方法？" class="headerlink" title="Mysql进行索引优化的方法？"></a><code>Mysql</code>进行索引优化的方法？</h2><blockquote>
-<p>独立的列：进行查询时，索引不能是表达式的一部分，也不能是函数的参数，否则索引失效</p>
-<p>多列索引：进行查询时，尽量通过建立多列索引尽可能减少查询次数</p>
-<p>索引顺序：进行查询时，选择性强的放左边</p>
-</blockquote>
-<blockquote>
-<p>使用前缀索引</p>
-<p>使用联合索引+覆盖索引（索引包含查询的字段）减少开销</p>
-</blockquote>
-<blockquote>
-<p>删除一些不必要的索引：进行数据修改后，需要更新索引，假如索引太多，会严重影响<code>mysql</code>的性能。</p>
-</blockquote>
-<blockquote>
-<p>最左前缀匹配原则</p>
-<p>尽量选择区分度高的列作为索引</p>
-<p>索引不能参与计算，尽量保持干净</p>
-<p>尽量的扩展索引，不要新建索引</p>
-</blockquote>
-<h2 id="mysql索引原理及慢SQL优化"><a href="#mysql索引原理及慢SQL优化" class="headerlink" title=" mysql索引原理及慢SQL优化"></a><code> mysql</code>索引原理及慢SQL优化</h2><ul>
-<li>首先明确索引的目的<blockquote>
-<p>提高查询效率</p>
-</blockquote>
-</li>
-<li>其次了解索引的原理<blockquote>
-<p>磁盘的IO是以页为单位，一般4k或者8k<br>索引的数据结构是B+树，数据项占的空间越小，数据项的数量越多，树的高度越低。b+树按照从左到右的顺序来建立搜索树，</p>
-</blockquote>
-</li>
-<li>慢SQL优化<blockquote>
-<p>联合索引+最左前缀匹配 + 覆盖索引 + 综合评估</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="常见日志分类及作用？"><a href="#常见日志分类及作用？" class="headerlink" title="常见日志分类及作用？"></a>常见日志分类及作用？</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- 1. redo 重做日志:</span><br><span class="line">- 作用：确保事务的持久性，防止在发生故障，脏页未写入磁盘。重启数据库会进行redo log执行重做，到达事务一致性</span><br><span class="line"></span><br><span class="line">- 2. undo 回滚日志</span><br><span class="line">- 作用：保证数据的原子性，记录事务发生之前的数据的一个版本，用于回滚。innodb事务的可重复读和读取已提交 隔离级别就是通过mvcc+undo实现</span><br><span class="line"></span><br><span class="line">- 3. errorlog 错误日志</span><br><span class="line">- 作用：Mysql本身启动、停止、运行期间发生的错误信息</span><br><span class="line"></span><br><span class="line">- 4. slow query log 慢查询日志</span><br><span class="line">- 作用：记录执行时间过长的sql，时间阈值可以配置，只记录执行成功</span><br><span class="line"></span><br><span class="line">- 5. binlog 二进制日志</span><br><span class="line">- 作用：用于主从复制，实现主从同步</span><br><span class="line"></span><br><span class="line">- 6. relay log 中继日志</span><br><span class="line">- 作用：用于数据库主从同步，将主库发送来的binlog先保存在本地，然后从库进行回放</span><br><span class="line"></span><br><span class="line">- 7. general log 普通日志</span><br><span class="line">- 作用：记录数据库操作明细，默认关闭，开启会降低数据库性能</span><br></pre></td></tr></table></figure>
-<h2 id="数据库发生崩溃后如何进行恢复？"><a href="#数据库发生崩溃后如何进行恢复？" class="headerlink" title="数据库发生崩溃后如何进行恢复？"></a>数据库发生崩溃后如何进行恢复？</h2><blockquote>
-<p>两阶段提交：先写redo_log 并设置为prepare ——&gt;再写bin_log——&gt;将redo_log设置为commit</p>
-</blockquote>
-<blockquote>
-<p>进行两阶段提交 Write ahead Logging 的原因是对redo_log只进行一次写入会出现问题</p>
-</blockquote>
-<blockquote>
-<p>在做Crash recovery时，分为以下3种情况：<br> bin_log有记录，redo_log状态commit：正常完成的事务，不需要恢复；<br> bin_log有记录，redo_log状态prepare：在bin_log写完提交事务之前的crash，恢复操作：提交事务。（因为之前没有提交）</p>
-<p>​            判断bin_log是否完整 是 则提交 否则 回滚</p>
-<p> bin_log无记录，redo_log状态prepare：在bin_log写完之前的crash，恢复操作：回滚事务（因为crash时并没有成功写入数据库）</p>
-</blockquote>
-<h2 id="数据库角度-缓解数据库压力，实现高并发的手段有哪些？"><a href="#数据库角度-缓解数据库压力，实现高并发的手段有哪些？" class="headerlink" title="数据库角度 缓解数据库压力，实现高并发的手段有哪些？"></a>数据库角度 缓解数据库压力，实现高并发的手段有哪些？</h2><blockquote>
-<p>从数据库的角度看，分库分表是请求已经到达数据库的一个重要的办法</p>
-</blockquote>
-<h3 id="字段拆分"><a href="#字段拆分" class="headerlink" title="字段拆分"></a>字段拆分</h3><blockquote>
-<p>将字段进行更加详细的拆分，比如手机品牌+手机型号</p>
-</blockquote>
-<h3 id="切片（分表）"><a href="#切片（分表）" class="headerlink" title="切片（分表）"></a>切片（分表）</h3><blockquote>
-<p>水平切分：将同一个表的记录拆分到多个结构相同的表中，将数据分布到集群的不同节点上，从而缓解单个数据库的压力</p>
-</blockquote>
-<blockquote>
-<p>垂直切分：将一张表分成两张以上的表</p>
-</blockquote>
-<h3 id="复制（分库）"><a href="#复制（分库）" class="headerlink" title="复制（分库）"></a>复制（分库）</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><blockquote>
-<p>主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程。</p>
-<ul>
-<li><strong>binlog 线程</strong> ：负责将主服务器上的数据更改写入二进制日志（Binary log）中。</li>
-<li><strong>I/O 线程</strong> ：负责从主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）。</li>
-<li><strong>SQL 线程</strong> ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中重放（Replay）。</li>
-</ul>
-</blockquote>
-<h3 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h3><blockquote>
-<p>主服务器处理写操作以及实时性要求比较高的读操作，而从服务器处理读操作。</p>
-<p>读写分离能提高性能的原因在于：</p>
-<ul>
-<li>主从服务器负责各自的读和写，极大程度缓解了锁的争用；</li>
-<li>从服务器可以使用 MyISAM，提升查询性能以及节约系统开销；</li>
-<li>增加冗余，提高可用性。</li>
-</ul>
-<p>读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。</p>
-</blockquote>
-<h2 id="如何设计mysql数据库表"><a href="#如何设计mysql数据库表" class="headerlink" title="如何设计mysql数据库表"></a>如何设计mysql数据库表</h2><h4 id="选择正确的数据类型对于获得高性能至关重要"><a href="#选择正确的数据类型对于获得高性能至关重要" class="headerlink" title="选择正确的数据类型对于获得高性能至关重要"></a>选择正确的数据类型对于获得高性能至关重要</h4><blockquote>
-<ul>
-<li>确定合适的大类型（数值、字符串、时间、二进制）使用更小长度的数据类型、处理数据会快一点</li>
-<li>确定具体的类型：有无符号、取值范围、变长定长等</li>
-<li>一般要将字段定义成NOT NULL</li>
-</ul>
-<p>数值型：INT DECIMAL TINYINT</p>
-<p>时间：尽量用DATE DATETIME TIME</p>
-<p>字符串：VARCHAR CHAR</p>
-</blockquote>
-<h4 id="设计主键"><a href="#设计主键" class="headerlink" title="设计主键"></a>设计主键</h4><blockquote>
-<p>设计原则</p>
-<ul>
-<li>尽量使用自增主键（防止插入数据时从中间插入，引发页分裂，产生表碎片）</li>
-<li>主键最好不要有业务含义</li>
-<li>雪花算法、百度uid-generator、美团leaf</li>
-</ul>
-</blockquote>
-<h4 id="设计表"><a href="#设计表" class="headerlink" title="设计表"></a>设计表</h4><blockquote>
-<p>规范化：理论层面上说就是要消除部分函数依赖、传递函数依赖</p>
-<p>表最好不要存储图片、音频、视频等大容量内容 防止binlog内容多导致主从复制效率变慢</p>
-<p>表名最好要避开保留字、长度什么的不宜过长</p>
-</blockquote>
-<h4 id="设计索引"><a href="#设计索引" class="headerlink" title="设计索引"></a>设计索引</h4><blockquote>
-<ul>
-<li><p>创建联合索引（联合索引要注意最左匹配原则，一定是从最左边的字段开始依次在b+树的叶子节点进行搜索）减少开销（建立一个索引相当于建立多个索引）防止回表（如果索引没有某个字段需要先回表搜索主键）过滤效率高</p>
-</li>
-<li><p>创建前缀索引 减少索引长度来提升性能</p>
-</li>
-<li><p>设计复合索引，将选择性能好的列作为前导列</p>
-</li>
-</ul>
-</blockquote>
-<h4 id="考虑乱码问题"><a href="#考虑乱码问题" class="headerlink" title="考虑乱码问题"></a>考虑乱码问题</h4><blockquote>
-<p>防止乱码的关键是统一数据集，包括客户端、服务器端、linux客户端字符集，一般mysql采用 utf8_general_ci</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
         </p>
       
 

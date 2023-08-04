@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java数据库 | li&#39;s blogs</title>
+  <title>li&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL事务的ACID是什么？ 原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。 一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。 隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。 持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失">
+  <meta name="description" content="–统计所有已出租的房屋总收入(从出租时间到现在)SELECTSUM((SYSDATE - rent_date) * price) AS total_incomeFROM HOUSEWHERE status &#x3D; 1; –所有未出租的房屋降低10%UPDATE HOUSESET price &#x3D; price * 0.9WHERE status &#x3D; 2; –统计所有已出租房租平均租赁天数SELECT AV">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java数据库">
-<meta property="og:url" content="http://example.com/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:title" content="li&#39;s blogs">
+<meta property="og:url" content="http://example.com/2023/08/04/sql%E8%AF%AD%E5%8F%A5/index.html">
 <meta property="og:site_name" content="li&#39;s blogs">
-<meta property="og:description" content="MySQL事务的ACID是什么？ 原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。 一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。 隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。 持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失">
+<meta property="og:description" content="–统计所有已出租的房屋总收入(从出租时间到现在)SELECTSUM((SYSDATE - rent_date) * price) AS total_incomeFROM HOUSEWHERE status &#x3D; 1; –所有未出租的房屋降低10%UPDATE HOUSESET price &#x3D; price * 0.9WHERE status &#x3D; 2; –统计所有已出租房租平均租赁天数SELECT AV">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-01T15:59:10.000Z">
-<meta property="article:modified_time" content="2022-09-07T06:34:20.849Z">
+<meta property="article:published_time" content="2023-08-04T00:33:05.712Z">
+<meta property="article:modified_time" content="2023-08-04T00:33:05.807Z">
 <meta property="article:author" content="Caodong Li">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="li&#39;s blogs" type="application/atom+xml">
@@ -159,172 +159,18 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-面试-数据库" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-sql语句" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Java数据库
-    </h1>
-  
-
-        
-        <a href="/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2022-04-01T15:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-01</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="MySQL事务的ACID是什么？"><a href="#MySQL事务的ACID是什么？" class="headerlink" title="MySQL事务的ACID是什么？"></a>MySQL事务的ACID是什么？</h2><blockquote>
-<p>原子性：事务被视作最小的执行单元，事务的所有操作要么全部成功commit，要么全部失败回滚。</p>
-<p>一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</p>
-<p>隔离性：一个事务所做的修改，在最终提交前，对其它事务不可见。</p>
-<p>持久性：一旦事务commit，所做的操作将永远保存到数据库中，即使系统发生崩溃，事务的执行结果也不会丢失。</p>
-<p>系统发生崩溃可以用重做日志（redo log）进行恢复，从而实现持久化。</p>
-<p>与回滚日志记录数据的逻辑修改不同，重做日志记录的是数据页的物理修改。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 只有满足一致性，事务的执行结果才是正确的。</span><br><span class="line">- 在无并发的情况下，事务串行执行，隔离性一定能够满足。此时只要能满足原子性，就一定能满足一致性。</span><br><span class="line">- 在并发的情况下，多个事务并行执行，事务不仅要满足原子性，还需要满足隔离性，才能满足一致性。</span><br><span class="line">- 事务满足持久化是为了能应对系统崩溃的情况。</span><br></pre></td></tr></table></figure>
-
-<h2 id="并发情况下可以导致什么一致性问题？"><a href="#并发情况下可以导致什么一致性问题？" class="headerlink" title="并发情况下可以导致什么一致性问题？"></a>并发情况下可以导致什么一致性问题？</h2><blockquote>
-<p>在 XXXX 隔离级别，会出现 XXXX问题。</p>
-<p>在“读未提交”隔离级别下，会出现“丢失修改”、“脏读”、“不可重复读”、“幻读”问题</p>
-<p>在“读已提交”隔离级别下，会出现“不可重复读”、“幻读”问题</p>
-<p>在“可重复读”隔离级别下，会出现“幻读”问题，<code>mysql</code>的默认隔离级别，实现手段是加行锁</p>
-<p>在“可串行化”隔离级别下，不会出现上述问题，并发效率低，<code>mysql</code>实现可串性化的手段是加锁</p>
-</blockquote>
-<h2 id="什么是三级封锁协议？"><a href="#什么是三级封锁协议？" class="headerlink" title="什么是三级封锁协议？"></a>什么是三级封锁协议？</h2><blockquote>
-<p>1 级封锁协议是：事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。事务结束包括正常结束(COMMIT)和非正常结束(ROLLBACK)。 1级封锁协议可防止丢失修改，并保证事务T是可恢复的。在1级封锁协议中，如果仅仅是读数据不对其进行修改，是不需要加锁的，所以它不能保证可重复读和不 读”脏”数据。</p>
-<p>2级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，读完后即可释放S锁。2级封锁协议除防止了丢失修改，还可进一步防止读”脏”数据。</p>
-<p>3级封锁协议是：1级封锁协议加上事务T在读取数据R之前必须先对其加S锁，直到事务结束才释放。3级封锁协议除防止了丢失修改和不读’脏’数据外，还进一步防止了不可重复读。</p>
-</blockquote>
-<h2 id="Mysql如何实现可重复读？"><a href="#Mysql如何实现可重复读？" class="headerlink" title="Mysql如何实现可重复读？"></a><code>Mysql</code>如何实现可重复读？</h2><blockquote>
-<p>主要是通过MVCC机制实现</p>
-</blockquote>
-<blockquote>
-<p>MVCC是一种读写分离的机制，可以减少不必要的加锁。写当前版本快照，读旧版本快照</p>
-<p>MVCC 的多版本指的是多个版本的快照，快照存储在 Undo 日志中，该日志通过回滚指针 ROLL_PTR 把一个数据行的所有快照连接起来。</p>
-<p>MVCC可以实现可重复读，在一定程度上也能避免幻读(<code>readview</code>被复用)</p>
-</blockquote>
-<h2 id="Mysql的索引底层要用B-树？"><a href="#Mysql的索引底层要用B-树？" class="headerlink" title="Mysql的索引底层要用B+树？"></a><code>Mysql</code>的索引底层要用B+树？</h2><blockquote>
-<p>相比于红黑树，B+树访问磁盘有更高的性能。内存与磁盘以叶为单位交换数据，B+树将索引的一个节点的大小设置为页的大小</p>
-</blockquote>
-<blockquote>
-<p>相比于B树，B+树只在叶子节点存储数据，非叶子节点只存储索引，所以更加的矮胖，查询的效率更高</p>
-</blockquote>
-<h2 id="Mysql进行索引优化的方法？"><a href="#Mysql进行索引优化的方法？" class="headerlink" title="Mysql进行索引优化的方法？"></a><code>Mysql</code>进行索引优化的方法？</h2><blockquote>
-<p>独立的列：进行查询时，索引不能是表达式的一部分，也不能是函数的参数，否则索引失效</p>
-<p>多列索引：进行查询时，尽量通过建立多列索引尽可能减少查询次数</p>
-<p>索引顺序：进行查询时，选择性强的放左边</p>
-</blockquote>
-<blockquote>
-<p>使用前缀索引</p>
-<p>使用联合索引+覆盖索引（索引包含查询的字段）减少开销</p>
-</blockquote>
-<blockquote>
-<p>删除一些不必要的索引：进行数据修改后，需要更新索引，假如索引太多，会严重影响<code>mysql</code>的性能。</p>
-</blockquote>
-<blockquote>
-<p>最左前缀匹配原则</p>
-<p>尽量选择区分度高的列作为索引</p>
-<p>索引不能参与计算，尽量保持干净</p>
-<p>尽量的扩展索引，不要新建索引</p>
-</blockquote>
-<h2 id="mysql索引原理及慢SQL优化"><a href="#mysql索引原理及慢SQL优化" class="headerlink" title=" mysql索引原理及慢SQL优化"></a><code> mysql</code>索引原理及慢SQL优化</h2><ul>
-<li>首先明确索引的目的<blockquote>
-<p>提高查询效率</p>
-</blockquote>
-</li>
-<li>其次了解索引的原理<blockquote>
-<p>磁盘的IO是以页为单位，一般4k或者8k<br>索引的数据结构是B+树，数据项占的空间越小，数据项的数量越多，树的高度越低。b+树按照从左到右的顺序来建立搜索树，</p>
-</blockquote>
-</li>
-<li>慢SQL优化<blockquote>
-<p>联合索引+最左前缀匹配 + 覆盖索引 + 综合评估</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="常见日志分类及作用？"><a href="#常见日志分类及作用？" class="headerlink" title="常见日志分类及作用？"></a>常见日志分类及作用？</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- 1. redo 重做日志:</span><br><span class="line">- 作用：确保事务的持久性，防止在发生故障，脏页未写入磁盘。重启数据库会进行redo log执行重做，到达事务一致性</span><br><span class="line"></span><br><span class="line">- 2. undo 回滚日志</span><br><span class="line">- 作用：保证数据的原子性，记录事务发生之前的数据的一个版本，用于回滚。innodb事务的可重复读和读取已提交 隔离级别就是通过mvcc+undo实现</span><br><span class="line"></span><br><span class="line">- 3. errorlog 错误日志</span><br><span class="line">- 作用：Mysql本身启动、停止、运行期间发生的错误信息</span><br><span class="line"></span><br><span class="line">- 4. slow query log 慢查询日志</span><br><span class="line">- 作用：记录执行时间过长的sql，时间阈值可以配置，只记录执行成功</span><br><span class="line"></span><br><span class="line">- 5. binlog 二进制日志</span><br><span class="line">- 作用：用于主从复制，实现主从同步</span><br><span class="line"></span><br><span class="line">- 6. relay log 中继日志</span><br><span class="line">- 作用：用于数据库主从同步，将主库发送来的binlog先保存在本地，然后从库进行回放</span><br><span class="line"></span><br><span class="line">- 7. general log 普通日志</span><br><span class="line">- 作用：记录数据库操作明细，默认关闭，开启会降低数据库性能</span><br></pre></td></tr></table></figure>
-<h2 id="数据库发生崩溃后如何进行恢复？"><a href="#数据库发生崩溃后如何进行恢复？" class="headerlink" title="数据库发生崩溃后如何进行恢复？"></a>数据库发生崩溃后如何进行恢复？</h2><blockquote>
-<p>两阶段提交：先写redo_log 并设置为prepare ——&gt;再写bin_log——&gt;将redo_log设置为commit</p>
-</blockquote>
-<blockquote>
-<p>进行两阶段提交 Write ahead Logging 的原因是对redo_log只进行一次写入会出现问题</p>
-</blockquote>
-<blockquote>
-<p>在做Crash recovery时，分为以下3种情况：<br> bin_log有记录，redo_log状态commit：正常完成的事务，不需要恢复；<br> bin_log有记录，redo_log状态prepare：在bin_log写完提交事务之前的crash，恢复操作：提交事务。（因为之前没有提交）</p>
-<p>​            判断bin_log是否完整 是 则提交 否则 回滚</p>
-<p> bin_log无记录，redo_log状态prepare：在bin_log写完之前的crash，恢复操作：回滚事务（因为crash时并没有成功写入数据库）</p>
-</blockquote>
-<h2 id="数据库角度-缓解数据库压力，实现高并发的手段有哪些？"><a href="#数据库角度-缓解数据库压力，实现高并发的手段有哪些？" class="headerlink" title="数据库角度 缓解数据库压力，实现高并发的手段有哪些？"></a>数据库角度 缓解数据库压力，实现高并发的手段有哪些？</h2><blockquote>
-<p>从数据库的角度看，分库分表是请求已经到达数据库的一个重要的办法</p>
-</blockquote>
-<h3 id="字段拆分"><a href="#字段拆分" class="headerlink" title="字段拆分"></a>字段拆分</h3><blockquote>
-<p>将字段进行更加详细的拆分，比如手机品牌+手机型号</p>
-</blockquote>
-<h3 id="切片（分表）"><a href="#切片（分表）" class="headerlink" title="切片（分表）"></a>切片（分表）</h3><blockquote>
-<p>水平切分：将同一个表的记录拆分到多个结构相同的表中，将数据分布到集群的不同节点上，从而缓解单个数据库的压力</p>
-</blockquote>
-<blockquote>
-<p>垂直切分：将一张表分成两张以上的表</p>
-</blockquote>
-<h3 id="复制（分库）"><a href="#复制（分库）" class="headerlink" title="复制（分库）"></a>复制（分库）</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><blockquote>
-<p>主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程。</p>
-<ul>
-<li><strong>binlog 线程</strong> ：负责将主服务器上的数据更改写入二进制日志（Binary log）中。</li>
-<li><strong>I/O 线程</strong> ：负责从主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）。</li>
-<li><strong>SQL 线程</strong> ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中重放（Replay）。</li>
-</ul>
-</blockquote>
-<h3 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h3><blockquote>
-<p>主服务器处理写操作以及实时性要求比较高的读操作，而从服务器处理读操作。</p>
-<p>读写分离能提高性能的原因在于：</p>
-<ul>
-<li>主从服务器负责各自的读和写，极大程度缓解了锁的争用；</li>
-<li>从服务器可以使用 MyISAM，提升查询性能以及节约系统开销；</li>
-<li>增加冗余，提高可用性。</li>
-</ul>
-<p>读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。</p>
-</blockquote>
-<h2 id="如何设计mysql数据库表"><a href="#如何设计mysql数据库表" class="headerlink" title="如何设计mysql数据库表"></a>如何设计mysql数据库表</h2><h4 id="选择正确的数据类型对于获得高性能至关重要"><a href="#选择正确的数据类型对于获得高性能至关重要" class="headerlink" title="选择正确的数据类型对于获得高性能至关重要"></a>选择正确的数据类型对于获得高性能至关重要</h4><blockquote>
-<ul>
-<li>确定合适的大类型（数值、字符串、时间、二进制）使用更小长度的数据类型、处理数据会快一点</li>
-<li>确定具体的类型：有无符号、取值范围、变长定长等</li>
-<li>一般要将字段定义成NOT NULL</li>
-</ul>
-<p>数值型：INT DECIMAL TINYINT</p>
-<p>时间：尽量用DATE DATETIME TIME</p>
-<p>字符串：VARCHAR CHAR</p>
-</blockquote>
-<h4 id="设计主键"><a href="#设计主键" class="headerlink" title="设计主键"></a>设计主键</h4><blockquote>
-<p>设计原则</p>
-<ul>
-<li>尽量使用自增主键（防止插入数据时从中间插入，引发页分裂，产生表碎片）</li>
-<li>主键最好不要有业务含义</li>
-<li>雪花算法、百度uid-generator、美团leaf</li>
-</ul>
-</blockquote>
-<h4 id="设计表"><a href="#设计表" class="headerlink" title="设计表"></a>设计表</h4><blockquote>
-<p>规范化：理论层面上说就是要消除部分函数依赖、传递函数依赖</p>
-<p>表最好不要存储图片、音频、视频等大容量内容 防止binlog内容多导致主从复制效率变慢</p>
-<p>表名最好要避开保留字、长度什么的不宜过长</p>
-</blockquote>
-<h4 id="设计索引"><a href="#设计索引" class="headerlink" title="设计索引"></a>设计索引</h4><blockquote>
-<ul>
-<li><p>创建联合索引（联合索引要注意最左匹配原则，一定是从最左边的字段开始依次在b+树的叶子节点进行搜索）减少开销（建立一个索引相当于建立多个索引）防止回表（如果索引没有某个字段需要先回表搜索主键）过滤效率高</p>
-</li>
-<li><p>创建前缀索引 减少索引长度来提升性能</p>
-</li>
-<li><p>设计复合索引，将选择性能好的列作为前导列</p>
-</li>
-</ul>
-</blockquote>
-<h4 id="考虑乱码问题"><a href="#考虑乱码问题" class="headerlink" title="考虑乱码问题"></a>考虑乱码问题</h4><blockquote>
-<p>防止乱码的关键是统一数据集，包括客户端、服务器端、linux客户端字符集，一般mysql采用 utf8_general_ci</p>
-</blockquote>
+        <p>–统计所有已出租的房屋总收入(从出租时间到现在)<br>SELECT<br>SUM((SYSDATE - rent_date) * price) AS total_income<br>FROM HOUSE<br>WHERE status = 1;</p>
+<p>–所有未出租的房屋降低10%<br>UPDATE HOUSE<br>SET price = price * 0.9<br>WHERE status = 2;</p>
+<p>–统计所有已出租房租平均租赁天数<br>SELECT AVG(TO_NUMBER(SYSDATE - rent_date)) AS average_rental_days<br>FROM HOUSE<br>WHERE status = 1;</p>
+<p>–1) 如果地址不为空，按地址模糊查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE (address IS NOT NULL AND address LIKE ‘%南京市%’)<br>OR (address IS NULL);<br>–(2) 面积可以按低值到高值范围查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE<br>(area BETWEEN 50 AND 100);</p>
+<p>–(3) 出租日期可以按低值到高值范围查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE<br>(rent_date BETWEEN ‘01-2月 -22’ AND ‘01-2月 -23’);</p>
+<p>–(4) 状态不为空，可以按状态查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE<br>status IS NOT NULL AND STATUS = 1;</p>
+<p>–(5) 以上字段都不为空，使用and连接查询<br>SELECT<br>id,<br>address,<br>area,<br>price,<br>status,<br>rent_date<br>FROM HOUSE<br>WHERE address IS NOT NULL AND address LIKE ‘%北京市%’<br>AND area BETWEEN 50 AND 100<br>AND rent_date BETWEEN ‘01-2月 -22’ AND ‘01-2月 -23’<br>AND status IS NOT NULL;</p>
 
       
 
@@ -333,17 +179,6 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -394,7 +229,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/08/04/sql%E8%AF%AD%E5%8F%A5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -408,18 +243,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2022/04/14/diary-2022-0414-2303/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          diary-2022-0414-2303
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/04/01/diary-2022-0401-2203/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">diary-2022-0401-2203</div>
+    <a href="/2023/08/01/Oracle%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Oracle笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -450,8 +276,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://example.com/2022/04/01/%E9%9D%A2%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/", 
-    sourceId: "面试-数据库",
+    url: "http://example.com/2023/08/04/sql%E8%AF%AD%E5%8F%A5/", 
+    sourceId: "sql语句",
     productKey: "2dba06fbf8d24c13915ea6c6aa7183b1",
     target: "cloud-tie-wrapper"
   };
